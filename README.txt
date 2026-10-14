@@ -1,16 +1,27 @@
-EYEBYTE SCREEN BUILDER
-======================
-editor.html  - the full builder (self-contained, no internet needed). Open it in any browser or upload it to your site.
-viewer.html  - client-facing viewer only (no editing tools). Send it with a share code: viewer.html#<code>
-               or open it and use Share > Load to paste a code.
-eyebyte-logo-white.png - the white Eyebyte logo used in both pages.
+EYEBYTE WEBSITE — RESPONSIVE BUILD
+=================================
 
-In the editor: Share > View opens the current design as the viewer in a new tab.
-Share codes start with E (e.g. E0_L-c.0*c:3@1) and can be added to the page address: editor.html#<code>
+OPENING / DEPLOYING
+- Open index.html for the public website.
+- Keep screen-builder.html beside index.html. The “Design a screen system” action opens it in a new tab.
+- Upload the whole eyebyte-website folder to your web host, preserving the assets folder structure.
+- The enquiry form uses FormSubmit's AJAX endpoint. Confirm the email address after deployment and send a test enquiry before launch.
 
-Embed on a website:
-  <iframe src="editor.html" style="width:100%;height:100vh;border:0"></iframe>
-  <iframe src="viewer.html#<code>" style="width:100%;height:100vh;border:0"></iframe>
+RESPONSIVE BEHAVIOUR
+- Layout adapts to viewport width and orientation using CSS media queries, not device-name/user-agent guessing.
+- Input capability is detected (coarse touch vs. fine pointer) to adapt hover behaviours and tap target sizes.
+- Navigation collapses into a keyboard/touch-friendly menu on tablets and smaller windows.
+- Hero, work cards, hardware section, project rows, contact form and social icons reflow for phones and tablets; small phone widths avoid horizontal scrolling.
+- Background circuit animation and video loading respect reduced-motion and lower-data/network settings. Work-loop videos load near the viewport and pause when far off-screen.
+- “What We Do” previews activate on desktop hover and on deliberate tap or keyboard activation.
+- The standalone screen builder has its own responsive controls/canvas layout for phones, tablets, desktop and short landscape screens.
 
-Assumptions: 168x168 px per 500 mm panel (P2.9), 35 kg/m2, power draw 500 W/m2 max @ 230 V (editable in Wiring > Power).
-The logo links to https://eyebyte.com.au - change the href in the page if your address differs.
+MEDIA / ASSETS
+- Place completed video loops into assets/videos/ using the exact paths in ASSET-SPECS.md and VIDEO-AND-IMAGERY-TO-DO.txt.
+- Poster/still imagery, field logos and hover backplates can be added into the folders and filenames described by those checklists. Where custom files are absent, the page may show its CSS fallback or remote stock-image fallback instead.
+- The 3D screen builder requires a browser with WebGL enabled.
+
+BROWSER NOTES
+- Tested the main website layout in headless Chromium at widths from 320 px to 2560 px; no horizontal overflow was detected. Mobile menu open/close and tap-preview toggling were exercised.
+- The screen builder's responsive panel/canvas dimensions were checked, but this environment could not create a WebGL context, so its live 3D rendering could not be verified here.
+- Recheck visuals in current Chrome, Safari, Firefox and Edge on real devices before public launch, especially video playback, actual custom imagery, iOS safe areas and form-service activation.

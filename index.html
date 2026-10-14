@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="theme-color" content="#111214">
   <meta name="description" content="Eyebyte combines world-class live video performance, bespoke modular LED hardware and custom event content. Innovative visual systems, established 1995.">
   <meta property="og:title" content="Eyebyte — Live Visuals. Built to Impress.">
@@ -1223,6 +1223,268 @@
       .social-icon-wrap,.social-link,.enquiry-submit span { transition:none !important; }
     }
 
+
+
+    /* DEVICE-AWARE RESPONSIVE FINISH — fluid layouts, touch controls, and compact browser chrome. */
+    html {
+      overflow-x:clip;
+      -webkit-text-size-adjust: 100%;
+      text-size-adjust: 100%;
+      scroll-padding-top: 112px;
+      scroll-behavior: smooth;
+    }
+    body { width:100%; min-width:0; overflow-x:clip; }
+    main, section, .wrap, .hero-grid, .section-head, .work-grid, .statement-inner,
+    .hardware-grid, .connect-grid, .connect-header, .footer-inner { min-width:0; }
+    img, video, canvas, svg { max-width:100%; }
+    a, button { touch-action:manipulation; }
+    section[id] { scroll-margin-top:112px; }
+    .wrap { width:100%; }
+    .nav-inner { position:relative; gap:clamp(10px,2vw,24px); }
+    .brand { min-width:0; flex:0 1 auto; }
+    .brand-logo { max-width:100%; }
+    .hero-copy, .hero-visual, .hardware-copy, .hardware-visual, .contact-header,
+    .enquiry-card, .social-panel { min-width:0; }
+    .hero-visual, .work-card, .hardware-visual, .contact-media { contain:layout paint; }
+    .work-content, .work-info, .project-copy { min-width:0; }
+    .project-copy h3, .project-type, .footer-note { overflow-wrap:anywhere; }
+    .enquiry-field { min-width:0; }
+    .enquiry-field input, .enquiry-field textarea { min-width:0; max-width:100%; }
+    .social-grid { grid-template-columns:repeat(5,minmax(0,1fr)); }
+    .social-link { min-width:0; }
+    .cap h3 { max-width:none; overflow-wrap:normal; word-break:normal; hyphens:none; }
+    .contact-panel::before { max-width:70vw; }
+    @media (min-width:851px) {
+      h1 { font-size:clamp(78px,9.8vw,148px); }
+    }
+
+    /* Tablets and compact laptops: retain the full identity, collapse navigation before it crowds. */
+    @media (max-width: 1050px) {
+      :root { --pad:clamp(18px,4vw,38px); }
+      .topbar, .nav-inner { min-height:82px; }
+      .brand-logo { width:clamp(170px,24vw,230px); }
+      .menu-toggle {
+        display:inline-flex; align-items:center; justify-content:center; flex:0 0 auto;
+        min-width:48px; min-height:46px; padding:12px 13px;
+        font:10px 'DM Mono',monospace; letter-spacing:.1em;
+      }
+      .nav {
+        display:none; position:absolute; top:100%; left:calc(-1 * var(--pad)); right:calc(-1 * var(--pad));
+        z-index:50; padding:12px var(--pad) 20px; flex-direction:column; align-items:stretch; gap:0;
+        background:rgba(17,18,19,.985); border-bottom:1px solid rgba(209,132,67,.28);
+        box-shadow:0 22px 28px rgba(0,0,0,.32); backdrop-filter:blur(16px);
+      }
+      .nav.open { display:flex; }
+      .nav a { display:flex; align-items:center; min-height:48px; padding:12px 3px; }
+      .nav a:not(.nav-cta)::after { bottom:7px; right:auto; width:72px; }
+      .nav .nav-cta { justify-content:center; text-align:center; min-height:48px; margin-top:10px; padding:14px; }
+      .section-head { gap:24px; }
+      .section-head p { max-width:290px; }
+      .work-card, .work-card:first-child { min-width:0; }
+      .project-row { min-width:0; }
+      .connect-grid { grid-template-columns:1fr; }
+      .enquiry-card, .social-panel { min-width:0; }
+      .social-grid { grid-template-columns:repeat(5,minmax(0,1fr)); max-width:none; }
+    }
+
+    @media (min-width:701px) and (max-width:980px) {
+      .work-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
+      .work-card:first-child { grid-column:1 / -1; min-height:clamp(340px,50vw,430px); }
+      .work-card:not(:first-child) { min-height:clamp(300px,38vw,380px); }
+    }
+
+    /* Tablet portrait and small laptop layouts. */
+    @media (max-width: 850px) {
+      .hero { min-height:0; }
+      .hero-grid { grid-template-columns:minmax(0,1fr); gap:28px; padding-top:clamp(42px,7vw,66px); padding-bottom:42px; }
+      .hero-copy { max-width:760px; }
+      .hero-visual { width:100%; height:auto; min-height:0; max-height:none; aspect-ratio:1.16 / 1; margin-left:0; }
+      .hero-photo { inset:4% 4% 7% 5%; }
+      .hero-loop { inset:4% 4% 7% 5%; width:91%; height:89%; }
+      .visual-label { left:0; bottom:0; max-width:calc(100% - 38px); padding:12px 13px; gap:12px; }
+      .visual-coordinates { right:2px; }
+      .statement-inner { grid-template-columns:minmax(0,320px) minmax(0,1fr); gap:clamp(24px,5vw,42px); }
+      .statement-stamp { width:100%; max-width:320px; height:auto; aspect-ratio:1.04 / 1; }
+      .statement h2 { font-size:clamp(42px,6.6vw,66px); }
+      .statement-bottom { flex-wrap:wrap; }
+      .statement-bottom p { max-width:100%; }
+      .hardware-grid { grid-template-columns:minmax(0,1fr); gap:30px; }
+      .hardware-visual { width:100%; max-width:760px; margin-inline:auto; aspect-ratio:16 / 11; }
+      .hardware-copy { width:100%; }
+      .social-grid { grid-template-columns:repeat(3,minmax(0,1fr)); }
+      .social-icon-wrap { --hex-w:clamp(58px,8vw,82px); }
+      .social-link .social-title { font-size:10px; }
+    }
+
+    /* Phones, narrow windows, and touch-first browsing. */
+    @media (max-width: 700px) {
+      html { scroll-padding-top:88px; }
+      section[id] { scroll-margin-top:88px; }
+      :root { --pad:clamp(16px,5vw,24px); }
+      .topbar, .nav-inner { min-height:76px; }
+      .brand-logo { width:clamp(164px,48vw,220px); }
+      .nav { top:100%; }
+      .hero-grid { padding-top:42px; padding-bottom:30px; gap:22px; }
+      h1 { font-size:clamp(70px,18.8vw,124px); line-height:.8; letter-spacing:-.045em; }
+      .hero .eyebrow { margin-bottom:20px; font-size:10px; gap:9px; }
+      .hero-lede { font-size:14px; line-height:1.65; margin:22px 0 23px; max-width:560px; }
+      .actions { gap:9px; }
+      .actions .button { min-height:48px; padding:14px 13px; font-size:9px; }
+      .hero-meta { margin-top:24px; gap:10px 13px; font-size:9px; line-height:1.4; }
+      .hero-visual { aspect-ratio:1 / 1.02; min-height:290px; max-height:460px; }
+      .visual-cross { width:clamp(62px,18vw,80px); height:auto; aspect-ratio:1.1547; top:-4px; right:0; }
+      .visual-cross svg { width:100%; height:auto; }
+      .visual-cross span { font-size:clamp(21px,6vw,29px); }
+      .visual-label { padding:10px 11px; font-size:8px; }
+      .visual-label b { font-size:15px; }
+      .visual-coordinates { font-size:7px; letter-spacing:.08em; }
+      .ticker-track { gap:19px; padding:12px 0; font-size:15px; }
+      .ticker-track span { gap:19px; }
+      .section { padding-block:clamp(58px,10vw,82px); }
+      .work { padding-top:clamp(70px,12vw,98px); }
+      .section-head { display:block; margin-bottom:28px; }
+      .section-head h2 { font-size:clamp(40px,9.8vw,68px); line-height:.93; }
+      .section-head p { margin-top:16px; max-width:560px; font-size:13px; line-height:1.65; }
+      .work-grid { grid-template-columns:minmax(0,1fr); gap:11px; }
+      .work-card, .work-card:first-child { grid-column:auto; min-height:0; height:auto; aspect-ratio:1 / 1.06; }
+      .work-card:first-child { aspect-ratio:1 / 1.02; }
+      .work-content { gap:14px; padding:clamp(17px,5vw,25px); }
+      .work-info h3 { font-size:clamp(35px,9vw,48px); }
+      .work-card p { max-width:42ch; font-size:12px; line-height:1.55; }
+      .round-link { width:40px; height:40px; flex-basis:40px; }
+      .work-note { flex-wrap:wrap; font-size:8px; line-height:1.6; gap:5px 14px; }
+      .statement-inner { grid-template-columns:minmax(0,1fr); gap:24px; }
+      .statement-stamp { max-width:min(100%,320px); aspect-ratio:1.08 / 1; height:auto; padding:15px; }
+      .established-dial { width:clamp(62px,20vw,86px); height:auto; aspect-ratio:1; top:43px; right:18px; }
+      .established-main strong { font-size:clamp(48px,14vw,68px); }
+      .established-main span { font-size:10px; }
+      .established-foot strong { font-size:21px; }
+      .established-coordinate { font-size:7px; }
+      .statement h2 { font-size:clamp(43px,11vw,65px); line-height:.95; }
+      .statement h2 .statement-next { font-size:.7em; line-height:1.05; }
+      .statement-bottom { margin-top:18px; gap:12px; }
+      .statement-bottom p { font-size:13px; line-height:1.7; }
+      .since { white-space:normal; font-size:9px; }
+      .cap-grid { grid-template-columns:repeat(2,minmax(0,1fr)); gap:9px; }
+      .cap { min-width:0; min-height:285px; padding:17px 14px; }
+      .cap-no { font-size:9px; letter-spacing:.08em; }
+      .cap-icon { width:32px; height:32px; margin:22px 0 18px; }
+      .cap h3 { max-width:none; font-size:clamp(21px,5.5vw,26px); line-height:.98; overflow-wrap:normal; word-break:normal; hyphens:none; }
+      .cap p { font-size:11px; line-height:1.5; }
+      .preview-cue { font-size:8px; padding-top:17px; }
+      .hardware-grid { grid-template-columns:minmax(0,1fr); gap:25px; }
+      .hardware-visual { aspect-ratio:1 / .88; min-height:0; }
+      .hardware-copy h2 { font-size:clamp(45px,12vw,72px); }
+      .hardware-copy > p { margin-block:18px; font-size:13px; line-height:1.7; }
+      .hardware-list div { align-items:flex-start; gap:12px; padding:12px 0; }
+      .hardware-list span:first-child { max-width:62%; font-size:12px; }
+      .hardware-list span:last-child { text-align:right; max-width:38%; font-size:9px; line-height:1.5; }
+      .projects-section .section-head { margin-bottom:24px; }
+      .project-row { grid-template-columns:22px minmax(70px,90px) minmax(0,1fr) 28px; gap:8px; padding:13px 2px; min-height:78px; }
+      .project-no { font-size:9px; }
+      .project-logo { width:100%; max-width:90px; height:38px; overflow:hidden; }
+      .project-logo img { max-height:36px; width:100%; }
+      .project-row h3 { font-size:clamp(19px,5.4vw,27px); line-height:1; }
+      .project-type { display:block; font-size:9px; line-height:1.4; overflow-wrap:anywhere; }
+      .project-arrow { width:27px; height:27px; font-size:14px; }
+      .project-foot { font-size:8px; line-height:1.6; }
+      .connect-header { grid-template-columns:minmax(0,1fr); gap:15px; margin-bottom:25px; }
+      .connect-header h2 { font-size:clamp(61px,15.2vw,98px); line-height:.83; }
+      .connect-header > p { font-size:13px; line-height:1.65; }
+      .connect-grid { grid-template-columns:minmax(0,1fr); gap:12px; }
+      .enquiry-card, .social-panel { padding:21px 17px; }
+      .enquiry-card h3, .social-panel h3 { font-size:31px; }
+      .enquiry-form { gap:14px; }
+      .enquiry-fields--two { grid-template-columns:minmax(0,1fr); }
+      .enquiry-field { font-size:10px; }
+      .enquiry-field input, .enquiry-field textarea { font-size:16px; line-height:1.4; padding:12px; }
+      .enquiry-field input { min-height:46px; }
+      .enquiry-field textarea { min-height:120px; }
+      .enquiry-submit { min-height:50px; padding:14px; font-size:10px; }
+      .contact-email-row { gap:14px; }
+      .social-grid { grid-template-columns:repeat(2,minmax(0,1fr)); gap:18px 8px; margin-top:26px; }
+      .social-link { gap:9px; min-height:0; padding:0 0 5px; }
+      .social-icon-wrap { --hex-w:clamp(58px,15vw,76px); }
+      .social-link .social-title { font-size:9px; letter-spacing:.045em; }
+      .social-footline { font-size:7px; flex-wrap:wrap; }
+      .footer { padding:25px 0 calc(26px + env(safe-area-inset-bottom)); }
+      .footer-inner { display:grid; grid-template-columns:minmax(0,1fr) auto; gap:17px 12px; align-items:center; }
+      .footer .brand-logo { width:clamp(150px,44vw,200px); }
+      .footer-note { grid-column:1 / -1; order:3; flex-basis:auto; font-size:10px; line-height:1.6; }
+      .footer-links { grid-column:1 / -1; order:4; flex-wrap:wrap; gap:16px; font-size:9px; }
+      .back-top { grid-column:2; grid-row:1; }
+      .circuit-live { opacity:.40; }
+      .circuit-edge-overlay { opacity:.36; }
+    }
+    @media (max-width: 420px) {
+      :root { --pad:16px; }
+      .brand-logo { width:clamp(155px,47vw,184px); }
+      .section-head h2 { font-size:clamp(35px,10.8vw,43px); }
+      .hero-grid { padding-top:35px; }
+      h1 { font-size:clamp(66px,18.4vw,78px); }
+      .hero .eyebrow { font-size:9px; letter-spacing:.08em; }
+      .actions { display:grid; grid-template-columns:minmax(0,1fr); }
+      .actions .button { width:100%; }
+      .hero-visual { aspect-ratio:1 / 1.05; min-height:275px; }
+      .cap-grid { grid-template-columns:minmax(0,1fr); }
+      .cap { min-height:0; padding:21px; }
+      .cap h3 { max-width:none; font-size:29px; overflow-wrap:normal; word-break:normal; hyphens:none; }
+      .cap-icon { margin:24px 0 20px; }
+      .cap p { max-width:42ch; font-size:12px; }
+      .cap-image-panel img, .step-image-panel img { object-position:center; }
+      .project-row { grid-template-columns:18px minmax(62px,78px) minmax(0,1fr) 25px; gap:7px; }
+      .project-logo { max-width:78px; }
+      .project-row h3 { font-size:19px; }
+      .project-type { font-size:8px; }
+      .project-arrow { width:25px; height:25px; }
+      .social-grid { grid-template-columns:repeat(3,minmax(0,1fr)); gap:18px 4px; }
+      .social-icon-wrap { --hex-w:clamp(53px,17vw,65px); }
+      .social-link .social-title { font-size:8px; letter-spacing:.02em; }
+      .social-footline { line-height:1.8; }
+    }
+    @media (max-width: 350px) {
+      :root { --pad:14px; }
+      .nav-inner { gap:8px; }
+      .brand-logo { width:150px; }
+      .menu-toggle { min-width:44px; padding:10px; font-size:9px; }
+      .hero-meta { font-size:8px; }
+      .visual-label { gap:8px; }
+      .cap { padding:18px; }
+      .connect-header h2 { font-size:58px; }
+      .social-icon-wrap { --hex-w:51px; }
+    }
+
+    /* Short mobile landscape: prioritise the canvas and avoid an oversized hero. */
+    @media (max-width: 850px) and (orientation: landscape) and (max-height: 560px) {
+      .topbar, .nav-inner { min-height:62px; }
+      .brand-logo { width:clamp(150px,22vw,196px); }
+      .hero-grid { grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr); gap:20px; padding-block:24px; }
+      h1 { font-size:clamp(58px,9.5vw,88px); }
+      .hero-visual { aspect-ratio:1 / 1; min-height:230px; }
+      .hero-lede { font-size:12px; margin-block:14px; }
+      .hero-meta { margin-top:15px; }
+      .section { padding-block:46px; }
+      .connect-header h2 { font-size:clamp(54px,9vw,78px); }
+    }
+
+    /* Coarse pointers: make the interface comfortable without hover-only cues. */
+    @media (pointer:coarse) {
+      .button, .nav a, .menu-toggle, .enquiry-submit, .copy-email { min-height:44px; }
+      .nav a:not(.nav-cta)::after { display:none; }
+      .work-card:hover .round-link, .project-row:hover .project-arrow { transform:none; }
+      .social-link { padding-block:5px; }
+    }
+    @media (hover:none) {
+      .work-card:hover::before { opacity:0; }
+      .work-card:hover .work-loop { transform:none; }
+      .brand:hover .brand-logo { transform:none; filter:none; }
+      .button:hover, .nav-cta:hover { transform:none; }
+    }
+    @media (prefers-reduced-motion:reduce) {
+      html { scroll-behavior:auto; }
+      .circuit-live { transform:none !important; }
+    }
+
   </style>
 </head>
 <body>
@@ -1649,6 +1911,17 @@
       window.addEventListener('resize', queueCircuitParallax, { passive: true });
     }
 
+    // Device context is inferred from viewport size and available input modes, not user-agent strings.
+    const eyebyteRoot = document.documentElement;
+    function updateEyebyteDeviceProfile() {
+      const width = window.innerWidth || eyebyteRoot.clientWidth || 0;
+      const coarsePointer = window.matchMedia('(pointer: coarse)').matches || (navigator.maxTouchPoints || 0) > 0;
+      eyebyteRoot.dataset.viewportClass = width <= 700 ? 'mobile' : width <= 1050 ? 'tablet' : 'desktop';
+      eyebyteRoot.dataset.inputMode = coarsePointer ? 'touch' : 'pointer';
+    }
+    updateEyebyteDeviceProfile();
+    window.addEventListener('resize', updateEyebyteDeviceProfile, { passive:true });
+
     // Responsive menu
     const menuButton = document.querySelector('.menu-toggle');
     const nav = document.querySelector('#site-nav');
@@ -1658,11 +1931,19 @@
         menuButton.setAttribute('aria-expanded', String(isOpen));
         menuButton.innerHTML = isOpen ? 'CLOSE&nbsp; ×' : 'MENU&nbsp; +';
       });
-      nav.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
+      const closeMobileMenu = () => {
         nav.classList.remove('open');
         menuButton.setAttribute('aria-expanded', 'false');
         menuButton.innerHTML = 'MENU&nbsp; +';
-      }));
+      };
+      nav.querySelectorAll('a').forEach(link => link.addEventListener('click', closeMobileMenu));
+      document.addEventListener('keydown', event => { if (event.key === 'Escape') closeMobileMenu(); });
+      document.addEventListener('pointerdown', event => {
+        if (!nav.contains(event.target) && !menuButton.contains(event.target)) closeMobileMenu();
+      });
+      window.addEventListener('resize', () => {
+        if (window.innerWidth > 1050) closeMobileMenu();
+      }, { passive:true });
     }
 
     // Scroll reveal
@@ -1751,8 +2032,12 @@
         if (panel) panel.classList.remove('video-ready');
       });
     });
-    if (!reducedMotion) {
-      document.querySelectorAll('.media-loop[data-autoload="true"]').forEach(video => {
+    const eyebyteConnection = navigator.connection || navigator.mozConnection || navigator.webkitConnection || null;
+    const eyebyteLowData = Boolean(eyebyteConnection && (eyebyteConnection.saveData || /(^|-)2g$/i.test(eyebyteConnection.effectiveType || '')));
+    const eyebyteSmallViewport = window.matchMedia('(max-width:700px)').matches;
+    // Hero media starts first. Large work videos are deferred until near the viewport to keep mobile startup quick.
+    if (!reducedMotion && !eyebyteLowData) {
+      document.querySelectorAll('.media-loop[data-autoload="true"]:not(.work-loop)').forEach(video => {
         attachSource(video);
         video.play().catch(() => {});
       });
@@ -1761,17 +2046,22 @@
     if ('IntersectionObserver' in window) {
       const lazyObserver = new IntersectionObserver(entries => {
         entries.forEach(entry => {
+          const video = entry.target;
           if (entry.isIntersecting) {
-            const video = entry.target;
-            attachSource(video);
-            if (!reducedMotion) video.play().catch(() => {});
-            lazyObserver.unobserve(video);
+            if (!eyebyteLowData) {
+              attachSource(video);
+              if (!reducedMotion) video.play().catch(() => {});
+            }
+          } else if (video.classList.contains('work-loop')) {
+            video.pause();
           }
         });
-      }, { rootMargin: '240px 0px' });
-      if (!reducedMotion) document.querySelectorAll('.media-loop[data-load-visible="true"]').forEach(video => lazyObserver.observe(video));
-    } else if (!reducedMotion) {
-      document.querySelectorAll('.media-loop[data-load-visible="true"]').forEach(video => {
+      }, { rootMargin: eyebyteSmallViewport ? '100px 0px' : '220px 0px', threshold:0.01 });
+      if (!reducedMotion) {
+        document.querySelectorAll('.media-loop[data-load-visible="true"], .media-loop.work-loop').forEach(video => lazyObserver.observe(video));
+      }
+    } else if (!reducedMotion && !eyebyteLowData) {
+      document.querySelectorAll('.media-loop[data-load-visible="true"], .media-loop.work-loop').forEach(video => {
         attachSource(video);
         video.play().catch(() => {});
       });
@@ -1812,7 +2102,8 @@
         if (item && related === item) return;
         stopPreview(tile);
       });
-      tile.addEventListener('focus', () => startPreview(tile));
+      // Preview on deliberate activation for keyboard users; pointer hover handles desktop previews.
+      // Avoid starting on focus alone so a touch tap won't immediately toggle the preview back off.
       tile.addEventListener('blur', () => stopPreview(tile));
       tile.addEventListener('click', event => {
         // Touch users can tap a tile to toggle the preview.
