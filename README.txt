@@ -1,0 +1,16 @@
+EYEBYTE SCREEN BUILDER
+======================
+editor.html  - the full builder (self-contained, no internet needed). Open it in any browser or upload it to your site.
+viewer.html  - client-facing viewer only (no editing tools). Send it with a share code: viewer.html#<code>
+               or open it and use Share > Load to paste a code.
+eyebyte-logo-white.png - the white Eyebyte logo used in both pages.
+
+In the editor: Share > View opens the current design as the viewer in a new tab.
+Share codes start with E (e.g. E0_L-c.0*c:3@1) and can be added to the page address: editor.html#<code>
+
+Embed on a website:
+  <iframe src="editor.html" style="width:100%;height:100vh;border:0"></iframe>
+  <iframe src="viewer.html#<code>" style="width:100%;height:100vh;border:0"></iframe>
+
+Assumptions: 168x168 px per 500 mm panel (P2.9), 35 kg/m2, power draw 500 W/m2 max @ 230 V (editable in Wiring > Power).
+The logo links to https://eyebyte.com.au - change the href in the page if your address differs.

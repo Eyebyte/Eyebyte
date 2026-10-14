@@ -116,18 +116,19 @@ Displayed experience labels:
 [ ] Return to Rio — Directing vision since 2016
 [ ] So, so many more... — one-off shows, clubs, stages and custom builds (no separate logo needed)
 
-7. SECTION 06 — HOW WE WORK (MERGED INTO SECTION 03)
-----------------------------------------------------
-[✓] The separate How We Work section has been removed. The four Section 03 rollover images now cover the full integrated process: collaborate, design, deliver, perform.
-[✓] Do not create the three former `how-we-work-*.webp` images; they are no longer required.
-
+7. SECTION 06 — HOW WE WORK: THREE ROLLOVER IMAGES
+--------------------------------------------------
+Each image: 1600 x 900 px | 16:9 | WebP quality 80–85 | target 200–500 KB.
+The image fades behind the wording on hover, focus or tap. Keep people/equipment/action clear enough to read at tile size; leave some negative space for text.
+[ ] assets/images/how-we-work-01-discover.webp — early collaboration, brief/venue/stage planning
+[ ] assets/images/how-we-work-02-design.webp — screen diagrams, content development, technical planning
+[ ] assets/images/how-we-work-03-deliver.webp — onsite crew/operation/show-day delivery
 
 8. COMBINED CONTACT + SOCIAL SECTION
 ------------------------------------
 [✓] No background image, social backplates, or separate closing-section video is needed. The UI uses flat charcoal, subtle circuit trails and inline SVG icons.
 [✓] Five social links are included: Instagram, Facebook, YouTube, Email (generic envelope), and Messenger. Each icon sits in a bold, flat-top equilateral hexagon. No external icon images need to be created.
-[✓] Contact form fields: name, email, event/project, message. The form submits directly to eyebyte@gmail.com via FormSubmit AJAX, without opening the visitor’s email app. Subject format: `Website Enquiry - [Sydney date and time]`.
-[ ] Before launch, submit a test and complete the one-time FormSubmit activation email sent to eyebyte@gmail.com. Test from the live HTTPS domain. FormSubmit states that it retains submissions for 30 days; add third-party processing to the privacy notice.
+[✓] Contact form fields: name, email, event/project, message. Submission prepares a mail to eyebyte@gmail.com with the subject `Website Enquiry - [local date and time]`. Visitors must review and send the email in their configured email app. For submission without an email app, connect a hosted form service/backend.
 
 Official links:
 Instagram: https://www.instagram.com/eyebyte/
