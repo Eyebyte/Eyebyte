@@ -10,23 +10,27 @@ h2{font-size:10px;letter-spacing:.18em;color:var(--mut);margin:14px 0 6px;font-w
 #pal{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}
 .tile{position:relative;height:66px;padding:4px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;background:#120d09}
 .tile svg{width:34px;height:34px;fill:#d9a44133;stroke:var(--gold);stroke-width:1.8;stroke-linejoin:round;stroke-linecap:round}
-.tile small{font-size:10px;color:var(--mut)}.tile.on{background:#2a1c0d;border-color:var(--gold);box-shadow:0 0 14px #d9a44144}.tile.on svg{fill:#d9a44166}.tile.out{opacity:.35}
+.tile small{font-size:10px;color:var(--mut)}.tile.on{background:#2a1c0d;border-color:var(--gold);box-shadow:0 0 14px #d9a44144}.tile.on svg{fill:#d9a44166}.tile.out{border-color:#ff3b30;background:#2a0f0d}.tile.out svg{stroke:#ff3b30;fill:#ff3b3044}.tile.out small{color:#ff6b5e;font-weight:700}
 .row{display:flex;flex-wrap:wrap;gap:5px}
 button{background:#1f160d;color:var(--tx);border:1px solid var(--ln);border-radius:7px;padding:6px 10px;font:inherit;cursor:pointer;transition:.15s}
 button:hover{border-color:var(--gold);color:var(--cream)}button.on{background:var(--gold);color:#1a1006;border-color:var(--gold);font-weight:600}
 .box{border:1px solid var(--ln);border-radius:8px;padding:9px;margin-top:8px;background:#120d09}.box>b{color:var(--cream)}.box small{color:var(--mut);font-size:11px;display:block;margin-top:4px}
 .sl{display:grid;grid-template-columns:1fr 1fr;gap:4px 10px;margin-top:6px}.sl label{display:flex;justify-content:space-between;color:var(--mut);font-size:11px}.sl label b{color:var(--cream)}
 input[type=range]{width:100%;accent-color:var(--gold);margin:2px 0}
-#stage{flex:1;position:relative;min-width:0}canvas{width:100%;height:100%;display:block;touch-action:none}
+#stage{flex:1;position:relative;min-width:0;overflow:hidden}canvas{position:absolute;inset:0;width:100%;height:100%;display:block;touch-action:none}
 #tb{position:absolute;top:10px;right:10px;display:flex;gap:5px;flex-wrap:wrap;justify-content:flex-end;max-width:calc(100% - 20px)}
 #tb button{background:#17110ccc;backdrop-filter:blur(6px);padding:6px 9px}
-#tb .home-link{display:inline-flex;align-items:center;justify-content:center;background:#17110ccc;backdrop-filter:blur(6px);color:var(--tx);border:1px solid var(--ln);border-radius:7px;padding:6px 9px;text-decoration:none;font:inherit;white-space:nowrap;transition:.15s}
-#tb .home-link:hover{border-color:var(--gold);color:var(--cream)}
 #st{position:absolute;left:12px;bottom:12px;background:#17110ccc;border:1px solid var(--ln);border-radius:10px;padding:8px 12px;backdrop-filter:blur(6px)}
 #st b{font-size:18px;color:var(--gold);font-weight:600}#st span{color:var(--mut);font-size:11px;display:block}
 #hint{position:absolute;right:12px;bottom:12px;color:var(--mut);font-size:11px;text-align:right;max-width:46%}
 kbd{border:1px solid var(--ln);border-radius:4px;padding:0 4px;color:var(--cream);font-size:10px}
 #shp{display:none;position:absolute;top:96px;right:10px;width:300px;background:#17110cf2;border:1px solid var(--ln);border-radius:10px;padding:10px;z-index:5}#shp.show{display:block}#toast{position:absolute;left:50%;bottom:70px;transform:translateX(-50%);background:#17110cee;border:1px solid var(--gold);border-radius:8px;padding:6px 12px;opacity:0;transition:.3s;pointer-events:none}#toast.show{opacity:1}
+#wd{display:none;position:absolute;top:100px;right:10px;width:350px;max-height:calc(100% - 190px);overflow:auto;background:#17110cf5;border:1px solid var(--ln);border-radius:10px;padding:10px;z-index:4}#wd.show{display:block}.wh{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+.sm{display:grid;grid-template-columns:repeat(5,1fr);gap:4px;margin:6px 0;text-align:center;font-size:10px;color:var(--mut)}.sm b{display:block;font-size:15px;color:var(--gold)}
+.tb2{width:100%;border-collapse:collapse;font-size:11.5px;margin:6px 0}.tb2 td,.tb2 th{padding:3px 4px;border-bottom:1px solid var(--ln);text-align:right;font-weight:500}.tb2 th{color:var(--mut);font-size:10px}.tb2 td:first-child,.tb2 th:first-child{text-align:left}.tb2 tr.t td{color:var(--gold);font-weight:700}
+.dim{opacity:.4;pointer-events:none}#ig,#hg,#sg,#scb{display:block!important}#bf,#bsp,#ba,#bc{display:none}.sw2{display:flex;gap:6px;align-items:center}.sw2 input[type=range]{flex:1;min-width:0}.nv{width:56px;background:#120d09;color:var(--cream);border:1px solid var(--ln);border-radius:5px;padding:2px 4px;font-size:11px}
+#dm{display:none;position:fixed;z-index:20;background:#17110cf8;border:1px solid var(--gold);border-radius:10px;padding:10px;width:260px}#dm.show{display:block}#dm input{width:60px;background:#120d09;color:var(--cream);border:1px solid var(--ln);border-radius:5px;padding:2px 4px}#dm small{color:var(--mut);font-size:11px;display:block;margin-top:6px}
+.ch{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:5px;vertical-align:-1px}#wd input[type=number]{width:62px;background:#120d09;color:var(--cream);border:1px solid var(--ln);border-radius:5px;padding:2px 4px}#wd small{color:var(--mut);font-size:11px;display:block}
 textarea{width:100%;background:#120d09;color:var(--cream);border:1px solid var(--ln);border-radius:7px;padding:6px;font:11px/1.3 ui-monospace,Menlo,monospace;resize:vertical}
 @media(max-width:720px){body{flex-direction:column-reverse}#side{width:100%;height:42%;border-right:0;border-top:1px solid var(--ln)}#hint{display:none}}
 </style></head><body>
@@ -34,17 +38,17 @@ textarea{width:100%;background:#120d09;color:var(--cream);border:1px solid var(-
 <div id="pal"></div>
 <div class="box" id="ig"><b>Flexible bend</b><small id="igl"></small><div class="sl" id="sls"></div><div class="row" style="margin-top:7px"><button id="sr">Flatten</button></div></div>
 <div class="box" id="hg"><b>Hard 90 &middot; join to other panels</b><div class="row" style="margin-top:6px"><button data-ja="45">45&deg;</button><button data-ja="0">Straight</button></div><small>Next to another Hard 90 it always snaps to 90&deg; (45&deg; each). Never 90&deg; to normal panels.</small></div>
-<div class="box" id="sg"><b>Soft 90</b><small>Turns 90&deg; over 250mm &middot; <kbd>F</kbd> flips direction</small></div>
-<h2>LOOK</h2><div class="row" id="looks"></div>
+<div class="box" id="sg"><b>Soft 90</b><div class="row" style="margin-top:6px"><button id="sflip">Flip direction</button></div><small>Turns 90&deg; over 250mm</small></div>
+<div class="box" id="scb"><b>Screen position</b><div class="sl" id="scs" style="grid-template-columns:1fr"></div><small id="sct"></small></div><h2>LOOK</h2><div class="row" id="looks"></div>
 <input id="br" type="range" min="20" max="140" value="100" style="margin-top:8px" title="Brightness">
-<h2>QUICK START</h2><div class="row"><button data-p="wall">Wall</button><button data-p="curve">Curve</button><button data-p="corner">Corner</button><button data-p="column">Column</button><button data-p="totem">Totems</button></div>
+<h2>QUICK START</h2><div class="row"><button data-p="wall">Wall</button><button data-p="curve">Curve</button><button data-p="corner">Corner</button><button data-p="column">Column</button><button data-p="wave">Wave</button><button data-p="ribbon">Ribbon</button><button data-p="pillar">Pillar</button><button data-p="booth">Booth</button><button data-p="clear">Clear</button><button data-p="totem">Totems</button></div>
 
 </div>
 <div id="stage"><canvas id="c"></canvas>
-<div id="tb"><a class="home-link" href="index.html#hardware" title="Return to Eyebyte website">← Eyebyte</a><button id="bu" title="Ctrl+Z">Undo</button><button id="bro" title="R">Rotate</button><button id="bf" title="F">Flip</button><button id="bl" title="Q">&#10226; Turn</button><button id="br2" title="E">Turn &#10227;</button><button id="bx" title="Ctrl+X">Cut</button><button id="bcp" title="Ctrl+C">Copy</button><button id="bp" title="Ctrl+V">Paste</button><button id="bst" title="T">Stack</button><button id="bd" title="Delete">Delete</button><button id="ba" title="Ctrl+A">All</button><button id="bfit">Fit</button><button id="bsp">Spin</button><button id="bc">Clear</button><button id="bshare">Share</button></div><div id="shp"><b style="color:var(--cream)">Share this design</b><textarea id="code" rows="3" spellcheck="false" placeholder="Paste a code here to load a design" style="margin-top:6px"></textarea><div class="row" style="margin-top:6px"><button id="cc">Copy code</button><button id="cl">Copy link</button><button id="ld">Load</button></div><small id="cm" style="color:var(--mut);font-size:11px"></small></div><div id="toast"></div>
+<div id="tb"><button id="bu" title="Ctrl+Z">Undo</button><button id="bro" title="R">Rotate</button><button id="bf" title="F">Flip</button><button id="bx" title="Ctrl+X">Cut</button><button id="bcp" title="Ctrl+C">Copy</button><button id="bp" title="Ctrl+V">Paste</button><button id="bst" title="T">Stack</button><button id="bd" title="Delete">Delete</button><button id="ba" title="Ctrl+A">All</button><button id="bfit">Fit</button><button id="bsp">Spin</button><button id="bc">Clear</button><button id="bw">Wiring</button><button id="bshare">Share</button></div><div id="shp"><b style="color:var(--cream)">Share this design</b><textarea id="code" rows="3" spellcheck="false" placeholder="Paste a code here to load a design" style="margin-top:6px"></textarea><div class="row" style="margin-top:6px"><button id="cc">Copy code</button><button id="cl">Copy link</button><button id="ld">Load</button></div><small id="cm" style="color:var(--mut);font-size:11px"></small></div><div id="toast"></div><div id="dm"><b id="dmt"></b><div class="row" style="margin-top:6px;align-items:center"><span>W</span><input id="dmw" type="number" step="0.25" min="0.25" value="2.5"><span>H</span><input id="dmh" type="number" step="0.25" min="0.25" value="2"><span>m</span></div><small id="dmi"></small><div class="row" style="margin-top:8px"><button id="dma">Add screen</button><button id="dmx">Cancel</button></div></div><div id="wd"><div class="wh"><b style="color:var(--cream)">Wiring plan</b><span class="row"><button id="wback">Front / back</button><button id="wx">&times;</button></span></div><div id="wsum"></div><div class="row"><button data-t="pw" class="on">Power</button><button data-t="dt">Data</button><button data-t="wt">Weight</button></div><div id="wbody"></div></div>
 <div id="st"><b id="sz">&mdash;</b><span id="sc"></span></div>
-<div id="hint"><kbd>Click</kbd> place at ghost / select &middot; <kbd>Alt</kbd> new screen on floor<br><kbd>Drag</kbd> orbit &middot; drag a selected panel to move its screen<br><kbd>Q</kbd>/<kbd>E</kbd> turn screen &middot; <kbd>R</kbd> rotate &middot; <kbd>Del</kbd> &middot; <kbd>Right-click</kbd>/<kbd>Esc</kbd> select tool</div></div>
-<script>/* three.js r128 - MIT License - https://threejs.org */
+<div id="hint"><kbd>Click</kbd> place at ghost / select &middot; <kbd>Alt</kbd> new screen on floor<br><kbd>Drag</kbd> orbit &middot; drag a selected panel to move its screen<br><kbd>R</kbd> rotate &middot; <kbd>Del</kbd> &middot; <kbd>Right-click</kbd>/<kbd>Esc</kbd> select tool</div></div>
+<script>/* three.js r128 - MIT - https://threejs.org */
 /**
  * @license
  * Copyright 2010-2021 Three.js Authors
@@ -56,8 +60,8 @@ textarea{width:100%;background:#120d09;color:var(--cream);border:1px solid var(-
 const G=.25,DU=.01,TH=22.5*Math.PI/180,PX=.5/168,TK=.08,$=s=>document.querySelector(s);
 const TY={F2:{n:'Long 500×1000',l:'Long',w:2,h:4,s:80,i:'<rect x="8" y="2" width="8" height="20" rx="1"/>'},F1:{n:'Flat 500×500',l:'Flat',w:2,h:2,s:120,i:'<rect x="5" y="5" width="14" height="14" rx="1"/>'},
 FX:{n:'Flex 500×500 · each side ±22.5°',l:'Flex',w:2,h:2,s:120,fx:1,i:'<path d="M3 7q4.5-4 9 0t9 0v10q-4.5 4-9 0t-9 0z"/>'},
-C45:{n:'Hard 90 · 500×500 with 45° edge',l:'Hard 90',w:2,h:2,s:25,i:'<path d="M4 20V4h10l6 6v10z"/>'},C90:{n:'Soft 90 · 250×500 arc',l:'Soft 90',w:1,h:2,s:48,a:90,i:'<path d="M4 5h6a10 10 0 0 1 10 10v5h-6v-5a4 4 0 0 0-4-4H4z"/>'}};
-const KEYS=Object.keys(TY),LOOKS=['Plasma','Rings','Scan','Spectrum','Grid'],BEND=[['bl','Left edge'],['br','Right edge']];
+C45:{n:'Hard 90 · 500×500 with 45° edge',l:'Hard 90',w:2,h:2,s:25,i:'<path d="M5 19V5l14 14z"/>'},C90:{n:'Soft 90 · 250×500 arc',l:'Soft 90',w:1,h:2,s:48,a:90,i:'<path d="M4 5h6a10 10 0 0 1 10 10v5h-6v-5a4 4 0 0 0-4-4H4z"/>'}};
+const KEYS=Object.keys(TY),LOOKS=['Plasma','Rings','Scan','Spectrum','Grid','Fire','Bars','Rain','Stripes','White'],BEND=[['bl','Left edge'],['br','Right edge']];
 let P=[],SC={},nsc=0,nid=0,tool='F2',rot=0,flip=0,newYaw=0,sel=new Set(),hist=[],look=0,spin=false;
 try{const s=JSON.parse(localStorage.getItem('eb-screen3'));if(s&&s.P){P=s.P;SC=s.SC;nsc=s.nsc;nid=Math.max(0,...P.map(p=>p.id))}}catch(e){}
 const dm=p=>{const t=TY[p.t];return p.r?[t.h,t.w]:[t.w,t.h]};
@@ -67,7 +71,7 @@ const used=t=>P.filter(p=>p.t===t).length;
 const snap=()=>{hist.push(JSON.stringify({P,SC,nsc}));if(hist.length>80)hist.shift()};
 const save=()=>{try{localStorage.setItem('eb-screen3',JSON.stringify({P,SC,nsc}))}catch(e){}share()};
 const mkP=(t,x,y,r,f,sc)=>({id:++nid,t,x,y,r:r||0,f:f||0,ja:45,d:1,s:1,bl:0,br:0,sc});
-const newScreen=(x,z,yaw)=>{SC[++nsc]={x,z,yaw};return nsc};
+const newScreen=(x,z,yaw)=>{SC[++nsc]={x,z,yaw,look};return nsc};
 const ro=()=>tool==='C45'||tool==='C90'?0:rot,TC={F2:'L',F1:'F',FX:'X',C45:'H',C90:'S'},CT={L:'F2',F:'F1',X:'FX',H:'C45',S:'C90'},b36=n=>Math.round(n).toString(36),RE=/^([LFXHS])(-?[0-9a-z]+)\.(-?[0-9a-z]+)(.*)$/;
 // share code: EB1_<screens>_<panels> (plain ASCII, base36)
 function encode(){if(!P.length)return'';let ps=null;
@@ -116,7 +120,7 @@ function mkSurf(){bad=new Set();SF={};const by={};P.forEach(p=>(by[p.sc]=by[p.sc
   ['u','v'].forEach(ax=>fm[ax].forEach((e,k)=>{let m=0;e.forEach(s=>{if(Math.abs(s)>Math.abs(m))m=s});(ax==='u'?Fu:Fv)[k]=Math.max(-1.5708,Math.min(1.5708,m))}));
   SF[id]={u:axis(Ku,Fu,ix(0,lu)),v:axis(Kv,Fv,0)};SF[id].u.lo=lu;
   L.forEach(p=>{const[w,h]=dm(p),o=own(p),i0=ix(p.x*G,lu),i1=ix((p.x+w)*G,lu),j0=ix(p.y*G,0),j1=ix((p.y+h)*G,0),q=(a,b,f)=>a+Math.floor((b-a)*f);
-   let x=Math.abs(Ku[q(i0,i1,.25)]-o[0])>1e-3||Math.abs(Ku[q(i0,i1,.75)]-o[1])>1e-3||Math.abs(Kv[q(j0,j1,.25)]-o[2])>1e-3||Math.abs(Kv[q(j0,j1,.75)]-o[3])>1e-3;
+   let x=false;
    if(!x&&!o.some(k=>k)){for(let i=i0+1;i<i1;i++)if(Fu[i])x=true;for(let j=j0+1;j<j1;j++)if(Fv[j])x=true}
    if(x)bad.add(p.id)})}}
 function surf(sid,u,v,o){const s=SF[sid];if(!s){o[0]=u;o[1]=v;o[2]=0;return}
@@ -143,21 +147,28 @@ const cam=new THREE.PerspectiveCamera(45,1,.1,100);
 const UN={t:{value:0},mode:{value:0},br:{value:1},pitch:{value:PX}};
 const fm=new THREE.ShaderMaterial({uniforms:UN,side:THREE.DoubleSide,polygonOffset:true,polygonOffsetFactor:1,polygonOffsetUnits:1,
 vertexShader:'varying vec2 sv;void main(){sv=uv;gl_Position=projectionMatrix*modelViewMatrix*vec4(position,1.);}',
-fragmentShader:`uniform float t,mode,br,pitch;varying vec2 sv;
+fragmentShader:`uniform float t,mode,br,pitch;uniform vec4 ext;varying vec2 sv;
 vec3 pal(float s){s=clamp(s,0.,1.);vec3 a=vec3(.05,.01,0.),b=vec3(.62,.2,.05),c=vec3(.95,.62,.16),d=vec3(1.,.93,.65);
 return s<.33?mix(a,b,s*3.):s<.66?mix(b,c,(s-.33)*3.):mix(c,d,(s-.66)*3.);}
-void main(){vec2 p=sv;vec3 col;
+float h(vec2 q){return fract(sin(dot(q,vec2(12.9898,78.233)))*43758.5453);}
+float nz(vec2 q){vec2 i=floor(q),f=fract(q);f=f*f*(3.-2.*f);return mix(mix(h(i),h(i+vec2(1.,0.)),f.x),mix(h(i+vec2(0.,1.)),h(i+vec2(1.,1.)),f.x),f.y);}
+void main(){vec2 n=(sv-ext.xy)/max(ext.zw-ext.xy,vec2(.01));float asp=(ext.z-ext.x)/max(ext.w-ext.y,.01);vec2 p=vec2((n.x-.5)*asp*3.,n.y*3.);vec3 col;
 if(mode<.5){float v=sin(p.x*1.3+t)+sin(p.y*1.9-t*1.3)+sin((p.x+p.y)*.8+t*.7)+sin(length(p-vec2(0.,1.5))*2.2-t*1.5);col=pal(v*.125+.5);}
 else if(mode<1.5){float d=length(p-vec2(0.,1.5));col=pal(.5+.5*sin(d*5.-t*3.))*(1.3-d*.07);}
 else if(mode<2.5){float b=1.-smoothstep(0.,.3,abs(fract(p.x*.35-t*.25)-.5));col=pal(.35+.3*sin(p.y*2.+t))*b*1.5+pal(.12)*.5;}
 else if(mode<3.5){col=.55+.45*cos(6.283*(p.x*.1+p.y*.08+t*.1+vec3(0.,.33,.67)));}
-else{float c=mod(floor(p.x*2.)+floor(p.y*2.),2.);col=mix(vec3(.12,.07,.02),vec3(1.,.75,.3),c)*(.5+.5*smoothstep(0.,6.,p.y+3.));}
-vec2 g=p/pitch;float m=1.-smoothstep(.34,.5,length(fract(g)-.5));m=mix(m,.55,smoothstep(.12,.55,fwidth(g.x)));
+else if(mode<4.5){float c=mod(floor(p.x*2.)+floor(p.y*2.),2.);col=mix(vec3(1.,.06,.06),vec3(.08,.2,1.),c);}
+else if(mode<5.5){float f=nz(vec2(p.x*2.,p.y*1.5-t*1.5))*.6+nz(vec2(p.x*4.,p.y*3.-t*2.5))*.4;col=pal(f*1.5-p.y*.2);}
+else if(mode<6.5){float bx=floor(p.x*4.),a=.3+.7*abs(sin(t*1.7+h(vec2(bx,1.))*6.28)),bar=step(p.y,a*3.2);col=pal(p.y*.3+.25)*bar*step(.06,fract(p.x*4.))*1.3;}
+else if(mode<7.5){float cx=floor(p.x*6.),sp=.6+h(vec2(cx,2.)),y=fract(p.y*.3+t*.25*sp+h(vec2(cx,3.)));col=pal(1.-y)*step(.1,fract(p.x*6.))*pow(1.-y,2.)*1.6;}
+else if(mode<8.5){col=pal(.5+.5*sin((p.x+p.y)*3.-t*2.))*(.6+.4*sin(p.x*.8));}
+else{col=vec3(1.,.93,.8);}
+vec2 g=sv/pitch;float m=1.-smoothstep(.34,.5,length(fract(g)-.5));m=mix(m,.55,smoothstep(.12,.55,fwidth(g.x)));
 gl_FragColor=vec4(col*br*(.14+1.25*m),1.);}`});
 const dk=new THREE.MeshBasicMaterial({color:0x3a3a3e,side:THREE.DoubleSide}),hid=new THREE.MeshBasicMaterial({visible:false});
 const root=new THREE.Group(),mirr=new THREE.Group();mirr.scale.y=-1;sc.add(root,mirr);
 const fl=new THREE.Mesh(new THREE.PlaneGeometry(80,80),new THREE.MeshBasicMaterial({color:0x0c0907,transparent:true,opacity:.84}));fl.rotation.x=-Math.PI/2;fl.position.y=.002;sc.add(fl);
-const fg=new THREE.GridHelper(40,80,0x6b4a1d,0x2a1d10);fg.position.y=.004;sc.add(fg);
+const fg=new THREE.GridHelper(40,80,0xe04030,0x2f64d8);fg.material.transparent=true;fg.material.opacity=.55;fg.position.y=.004;sc.add(fg);
 const pg=new THREE.BufferGeometry(),pa=new Float32Array(1200);for(let i=0;i<1200;i+=3){pa[i]=(Math.random()-.5)*22;pa[i+1]=Math.random()*8;pa[i+2]=(Math.random()-.5)*14}
 pg.setAttribute('position',new THREE.BufferAttribute(pa,3));const dust=new THREE.Points(pg,new THREE.PointsMaterial({color:0xd9a441,size:.03,transparent:true,opacity:.45,depthWrite:false}));sc.add(dust);
 const po={polygonOffset:true,polygonOffsetFactor:-2,polygonOffsetUnits:-2,side:THREE.DoubleSide,depthWrite:false};
@@ -166,11 +177,11 @@ const gM=new THREE.MeshBasicMaterial({color:0xf3dfae,transparent:true,opacity:.5
 let geos=[],boxes=[],gm={},gk='';
 function placeGroups(){for(const id in gm){const s=SC[id];[gm[id].g,gm[id].m].forEach(g=>{g.position.set(s.x,0,s.z);g.rotation.y=s.yaw})}root.updateMatrixWorld(true);mirr.updateMatrixWorld(true)}
 function build(){
- geos.forEach(g=>g.dispose());geos=[];root.clear();mirr.clear();boxes=[];gm={};mkSurf();
+ geos.forEach(g=>g.dispose());geos=[];root.clear();mirr.clear();boxes=[];gm={};mkSurf();calcExt();
  for(const id in SC)if(!P.some(p=>p.sc==id))delete SC[id];
  for(const id in SC){gm[id]={g:new THREE.Group(),m:new THREE.Group()};root.add(gm[id].g);mirr.add(gm[id].m)}
  P.forEach(p=>{const[w,h]=dm(p),g=mkGeo(p.sc,p.x,p.y,w,h),q=gm[p.sc];geos.push(g);
-  const m=new THREE.Mesh(g,[fm,dk]);m.userData.id=p.id;q.g.add(m);boxes.push(m);q.m.add(new THREE.Mesh(g,[fm,dk]));
+  const m=new THREE.Mesh(g,[fmFor(p.sc),dk]);m.userData.id=p.id;q.g.add(m);boxes.push(m);q.m.add(new THREE.Mesh(g,[fmFor(p.sc),dk]));
   const s=sel.has(p.id),b=bad.has(p.id);if(s)q.g.add(new THREE.Mesh(g,[ovM,hid]));
   if(s||b){const g2=new THREE.BufferGeometry();g2.setAttribute('position',g.attributes.position);g2.setIndex(g.userData.fr);const e=new THREE.LineSegments(new THREE.EdgesGeometry(g2,80),b?edR:edM);geos.push(e.geometry);q.g.add(e)}});
  placeGroups();gk='';ui();save()}
@@ -181,12 +192,12 @@ const pal=$('#pal');
  b.innerHTML=`<svg viewBox="0 0 24 24">${ic}</svg><small></small>`;b.onclick=()=>{tool=t;setGhost(null);ui()};pal.appendChild(b)});
 BEND.forEach(([k,n])=>{const d=document.createElement('div');d.innerHTML=`<label>${n}<b id="v_${k}">0°</b></label><input type="range" min="-100" max="100" value="0" id="s_${k}">`;$('#sls').appendChild(d);
  const e=d.querySelector('input');e.onpointerdown=()=>snap();e.oninput=()=>{flexT().forEach(p=>p[k]=e.value/100);build()}});
-LOOKS.forEach((n,i)=>{const b=document.createElement('button');b.textContent=n;b.onclick=()=>{look=i;UN.mode.value=i;ui()};$('#looks').appendChild(b)});
+LOOKS.forEach((n,i)=>{const b=document.createElement('button');b.textContent=n;b.onclick=()=>{look=i;scrT().forEach(id=>SC[id].look=i);build()};$('#looks').appendChild(b)});
 const flexT=()=>sel.size?P.filter(p=>sel.has(p.id)&&TY[p.t].fx):P.filter(p=>TY[p.t].fx);
 function ui(){
  document.querySelectorAll('.tile').forEach(d=>{const k=d.dataset.k,T=TY[k];d.classList.toggle('on',k==='sel'?!tool:tool===k);if(T){const r=T.s-used(k);d.classList.toggle('out',r<=0);d.querySelector('small').textContent=T.l+' · '+r}else d.querySelector('small').textContent='Select'});
- [...$('#looks').children].forEach((b,i)=>b.classList.toggle('on',i===look));
- const sf=P.filter(p=>sel.has(p.id)),tg=flexT();$('#bsp').classList.toggle('on',spin);
+ [...$('#looks').children].forEach((b,i)=>b.classList.toggle('on',i===curLook()));
+ const sf=P.filter(p=>sel.has(p.id)),tg=flexT();$('#bsp').classList.toggle('on',spin);uiX();
  $('#ig').style.display=tg.length?'':'none';$('#igl').textContent=sel.size?tg.length+' selected · ±22.5° per edge (left + / right − = smooth arc)':'all flex panels · ±22.5° per edge (left + / right − = smooth arc)';
  BEND.forEach(([k])=>{const v=tg.length?Math.round((tg[0][k]||0)*100):0,e=$('#s_'+k);if(+e.value!==v)e.value=v;$('#v_'+k).textContent=(e.value*.225).toFixed(1)+'°'});
  const hp=sf.filter(p=>p.t==='C45');$('#hg').style.display=hp.length?'':'none';document.querySelectorAll('[data-ja]').forEach(b=>b.classList.toggle('on',hp.some(p=>p.ja==b.dataset.ja)));document.querySelectorAll('[data-d]').forEach(b=>b.classList.toggle('on',hp.some(p=>(p.d||1)==b.dataset.d)));$('#sg').style.display=sf.some(p=>p.t==='C90')?'':'none';
@@ -205,15 +216,19 @@ function rotate(){if(sel.size){const ch=P.filter(p=>sel.has(p.id)&&p.t!=='C45'&&
 function flipIt(){if(sel.size){snap();P.forEach(p=>{if(!sel.has(p.id))return;if(p.t==='C45')p.f=p.f?0:1;if(p.t==='C90')p.s=-(p.s||1)});build()}else flip=flip?0:1}
 function turn(d){const ids=new Set(P.filter(p=>sel.has(p.id)).map(p=>p.sc));if(ids.size){snap();ids.forEach(i=>SC[i].yaw+=d);placeGroups();save()}else{newYaw+=d;gk=''}}
 function move(dx,dy){if(!sel.size)return;const ch=P.filter(p=>sel.has(p.id)).map(p=>({...p,x:p.x+dx,y:p.y+dy}));if(ch.every(p=>fits(p,occ(p.sc,sel)))){snap();ch.forEach(c=>Object.assign(P.find(p=>p.id===c.id),c));build()}}
-function fill(t,cols,rows,x0,y0,sid,b){const T=TY[t];for(let j=0;j<rows;j++)for(let i=0;i<cols;i++){if(used(t)>=T.s)return;const p=mkP(t,x0+i*T.w,y0+j*T.h,0,0,sid);p.bl=p.br=b||0;P.push(p)}}
-document.querySelectorAll('[data-p]').forEach(b=>b.onclick=()=>{snap();P=[];SC={};sel.clear();const k=b.dataset.p;
+function fill(t,cols,rows,x0,y0,sid,b){const T=TY[t];for(let j=0;j<rows;j++)for(let i=0;i<cols;i++){const p=mkP(t,x0+i*T.w,y0+j*T.h,0,0,sid);p.bl=p.br=b||0;P.push(p)}}
+document.querySelectorAll('[data-p]').forEach(b=>b.onclick=()=>{snap();sel.clear();const k=b.dataset.p;if(k==='clear'){P=[];SC={};build();return}const before=new Set(Object.keys(SC)),off=P.length?spawnX(4):0;
  if(k==='wall')fill('F2',12,3,-12,0,newScreen(0,0,0));
  if(k==='curve'){fill('FX',12,6,-12,0,newScreen(0,0,0));P.forEach(p=>{p.bl=-.35;p.br=.35})}
  if(k==='totem')[[-3,0,.4],[0,-1,0],[3,0,-.4]].forEach(([x,z,y])=>fill('F2',2,3,-2,0,newScreen(x,z,y)));
- if(k==='column'){fill('FX',8,2,-8,0,newScreen(0,.64,0));P.forEach(p=>{p.bl=1;p.br=-1})}
- if(k==='corner'){const s=newScreen(0,0,0);fill('F2',4,2,-8,0,s);[0,2,4,6].forEach(y=>{const a=mkP('C45',0,y,0,0,s),b=mkP('C45',2,y,0,0,s);a.ja=b.ja=0;P.push(a,b)});fill('F2',4,2,4,0,s)}
- build();fit()});
-$('#bu').onclick=undo;$('#bro').onclick=rotate;$('#bf').onclick=flipIt;$('#bd').onclick=del;$('#bl').onclick=()=>turn(Math.PI/12);$('#br2').onclick=()=>turn(-Math.PI/12);
+ if(k==='column'){fill('FX',8,5,-8,0,newScreen(0,.64,0));P.forEach(p=>{p.bl=1;p.br=-1})}
+ if(k==='wave'){const s=newScreen(0,0,0);for(let j=0;j<4;j++)for(let i=0;i<14;i++){const p=mkP('FX',-14+i*2,j*2,0,0,s);p.bl=i%2?.8:-.8;p.br=-p.bl;P.push(p)}}
+ if(k==='ribbon')fill('F1',20,2,-20,0,newScreen(0,0,0));
+ if(k==='pillar')fill('C90',4,3,-2,0,newScreen(0,.16,0));
+ if(k==='booth'){const s=newScreen(0,0,0);for(let j=0;j<4;j++){const y=j*2;[-10,-8].forEach(x=>P.push(mkP('F1',x,y,0,0,s)));P.push(mkP('C90',-6,y,0,0,s));for(let i=0;i<5;i++)P.push(mkP('F1',-5+i*2,y,0,0,s));P.push(mkP('C90',5,y,0,0,s));[6,8].forEach(x=>P.push(mkP('F1',x,y,0,0,s)))}}
+ if(k==='corner'){const s=newScreen(-.354,-.354,-Math.PI/4);fill('F2',4,2,-8,0,s);[0,2,4,6].forEach(y=>{const a=mkP('C45',0,y,0,0,s),b=mkP('C45',2,y,0,0,s);a.ja=b.ja=0;P.push(a,b)});fill('F2',4,2,4,0,s)}
+ Object.keys(SC).forEach(id=>{if(!before.has(id))SC[id].x+=off});build();fit()});
+$('#bu').onclick=undo;$('#bro').onclick=rotate;$('#bf').onclick=flipIt;$('#bd').onclick=del;
 $('#ba').onclick=()=>{sel=new Set(P.map(p=>p.id));build()};
 $('#bc').onclick=()=>{if(P.length){snap();P=[];SC={};sel.clear();build()}};
 $('#bfit').onclick=()=>fit();$('#bsp').onclick=()=>{spin=!spin;ui()};
@@ -239,7 +254,7 @@ function cands(){const T=TY[tool],[cw,ch]=ro()?[T.h,T.w]:[T.w,T.h],out=[],os={};
  P.forEach(p=>{const o=os[p.sc]||(os[p.sc]=occ(p.sc)),[pw,ph]=dm(p),add=(x,y)=>{const c={sc:p.sc,t:tool,x,y,r:ro(),f:flip};if(fits(c,o))out.push(c)};
   for(let k=1-ch;k<ph;k++){add(p.x+pw,p.y+k);add(p.x-cw,p.y+k)}for(let k=1-cw;k<pw;k++){add(p.x+k,p.y+ph);add(p.x+k,p.y-ch)}});return out}
 // the ghost snaps to the open slot whose centre is closest to the mouse (on screen); otherwise a new screen on the floor
-function plan(e){if(!tool||used(tool)>=TY[tool].s)return null;const T=TY[tool],r=cvs.getBoundingClientRect(),mx=e.clientX-r.left,my=e.clientY-r.top,o=[0,0,0];let best=null,bd=5400;
+function plan(e){if(!tool)return null;const T=TY[tool],r=cvs.getBoundingClientRect(),mx=e.clientX-r.left,my=e.clientY-r.top,o=[0,0,0];let best=null,bd=5400;
  if(!e.altKey)cands().forEach(c=>{const[w,h]=dm(c);surf(c.sc,(c.x+w/2)*G,(c.y+h/2)*G,o);V.set(o[0],o[1],o[2]).applyMatrix4(gm[c.sc].g.matrixWorld).project(cam);
   const d=((V.x+1)/2*r.width-mx)**2+((1-V.y)/2*r.height-my)**2;if(d<bd){bd=d;best=c}});
  if(best)return best;const a=aim(e);if(!a.fl||(a.p&&!e.altKey))return null;
@@ -261,7 +276,7 @@ cvs.addEventListener('pointerup',e=>{const was=dn;dn=null;if(!was)return;if(was.
  if(c){snap();let sid=c.sc;if(c.nw)sid=newScreen(c.nw.x,c.nw.z,c.yaw);P.push(mkP(c.t,c.x,c.y,c.r,c.f,sid));sel.clear();build();return}
  const a=aim(e);if(a.p){const i=a.p.id;if(e.shiftKey){sel.has(i)?sel.delete(i):sel.add(i)}else sel=new Set([i]);build()}else if(sel.size){sel.clear();build()}});
 cvs.addEventListener('wheel',e=>{e.preventDefault();dist=Math.min(50,Math.max(2,dist*(1+e.deltaY*.0012)))},{passive:false});
-new ResizeObserver(()=>{const s=$('#stage');rd.setSize(s.clientWidth,s.clientHeight,false);cam.aspect=s.clientWidth/s.clientHeight;cam.updateProjectionMatrix()}).observe($('#stage'));
+{let lw=0,lh=0,rq=0;new ResizeObserver(()=>{if(rq)return;rq=requestAnimationFrame(()=>{rq=0;const s=$('#stage'),w=s.clientWidth,h=s.clientHeight;if(!w||!h||(w===lw&&h===lh))return;lw=w;lh=h;rd.setSize(w,h,false);cam.aspect=w/h;cam.updateProjectionMatrix()})}).observe($('#stage'))}
 
 const clk=new THREE.Clock();
 (function loop(){requestAnimationFrame(loop);const t=clk.getElapsedTime();UN.t.value=t;if(spin)th+=.0018;
@@ -279,10 +294,10 @@ function mkGeo(sid,x,y,w,h){const nu=w*5,nv=h*5,N=(nu+1)*(nv+1),pos=new Float32A
  for(let i=0;i<nu;i++){wall(at(i,0),at(i+1,0));wall(at(i,nv),at(i+1,nv))}for(let j=0;j<nv;j++){wall(at(0,j),at(0,j+1));wall(at(nu,j),at(nu,j+1))}
  const g=new THREE.BufferGeometry();g.setAttribute('position',new THREE.BufferAttribute(pos,3));g.setAttribute('uv',new THREE.BufferAttribute(uv,2));g.setIndex(fr.concat(bk));
  g.addGroup(0,fr.length,0);g.addGroup(fr.length,bk.length,1);g.userData.fr=fr;return g}
-function placeGroups(){for(const id in gm){const s=SC[id];[gm[id].g,gm[id].m].forEach(g=>{g.position.set(s.x,s.y||0,s.z);g.rotation.y=s.yaw})}root.updateMatrixWorld(true);mirr.updateMatrixWorld(true)}
+function placeGroups(){for(const id in gm){const s=SC[id];[gm[id].g,gm[id].m].forEach(g=>{g.position.set(s.x,s.y||0,s.z);g.rotation.order='YXZ';g.rotation.set(s.pt||0,s.yaw,s.rl||0)})}root.updateMatrixWorld(true);mirr.updateMatrixWorld(true)}
 // smallest code: E<screens>_<panels>; identical panels in a block collapse to one token (*cols :rows)
 function encode(){if(!P.length)return'';const ids=Object.keys(SC).map(Number).sort((a,b)=>a-b),mp={};ids.forEach((v,i)=>mp[v]=i+1);
- const s=ids.map(i=>{const q=SC[i],a=[q.x*100,q.z*100,q.yaw*1800/Math.PI,(q.y||0)*100].map(b36);while(a.length>1&&a[a.length-1]==='0')a.pop();return a.join('.')}).join(',');
+ const s=ids.map(i=>{const q=SC[i],a=[q.x*100,q.z*100,q.yaw*1800/Math.PI,(q.y||0)*100,(q.pt||0)*1800/Math.PI,(q.rl||0)*1800/Math.PI,q.look||0].map(b36);while(a.length>1&&a[a.length-1]==='0')a.pop();return a.join('.')}).join(',');
  const key=q=>[q.t,q.r,q.ja,q.s,q.bl,q.br,q.sc].join(),at={},dn2=new Set(),ps2=[...P].sort((a,b)=>a.sc-b.sc||a.y-b.y||a.x-b.x);let ps=null;
  P.forEach(q=>at[q.sc+':'+q.x+','+q.y]=q);
  return 'E'+s+'_'+ps2.map(q=>{if(dn2.has(q.id))return null;const[w,h]=dm(q),k=key(q),nb=(x,y)=>{const n=at[q.sc+':'+x+','+y];return n&&!dn2.has(n.id)&&key(n)===k?n:null};let c=1,r=1;
@@ -292,7 +307,7 @@ function encode(){if(!P.length)return'';const ids=Object.keys(SC).map(Number).so
   let o=TC[q.t]+b36(q.x)+'.'+b36(q.y);if(q.r)o+='R';if(q.t==='C45'&&!q.ja)o+='N';if(q.s<0)o+='Z';if(q.bl)o+='L'+b36(q.bl*100)+'.';if(q.br)o+='M'+b36(q.br*100)+'.';
   if(c>1)o+='*'+b36(c);if(r>1)o+=':'+b36(r);const m=mp[q.sc];if(m!==ps){o+='@'+b36(m);ps=m}return o}).filter(Boolean).join(',')}
 function decode(c){try{c=c.trim();if(c[0]!=='E')return null;const[s,p]=c.slice(1).split('_');if(!p)return null;const sc={},out=[];let cur=1,id=0;
- s.split(',').forEach((t,i)=>{const a=t.split('.').map(v=>parseInt(v,36));if(a.some(isNaN))throw 0;sc[i+1]={x:(a[0]||0)/100,z:(a[1]||0)/100,yaw:(a[2]||0)*Math.PI/1800,y:(a[3]||0)/100}});
+ s.split(',').forEach((t,i)=>{const a=t.split('.').map(v=>parseInt(v,36));if(a.some(isNaN))throw 0;sc[i+1]={x:(a[0]||0)/100,z:(a[1]||0)/100,yaw:(a[2]||0)*Math.PI/1800,y:(a[3]||0)/100,pt:(a[4]||0)*Math.PI/1800,rl:(a[5]||0)*Math.PI/1800,look:a[6]||0}});
  p.split(',').forEach(t=>{const m=t.match(RE);if(!m)throw 0;const q={t:CT[m[1]],x:parseInt(m[2],36),y:parseInt(m[3],36),r:0,f:0,ja:45,d:1,s:1,bl:0,br:0};let nc=1,nr=1;
   (m[4].match(/[RNZ]|[LM]-?[0-9a-z]+\.|[*:@][0-9a-z]+/g)||[]).forEach(f=>{const k=f[0],v=parseInt(f.slice(1),36);
    if(k==='R')q.r=1;else if(k==='N')q.ja=0;else if(k==='Z')q.s=-1;else if(k==='L')q.bl=v/100;else if(k==='M')q.br=v/100;else if(k==='*')nc=v;else if(k===':')nr=v;else cur=v});
@@ -309,7 +324,7 @@ function toast(t){const e=$('#toast');e.textContent=t;e.classList.add('show');cl
 let clip=null;
 function copy(){const ps=P.filter(p=>sel.has(p.id));if(!ps.length){toast('Select panels first');return false}clip={P:JSON.parse(JSON.stringify(ps)),SC:JSON.parse(JSON.stringify(SC))};toast(ps.length+' panels copied');return true}
 function paste(){if(!clip)return toast('Nothing copied yet');const need={};clip.P.forEach(p=>need[p.t]=(need[p.t]||0)+1);
- for(const t in need)if(used(t)+need[t]>TY[t].s)return toast('Not enough '+TY[t].l+' panels left');
+ 
  snap();const mp={},ns=new Set();clip.P.forEach(p=>{if(!mp[p.sc]){const s=clip.SC[p.sc];mp[p.sc]=newScreen(s.x+Math.cos(s.yaw),s.z-Math.sin(s.yaw),s.yaw);SC[nsc].y=s.y||0}const q={...p,id:++nid,sc:mp[p.sc]};P.push(q);ns.add(q.id)});sel=ns;build();toast('Pasted — drag to place')}
 // stacking on top merges the two screens into one continuous screen
 function mergeUp(a,b,cx,cy){if((SC[b].y||0)!==0)return;const dx=Math.round(cx/G),dy=Math.round(cy/G),o=occ(b),ps=P.filter(p=>p.sc==a).map(p=>({...p,x:p.x+dx,y:p.y+dy,sc:+b}));
@@ -318,5 +333,93 @@ function stack(){const ids=new Set(P.filter(p=>sel.has(p.id)).map(p=>p.sc));if(!
 $('#bx').onclick=()=>{if(copy())del()};$('#bcp').onclick=copy;$('#bp').onclick=paste;$('#bst').onclick=stack;$('#bshare').onclick=()=>$('#shp').classList.toggle('show');
 addEventListener('keydown',e=>{if(/INPUT|TEXTAREA/.test(e.target.tagName))return;const k=e.key.toLowerCase(),m=e.ctrlKey||e.metaKey;
  if(m&&k==='c'){e.preventDefault();copy()}else if(m&&k==='x'){e.preventDefault();if(copy())del()}else if(m&&k==='v'){e.preventDefault();paste()}else if(!m&&k==='t')stack()});
+// ---- screen position (height + every axis), wiring plan, power / data / weight
+var uiReady,wireOn=false,wTab='pw',WPM=500,VOLT=230,wObjs=[],bkv=false;
+const PW=3,DT=4.5,KGM=35,PCOL=['#ff3b30','#ff9500','#ffd60a','#ff6b35','#d4381e','#f5b700','#e8590c','#c92a2a'],DCOL=['#0a84ff','#30c8ff','#00c7be','#5e5ce6','#32ade6','#4cc9f0','#3a86ff','#7b9cff'];
+const R2D=57.2958,SCS=[['y','Height',0,8,.05,1,' m'],['yaw','Turn',-180,180,1,R2D,'°'],['pt','Tilt',-90,90,1,R2D,'°'],['rl','Roll',-180,180,1,R2D,'°']];
+function scrT(){const s=new Set(P.filter(p=>sel.has(p.id)).map(p=>p.sc));return s.size?[...s]:Object.keys(SC)}
+SCS.forEach(([k,n,mn,mx,st,sc2])=>{const d=document.createElement('div');d.innerHTML=`<label style="display:flex;justify-content:space-between;color:var(--mut);font-size:11px">${n}<b id="scv_${k}" style="color:var(--cream)"></b></label><input type="range" id="sc_${k}" min="${mn}" max="${mx}" step="${st}" value="0">`;$('#scs').appendChild(d);
+ const e=d.querySelector('input');e.onpointerdown=()=>snap();e.oninput=()=>{scrT().forEach(id=>SC[id][k]=e.value/sc2);placeGroups();save();uiX()}});
+const area=p=>{const[w,h]=dm(p);return w*h*G*G};
+function wiring(){const R={pw:[],dt:[]},by={};let pn=0,dn=0;P.forEach(p=>(by[p.sc]=by[p.sc]||[]).push(p));
+ Object.keys(by).sort((a,b)=>a-b).forEach(id=>{const bands={};by[id].forEach(p=>(bands[p.y]=bands[p.y]||[]).push(p));
+  const ord=[];Object.keys(bands).map(Number).sort((a,b)=>a-b).forEach((y,i)=>ord.push(...bands[y].sort((a,c)=>i%2?a.x-c.x:c.x-a.x)));
+  let pr=null,dr=null;ord.forEach(p=>{const a=area(p);
+   if(!pr||pr.area+a>PW+1e-9){pr={n:++pn,sc:+id,list:[],area:0};R.pw.push(pr)}if(!dr||dr.area+a>DT+1e-9){dr={n:++dn,sc:+id,list:[],area:0};R.dt.push(dr)}
+   pr.list.push(p);pr.area+=a;dr.list.push(p);dr.area+=a})});return R}
+function backInfo(p){const[w,h]=dm(p),u=(p.x+w/2)*G,v=(p.y+h/2)*G,o=[0,0,0],a=[0,0,0],c=[0,0,0],V3=THREE.Vector3;surf(p.sc,u,v,o);surf(p.sc,u+.004,v,a);surf(p.sc,u,v+.004,c);
+ const O=new V3(...o),tu=new V3(...a).sub(O).normalize(),n=new V3().crossVectors(tu,new V3(...c).sub(O)).normalize();return{o:O,tu,n,tv:new V3().crossVectors(n,tu)}}
+const QG=new THREE.PlaneGeometry(1,1),mc={},lc={},mat=c=>mc[c]||(mc[c]=new THREE.MeshBasicMaterial({color:c,side:THREE.DoubleSide,polygonOffset:true,polygonOffsetFactor:-3,polygonOffsetUnits:-3}));
+function lbl(t,c){const k=t+c;if(!lc[k]){const cv=document.createElement('canvas');cv.width=128;cv.height=64;const x=cv.getContext('2d');x.fillStyle=c;x.fillRect(4,4,120,56);x.fillStyle='#111';x.font='bold 36px sans-serif';x.textAlign='center';x.textBaseline='middle';x.fillText(t,64,34);lc[k]=new THREE.CanvasTexture(cv)}
+ const s=new THREE.Sprite(new THREE.SpriteMaterial({map:lc[k]}));s.scale.set(.36,.18,1);return s}
+// wiring drawn on the BACK of the panels: warm tiles = power run, cool tiles = data run, lines = cable path
+function drawWire(){wObjs.forEach(o=>o.parent&&o.parent.remove(o));wObjs=[];if(!wireOn||!P.length)return;const R=wiring(),inf={};P.forEach(p=>inf[p.id]=backInfo(p));
+ const at=(p,dx)=>{const i=inf[p.id];return i.o.clone().addScaledVector(i.n,-(TK+.008)).addScaledVector(i.tu,dx)};
+ const run=(r,cols,dx,pre)=>{const col=cols[(r.n-1)%cols.length],g=gm[r.sc].g,pts=r.list.map(p=>at(p,dx));
+  r.list.forEach((p,i)=>{const f=inf[p.id],m=new THREE.Mesh(QG,mat(col)),z=i?.1:.17;m.quaternion.setFromRotationMatrix(new THREE.Matrix4().makeBasis(f.tu,f.tv,f.n));m.position.copy(pts[i]);m.scale.set(z,z,1);g.add(m);wObjs.push(m)});
+  if(pts.length>1){const l=new THREE.Line(new THREE.BufferGeometry().setFromPoints(pts),new THREE.LineBasicMaterial({color:col}));g.add(l);wObjs.push(l)}
+  const f=inf[r.list[0].id],s=lbl(pre+r.n,col);s.position.copy(pts[0]).addScaledVector(f.n,-.14).addScaledVector(f.tu,dx*1.5).addScaledVector(f.tv,.16);g.add(s);wObjs.push(s)};
+ R.pw.forEach(r=>run(r,PCOL,-.08,'P'));R.dt.forEach(r=>run(r,DCOL,.08,'D'))}
+function renderWire(){const R=wiring(),f=(n,d)=>n.toFixed(d),tot=P.reduce((s,p)=>s+area(p),0),chip=c=>`<span class="ch" style="background:${c}"></span>`,sub=r=>Object.keys(SC).length>1?' · S'+r.sc:'';
+ let h=`<div class="sm"><div><b>${P.length}</b>panels</div><div><b>${f(tot,2)}</b>m²</div><div><b>${f(tot*KGM,0)}</b>kg</div><div><b>${f(tot*WPM/1000,1)}</b>kW max</div><div><b>${R.pw.length} · ${R.dt.length}</b>power · data</div></div>`;
+ if(wTab==='pw'){let W=0,S=0;h+=`<div>Max <input id="wpm" type="number" value="${WPM}" min="1"> W/m² &nbsp; <input id="volt" type="number" value="${VOLT}" min="1"> V</div><table class="tb2"><tr><th>Run</th><th>Panels</th><th>m²</th><th>Watts</th><th>Amps</th><th>Sockets</th></tr>`;
+  R.pw.forEach(r=>{const w=Math.round(r.area*WPM),s=r.list.reduce((a,p)=>a+(p.t==='F2'?1:2),0);W+=w;S+=s;h+=`<tr><td>${chip(PCOL[(r.n-1)%8])}P${r.n}${sub(r)}</td><td>${r.list.length}</td><td>${f(r.area,2)}</td><td>${w}</td><td>${f(w/VOLT,1)}</td><td>${s}</td></tr>`});
+  h+=`<tr class="t"><td>Total</td><td>${P.length}</td><td>${f(tot,2)}</td><td>${W}</td><td>${f(W/VOLT,1)}</td><td>${S}</td></tr></table><small>Max 3 m² per power cable. Starts on the ground at the bottom-right, runs right→left then up. Long panels have a single power socket (others in + out). W/m² is an assumed maximum — edit it.</small>`}
+ else if(wTab==='dt'){let px=0,L=0;h+=`<table class="tb2"><tr><th>Run</th><th>Panels</th><th>m²</th><th>Pixels</th><th>Cat6 ≈m</th></tr>`;
+  R.dt.forEach(r=>{const p0=r.list[0],pxs=r.area/.25*168*168;let len=p0.y*G+1;r.list.forEach((p,i)=>{if(i)len+=(Math.abs(p.x-r.list[i-1].x)+Math.abs(p.y-r.list[i-1].y))*G});px+=pxs;L+=len;
+   h+=`<tr><td>${chip(DCOL[(r.n-1)%8])}D${r.n}${sub(r)}</td><td>${r.list.length}</td><td>${f(r.area,2)}</td><td>${Math.round(pxs/1000)}k</td><td>${f(len,0)}</td></tr>`});
+  h+=`<tr class="t"><td>${R.dt.length} ports</td><td>${P.length}</td><td>${f(tot,2)}</td><td>${(px/1e6).toFixed(2)}M</td><td>${f(L,0)}</td></tr></table><small>Cat6 follows the power path: right→left, up, left→right, repeat. Max 4.5 m² per data port. Length includes a 1 m drop per run.</small>`}
+ else{h+=`<table class="tb2"><tr><th>Panel</th><th>Qty</th><th>kg each</th><th>kg</th></tr>`;KEYS.forEach(k=>{const n=used(k);if(!n)return;const T=TY[k],a=T.w*T.h*G*G;h+=`<tr><td>${T.l}</td><td>${n}</td><td>${f(a*KGM,2)}</td><td>${f(n*a*KGM,1)}</td></tr>`});
+  h+=`<tr class="t"><td>Total</td><td>${P.length}</td><td></td><td>${f(tot*KGM,1)}</td></tr></table><table class="tb2"><tr><th>Screen</th><th>Panels</th><th>m²</th><th>kg</th></tr>`;
+  Object.keys(SC).forEach((id,i)=>{const L=P.filter(p=>p.sc==id),a=L.reduce((s,p)=>s+area(p),0);h+=`<tr><td>Screen ${i+1}</td><td>${L.length}</td><td>${f(a,2)}</td><td>${f(a*KGM,1)}</td></tr>`});
+  h+=`</table><table class="tb2"><tr><th>Power run</th><th>Panels</th><th>m²</th><th>kg</th></tr>`;R.pw.forEach(r=>{h+=`<tr><td>${chip(PCOL[(r.n-1)%8])}P${r.n}${sub(r)}</td><td>${r.list.length}</td><td>${f(r.area,2)}</td><td>${f(r.area*KGM,1)}</td></tr>`});
+  h+=`</table><small>35 kg per m², excluding cable.</small>`}
+ $('#wbody').innerHTML=h;const a=$('#wpm');if(a){a.onchange=()=>{WPM=+a.value||500;renderWire()};$('#volt').onchange=e=>{VOLT=+e.target.value||230;renderWire()}}}
+function uiX(){if(!uiReady)return;const t=scrT();$('#scb').style.display=t.length?'':'none';
+ SCS.forEach(([k,n,mn,mx,st,s2,u])=>{const e=$('#sc_'+k),v=t.length?+((SC[t[0]][k]||0)*s2).toFixed(2):0;if(+e.value!==v)e.value=v;$('#scv_'+k).textContent=v.toFixed(k==='y'?2:0)+u});
+ $('#sct').textContent=sel.size?'Moves the selected screen':'Moves all screens';drawWire();if(wireOn)renderWire()}
+function setView(b){const s=SC[Object.keys(SC)[0]];bkv=b;spin=false;if(s){th=(s.yaw||0)+(b?Math.PI:0);ph=1.25}}
+function wireToggle(on){wireOn=on;$('#wd').classList.toggle('show',on);$('#bw').classList.toggle('on',on);if(on)setView(true);else if(bkv)setView(false);uiX()}
+$('#bw').onclick=()=>wireToggle(!wireOn);$('#wx').onclick=()=>wireToggle(false);$('#wback').onclick=()=>setView(!bkv);
+document.querySelectorAll('[data-t]').forEach(b=>b.onclick=()=>{wTab=b.dataset.t;document.querySelectorAll('[data-t]').forEach(x=>x.classList.toggle('on',x===b));renderWire()});
+// ---- per-screen looks fitted to each screen, typed numbers, right-click reset, port boxes, sagging cables, add-by-size
+var FMS={},bxObjs=[],dmT=null;
+function fmFor(id){if(!uiReady)return fm;let m=FMS[id];if(!m)m=FMS[id]=new THREE.ShaderMaterial({uniforms:{t:UN.t,br:UN.br,pitch:UN.pitch,mode:{value:0},ext:{value:new THREE.Vector4(0,0,1,1)}},side:THREE.DoubleSide,polygonOffset:true,polygonOffsetFactor:1,polygonOffsetUnits:1,vertexShader:fm.vertexShader,fragmentShader:fm.fragmentShader});m.uniforms.mode.value=(SC[id]&&SC[id].look)||0;return m}
+function calcExt(){if(!uiReady)return;const E={};P.forEach(p=>{const[w,h]=dm(p),e=E[p.sc]||(E[p.sc]=[1e9,1e9,-1e9,-1e9]);e[0]=Math.min(e[0],p.x*G);e[1]=Math.min(e[1],p.y*G);e[2]=Math.max(e[2],(p.x+w)*G);e[3]=Math.max(e[3],(p.y+h)*G)});for(const id in E)fmFor(id).uniforms.ext.value.set(...E[id])}
+function curLook(){const t=scrT();return t.length?(SC[t[0]].look||0):0}
+function spawnX(w){let m=-1e9;for(const id in SC)m=Math.max(m,SC[id].x+ext(id).b);return m<-1e8?0:m+w/2+.5}
+const NVS=[];function numify(e,def,k,dec){const n=document.createElement('input'),w=document.createElement('div');n.type='number';n.className='nv';n.step=String(dec?Math.pow(10,-dec):1);w.className='sw2';e.replaceWith(w);w.append(e,n);
+ const sy=()=>{if(document.activeElement!==n)n.value=(e.value*k).toFixed(dec)};NVS.push(sy);e.addEventListener('input',sy);
+ n.onchange=()=>{snap();e.value=(+n.value)/k;e.dispatchEvent(new Event('input'))};e.oncontextmenu=ev=>{ev.preventDefault();snap();e.value=def;e.dispatchEvent(new Event('input'))};sy()}
+function syncNv(){NVS.forEach(f=>f())}
+BEND.forEach(([k])=>numify($('#s_'+k),0,.225,1));SCS.forEach(([k])=>numify($('#sc_'+k),0,1,k==='y'?2:0));numify($('#br'),100,1,0);
+$('#sflip').onclick=flipIt;
+// black control box on the back: 370x120x80 (500mm panels) or 750x120x80 (1000mm). Power ports near the top (in = left as seen from the back), data ports near the bottom
+function drawWire(){[...wObjs,...bxObjs].forEach(o=>o.parent&&o.parent.remove(o));wObjs=[];bxObjs=[];if(!P.length)return;
+ const R=wireOn?wiring():null,inf={},by={},col={};P.forEach(p=>{inf[p.id]=backInfo(p);(by[p.sc]=by[p.sc]||[]).push(p)});
+ const pp=(p,k,s)=>{const i=inf[p.id],H=dm(p)[1]*G;return i.o.clone().addScaledVector(i.n,-(TK+.085)).addScaledVector(i.tu,s*.07).addScaledVector(i.tv,(k?1:-1)*(H/2-.1))};
+ if(R){R.pw.forEach(r=>r.list.forEach(p=>(col[p.id]=col[p.id]||{}).p=PCOL[(r.n-1)%8]));R.dt.forEach(r=>r.list.forEach(p=>(col[p.id]=col[p.id]||{}).d=DCOL[(r.n-1)%8]))}
+ for(const sid in by){const L=by[sid],g=gm[sid].g,cg=()=>new THREE.BoxGeometry(1,1,1),bx=new THREE.InstancedMesh(cg(),new THREE.MeshBasicMaterial({color:0x060606}),L.length),pw=new THREE.InstancedMesh(cg(),new THREE.MeshBasicMaterial({color:0xffffff}),L.length*2),dt=new THREE.InstancedMesh(cg(),new THREE.MeshBasicMaterial({color:0xffffff}),L.length*2),m=new THREE.Matrix4(),sm=new THREE.Matrix4(),c=new THREE.Color();
+  L.forEach((p,i)=>{const f=inf[p.id],len=dm(p)[1]*G>=1?.75:.37;m.makeBasis(f.tu,f.tv,f.n).setPosition(f.o.clone().addScaledVector(f.n,-(TK+.04)));bx.setMatrixAt(i,m.clone().multiply(sm.makeScale(.12,len,.08)));
+   [[1,pw,'p'],[0,dt,'d']].forEach(([k,im,key])=>[-1,1].forEach((s,j)=>{m.makeBasis(f.tu,f.tv,f.n).setPosition(pp(p,k,s));im.setMatrixAt(i*2+j,m.clone().multiply(sm.makeScale(.045,.045,.045)));im.setColorAt(i*2+j,c.set((col[p.id]&&col[p.id][key])||(k?'#ff7a3d':'#3da5ff')))}))});
+  [bx,pw,dt].forEach(o=>{o.frustumCulled=false;o.instanceMatrix.needsUpdate=true;if(o.instanceColor)o.instanceColor.needsUpdate=true;g.add(o);bxObjs.push(o)})}
+ if(!R)return;
+ const sag=(a,b,dn)=>{const pts=[],dp=Math.min(.14,.03+.06*a.distanceTo(b));for(let i=0;i<=10;i++){const t=i/10;pts.push(a.clone().lerp(b,t).addScaledVector(dn,-dp*4*t*(1-t)))}return pts};
+ const run=(r,cols,k,pre)=>{const c=cols[(r.n-1)%8],g=gm[r.sc].g,L=r.list;let dir=-1;const ln=pts=>{const l=new THREE.Line(new THREE.BufferGeometry().setFromPoints(pts),new THREE.LineBasicMaterial({color:c}));g.add(l);wObjs.push(l)};
+  for(let i=0;i<L.length-1;i++){const a=L[i],b=L[i+1],dx=Math.sign(b.x-a.x);let sa,sb;if(dx){dir=dx;sa=dx;sb=-dx}else sa=sb=dir;ln(sag(pp(a,k,sa),pp(b,k,sb),inf[a.id].tv))}
+  const p0=L[0],a0=pp(p0,k,1),f0=inf[p0.id],h0=a0.clone().addScaledVector(f0.tv,-(p0.y*G+(k?dm(p0)[1]*G-.1:.1)));ln([a0,h0]);
+  const s=lbl(pre+r.n,c);s.position.copy(h0).addScaledVector(f0.tv,.12);g.add(s);wObjs.push(s)};
+ R.pw.forEach(r=>run(r,PCOL,1,'P'));R.dt.forEach(r=>run(r,DCOL,0,'D'))}
+function uiX(){if(!uiReady)return;const t=scrT(),sf=P.filter(p=>sel.has(p.id));
+ $('#ig').classList.toggle('dim',!flexT().length);$('#hg').classList.toggle('dim',!sf.some(p=>p.t==='C45'));$('#sg').classList.toggle('dim',!sf.some(p=>p.t==='C90'));$('#scb').classList.toggle('dim',!t.length);
+ SCS.forEach(([k,n,mn,mx,st,s2,u])=>{const e=$('#sc_'+k),v=t.length?+((SC[t[0]][k]||0)*s2).toFixed(2):0;if(+e.value!==v)e.value=v;$('#scv_'+k).textContent=v.toFixed(k==='y'?2:0)+u});
+ $('#sct').textContent=sel.size?'Moves the selected screen':'Moves all screens';syncNv();drawWire();if(wireOn)renderWire()}
+// right-click a panel icon: add a screen of that type at your size
+const dmInfo=()=>{const T=TY[dmT],c=Math.max(1,Math.round($('#dmw').value/(T.w*G))),h=Math.max(1,Math.round($('#dmh').value/(T.h*G)));$('#dmi').textContent=c+' × '+h+' panels = '+(c*T.w*G).toFixed(2)+' × '+(h*T.h*G).toFixed(2)+' m';return[c,h]};
+document.querySelectorAll('.tile').forEach(b=>b.oncontextmenu=e=>{e.preventDefault();const k=b.dataset.k;if(!TY[k])return;dmT=k;const r=b.getBoundingClientRect(),d=$('#dm');$('#dmt').textContent='Add '+TY[k].l+' screen';d.style.left=(r.right+8)+'px';d.style.top=Math.min(r.top,innerHeight-170)+'px';d.classList.add('show');dmInfo()});
+$('#dmw').oninput=$('#dmh').oninput=dmInfo;$('#dmx').onclick=()=>$('#dm').classList.remove('show');
+$('#dma').onclick=()=>{const[c,h]=dmInfo(),T=TY[dmT];snap();const id=newScreen(spawnX(c*T.w*G),0,0);fill(dmT,c,h,-Math.floor(c*T.w/2),0,id);$('#dm').classList.remove('show');build();fit()};
+addEventListener('pointerdown',e=>{if(!e.target.closest('#dm')&&e.button===0)$('#dm').classList.remove('show')});
+uiReady=1;
 loadCode(urlCode());norm();build();fit();
 </script></body></html>
