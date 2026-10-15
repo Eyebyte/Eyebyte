@@ -45,6 +45,7 @@ body.view #stage{background:radial-gradient(ellipse at 50% 25%,#1d150d,#090604 7
 body.view #shp{top:80px;right:22px;z-index:30}
 @media(max-width:860px){#vinfo{top:82px;left:12px;right:12px;width:auto}#vlook{top:auto;bottom:86px;left:12px;right:12px;width:auto}#vnav{flex-wrap:wrap;justify-content:center;width:calc(100% - 24px);bottom:12px}#vtop{left:12px;right:12px}}
 .logo img{display:block;width:100%;max-width:226px;height:auto}#vtop .logo img{width:320px;max-width:none}@media(max-width:860px){#vtop .logo img{width:190px}}
+body.view #exr{display:none!important}
 .ch{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:5px;vertical-align:-1px}#wd input[type=number]{width:62px;background:#120d09;color:var(--cream);border:1px solid var(--ln);border-radius:5px;padding:2px 4px}#wd small{color:var(--mut);font-size:11px;display:block}
 textarea{width:100%;background:#120d09;color:var(--cream);border:1px solid var(--ln);border-radius:7px;padding:6px;font:11px/1.3 ui-monospace,Menlo,monospace;resize:vertical}
 @media(max-width:720px){body{flex-direction:column-reverse}#side{width:100%;height:42%;border-right:0;border-top:1px solid var(--ln)}#hint{display:none}}
@@ -60,7 +61,7 @@ textarea{width:100%;background:#120d09;color:var(--cream);border:1px solid var(-
 
 </div>
 <div id="stage"><canvas id="c"></canvas>
-<div id="tb"><button id="bu" title="Ctrl+Z">Undo</button><button id="bro" title="R">Rotate</button><button id="bf" title="F">Flip</button><button id="bx" title="Ctrl+X">Cut</button><button id="bcp" title="Ctrl+C">Copy</button><button id="bp" title="Ctrl+V">Paste</button><button id="bst" title="T">Stack</button><button id="bd" title="Delete">Delete</button><button id="ba" title="Ctrl+A">All</button><button id="bfit">Fit</button><button id="bsp">Spin</button><button id="bc">Clear</button><button id="bw">Wiring</button><button id="bshare">Share</button></div><div id="shp"><b style="color:var(--cream)">Share this design</b><textarea id="code" rows="3" spellcheck="false" placeholder="Paste a code here to load a design" style="margin-top:6px"></textarea><div class="row" style="margin-top:6px"><button id="cc">Copy code</button><button id="cl">Copy link</button><button id="ld">Load</button><button id="cvw">View</button></div><small id="cm" style="color:var(--mut);font-size:11px"></small></div><div id="toast"></div><div id="vw"></div><div id="dm"><b id="dmt"></b><div class="row" style="margin-top:6px;align-items:center"><span>W</span><input id="dmw" type="number" step="0.25" min="0.25" value="2.5"><span>H</span><input id="dmh" type="number" step="0.25" min="0.25" value="2"><span>m</span></div><small id="dmi"></small><div class="row" style="margin-top:8px"><button id="dma">Add screen</button><button id="dmx">Cancel</button></div></div><div id="wd"><div class="wh"><b style="color:var(--cream)">Wiring plan</b><span class="row"><button id="wback">Front / back</button><button id="wx">&times;</button></span></div><div id="wsum"></div><div class="row"><button data-t="ov" class="on">Overview</button><button data-t="pw">Power</button><button data-t="dt">Data</button><button data-t="rs">Resolution</button><button data-t="wt">Weight</button></div><div id="wbody"></div></div>
+<div id="tb"><button id="bu" title="Ctrl+Z">Undo</button><button id="bro" title="R">Rotate</button><button id="bf" title="F">Flip</button><button id="bx" title="Ctrl+X">Cut</button><button id="bcp" title="Ctrl+C">Copy</button><button id="bp" title="Ctrl+V">Paste</button><button id="bst" title="T">Stack</button><button id="bd" title="Delete">Delete</button><button id="ba" title="Ctrl+A">All</button><button id="bfit">Fit</button><button id="bsp">Spin</button><button id="bc">Clear</button><button id="bw">Wiring</button><button id="bshare">Share</button></div><div id="shp"><b style="color:var(--cream)">Share this design</b><textarea id="code" rows="3" spellcheck="false" placeholder="Paste a code here to load a design" style="margin-top:6px"></textarea><div class="row" style="margin-top:6px"><button id="cc">Copy code</button><button id="cl">Copy link</button><button id="ld">Load</button><button id="cvw">View</button></div><div class="row" id="exr" style="margin-top:6px"><button id="exf" title="Zip with a to-scale FBX (cm) and LED textures">Export FBX</button><button id="exp" title="LED pixel map with panel numbers, data runs and pixel coordinates">Pixel map PNG</button></div><small id="cm" style="color:var(--mut);font-size:11px"></small></div><div id="toast"></div><div id="vw"></div><div id="dm"><b id="dmt"></b><div class="row" style="margin-top:6px;align-items:center"><span>W</span><input id="dmw" type="number" step="0.25" min="0.25" value="2.5"><span>H</span><input id="dmh" type="number" step="0.25" min="0.25" value="2"><span>m</span></div><small id="dmi"></small><div class="row" style="margin-top:8px"><button id="dma">Add screen</button><button id="dmx">Cancel</button></div></div><div id="wd"><div class="wh"><b style="color:var(--cream)">Wiring plan</b><span class="row"><button id="wback">Front / back</button><button id="wx">&times;</button></span></div><div id="wsum"></div><div class="row"><button data-t="ov" class="on">Overview</button><button data-t="pw">Power</button><button data-t="dt">Data</button><button data-t="rs">Resolution</button><button data-t="wt">Weight</button></div><div id="wbody"></div></div>
 <div id="st"><b id="sz">&mdash;</b><span id="sc"></span></div>
 <div id="hint"><kbd>Click</kbd> place at ghost / select &middot; <kbd>Alt</kbd> new screen on floor<br><kbd>Drag</kbd> orbit &middot; drag a selected panel to move its screen<br><kbd>R</kbd> rotate &middot; <kbd>Del</kbd> &middot; <kbd>Right-click</kbd>/<kbd>Esc</kbd> select tool</div></div>
 <script>/* three.js r128 - MIT - https://threejs.org */
@@ -163,7 +164,7 @@ const cam=new THREE.PerspectiveCamera(45,1,.1,100);
 const UN={t:{value:0},mode:{value:0},br:{value:1},pitch:{value:PX}};
 const fm=new THREE.ShaderMaterial({uniforms:UN,side:THREE.DoubleSide,
 vertexShader:'varying vec2 sv;void main(){sv=uv;gl_Position=projectionMatrix*modelViewMatrix*vec4(position,1.);}',
-fragmentShader:`uniform float t,mode,br,pitch;uniform vec4 ext;varying vec2 sv;
+fragmentShader:`uniform float t,mode,br,pitch,raw;uniform vec4 ext;varying vec2 sv;
 vec3 pal(float s){s=clamp(s,0.,1.);vec3 a=vec3(.05,.01,0.),b=vec3(.62,.2,.05),c=vec3(.95,.62,.16),d=vec3(1.,.93,.65);
 return s<.33?mix(a,b,s*3.):s<.66?mix(b,c,(s-.33)*3.):mix(c,d,(s-.66)*3.);}
 float h(vec2 q){return fract(sin(dot(q,vec2(12.9898,78.233)))*43758.5453);}
@@ -180,7 +181,7 @@ else if(mode<7.5){float cx=floor(p.x*6.),sp=.6+h(vec2(cx,2.)),y=fract(p.y*.3+t*.
 else if(mode<8.5){col=pal(.5+.5*sin((p.x+p.y)*3.-t*2.))*(.6+.4*sin(p.x*.8));}
 else{col=vec3(1.,.93,.8);}
 vec2 g=sv/pitch;float m=1.-smoothstep(.34,.5,length(fract(g)-.5));m=mix(m,.55,smoothstep(.12,.55,fwidth(g.x)));
-gl_FragColor=vec4(col*br*(.14+1.25*m),1.);}`});
+gl_FragColor=vec4(col*br*(raw>.5?1.:(.14+1.25*m)),1.);}`});
 const dk=new THREE.MeshBasicMaterial({color:0x3a3a3e,side:THREE.DoubleSide}),hid=new THREE.MeshBasicMaterial({visible:false});
 const root=new THREE.Group(),mirr=new THREE.Group();mirr.scale.y=-1;sc.add(root,mirr);
 const fl=new THREE.Mesh(new THREE.PlaneGeometry(80,80),new THREE.MeshBasicMaterial({color:0x0c0907,transparent:true,opacity:.84}));fl.rotation.x=-Math.PI/2;fl.position.y=.002;sc.add(fl);
@@ -492,6 +493,76 @@ function openView(){const c=encode();if(!c)return toast('Add some panels first')
  if(w){try{w.document.open();w.document.write(html);w.document.close();toast('Opened View in a new tab');return}catch(e){try{w.close()}catch(x){}}}
  const u=location.href.split('#')[0]+'#view='+c;cp(u);toast('Could not open a tab here \u2014 view link copied')}
 cvs.addEventListener('dblclick',e=>{if(VIEW)return;const a=aim(e);if(a.p){sel=new Set(P.filter(q=>q.sc===a.p.sc).map(q=>q.id));build();toast('Screen selected')}});
+// ---- export: FBX (binary 7.4, centimetres, Y-up, to scale, with LED textures) in a zip, and a PNG pixel map
+const _te=new TextEncoder(),pS=v=>({t:'S',b:_te.encode(v)}),pR=b=>({t:'R',b}),pI=v=>({t:'I',v}),pL=v=>({t:'L',v:BigInt(v)}),pD=v=>({t:'D',v}),pC=v=>({t:'C',v}),pdA=a=>({t:'d',v:a}),piA=a=>({t:'i',v:a}),Nd=(n,p,c)=>({n,p:p||[],c:c||[]});
+const plen=p=>p.t==='S'||p.t==='R'?5+p.b.length:p.t==='I'?5:p.t==='L'||p.t==='D'?9:p.t==='C'?2:13+p.v.length*(p.t==='i'?4:8);
+const nsize=nd=>{let z=13+nd.n.length;nd.p.forEach(p=>z+=plen(p));if(nd.c.length){nd.c.forEach(c=>z+=nsize(c));z+=13}return z};
+function nwrite(dv,u8,o,nd){const st=o,pl=nd.p.reduce((s,p)=>s+plen(p),0);dv.setUint32(o,st+nsize(nd),true);dv.setUint32(o+4,nd.p.length,true);dv.setUint32(o+8,pl,true);dv.setUint8(o+12,nd.n.length);u8.set(_te.encode(nd.n),o+13);o+=13+nd.n.length;
+ nd.p.forEach(p=>{if(p.t==='S'||p.t==='R'){dv.setUint8(o,p.t.charCodeAt(0));dv.setUint32(o+1,p.b.length,true);u8.set(p.b,o+5);o+=5+p.b.length}
+  else if(p.t==='I'){dv.setUint8(o,73);dv.setInt32(o+1,p.v,true);o+=5}else if(p.t==='L'){dv.setUint8(o,76);dv.setBigInt64(o+1,p.v,true);o+=9}else if(p.t==='D'){dv.setUint8(o,68);dv.setFloat64(o+1,p.v,true);o+=9}else if(p.t==='C'){dv.setUint8(o,67);dv.setUint8(o+1,p.v);o+=2}
+  else{const is=p.t==='i',bs=is?4:8;dv.setUint8(o,p.t.charCodeAt(0));dv.setUint32(o+1,p.v.length,true);dv.setUint32(o+5,0,true);dv.setUint32(o+9,p.v.length*bs,true);o+=13;for(let i=0;i<p.v.length;i++){if(is)dv.setInt32(o,p.v[i],true);else dv.setFloat64(o,p.v[i],true);o+=bs}}});
+ nd.c.forEach(c=>{o=nwrite(dv,u8,o,c)});if(nd.c.length)o+=13;return o}
+function fbxBytes(top){const head=27,body=top.reduce((s,n)=>s+nsize(n),0)+13;let ofs=head+body+16+4;const pad=((ofs+15)&~15)-ofs||16,total=ofs+pad+4+120+16,u8=new Uint8Array(total),dv=new DataView(u8.buffer);
+ u8.set(_te.encode('Kaydara FBX Binary  '),0);u8[20]=0;u8[21]=26;u8[22]=0;dv.setUint32(23,7400,true);let o=head;top.forEach(n=>{o=nwrite(dv,u8,o,n)});o+=13;
+ u8.set([0xfa,0xbc,0xab,0x09,0xd0,0xc8,0xd4,0x66,0xb1,0x76,0xfb,0x83,0x1c,0xf7,0x26,0x7e],o);o+=16+4+pad;dv.setUint32(o,7400,true);o+=4+120;
+ u8.set([0xf8,0x5a,0x8c,0x6a,0xde,0xf5,0xd9,0x7e,0xec,0xe9,0x0c,0xe3,0x75,0x8f,0x29,0x0b],o);return u8}
+const PI_=(n,v)=>Nd('P',[pS(n),pS('int'),pS('Integer'),pS(''),pI(v)]),PD_=(n,v)=>Nd('P',[pS(n),pS('double'),pS('Number'),pS(''),pD(v)]),PC_=(n,r,g,b)=>Nd('P',[pS(n),pS('Color'),pS(''),pS('A'),pD(r),pD(g),pD(b)]);
+function scrExt(id){const e=[1e9,1e9,-1e9,-1e9];P.forEach(p=>{if(p.sc!=id)return;const[w,h]=dm(p);e[0]=Math.min(e[0],p.x*G);e[1]=Math.min(e[1],p.y*G);e[2]=Math.max(e[2],(p.x+w)*G);e[3]=Math.max(e[3],(p.y+h)*G)});return e}
+// the LED content of one screen rendered flat at LED resolution (no pixel mask) -> PNG bytes
+function texPng(id){const d=scrDims(id),k=Math.min(1,4096/Math.max(d.px,d.py,1)),W=Math.max(16,Math.round(d.px*k)),H=Math.max(16,Math.round(d.py*k)),e=scrExt(id);
+ try{const m=new THREE.ShaderMaterial({uniforms:{t:UN.t,br:{value:1},pitch:UN.pitch,mode:{value:(SC[id]&&SC[id].look)||0},ext:{value:new THREE.Vector4(...e)},raw:{value:1}},vertexShader:fm.vertexShader,fragmentShader:fm.fragmentShader}),g=new THREE.PlaneGeometry(2,2),uv=g.attributes.uv;
+  for(let i=0;i<uv.count;i++)uv.setXY(i,e[0]+uv.getX(i)*(e[2]-e[0]),e[1]+uv.getY(i)*(e[3]-e[1]));const s2=new THREE.Scene();s2.add(new THREE.Mesh(g,m));const rt=new THREE.WebGLRenderTarget(W,H),buf=new Uint8Array(W*H*4);
+  rd.setRenderTarget(rt);rd.render(s2,new THREE.OrthographicCamera(-1,1,1,-1,0,1));rd.readRenderTargetPixels(rt,0,0,W,H,buf);rd.setRenderTarget(null);rt.dispose();g.dispose();m.dispose();
+  const cv=document.createElement('canvas');cv.width=W;cv.height=H;const cx=cv.getContext('2d'),im=cx.createImageData(W,H);for(let y=0;y<H;y++)im.data.set(buf.subarray((H-1-y)*W*4,(H-y)*W*4),y*W*4);cx.putImageData(im,0,0);
+  return Uint8Array.from(atob(cv.toDataURL('image/png').split(',')[1]),c=>c.charCodeAt(0))}
+ catch(err){return Uint8Array.from(atob('iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwAEhQGAhKmMIQAAAABJRU5ErkJggg=='),c=>c.charCodeAt(0))}}
+function collectFbx(){root.updateMatrixWorld(true);const out=[];Object.keys(SC).forEach((id,si)=>{const L=P.filter(p=>p.sc==id);if(!L.length)return;const e=scrExt(id),V=[],UV=[],I=[],M=[],m4=gm[id].g.matrixWorld,v=new THREE.Vector3();let vo=0;
+ L.forEach(p=>{const[w,h]=dm(p),g=mkGeo(p.sc,p.x,p.y,w,h),pos=g.attributes.position,uv=g.attributes.uv,idx=g.index.array,fc=g.groups[0].count,n=pos.count;
+  for(let i=0;i<n;i++){v.fromBufferAttribute(pos,i).applyMatrix4(m4);V.push(v.x*100,v.y*100,v.z*100);if(i<n/2)UV.push((uv.getX(i)-e[0])/(e[2]-e[0]),(uv.getY(i)-e[1])/(e[3]-e[1]));else UV.push(0,0)}
+  for(let t=0;t<idx.length;t+=3){I.push(vo+idx[t],vo+idx[t+1],vo+idx[t+2]);M.push(t<fc?0:1)}vo+=n;g.dispose()});out.push({id,name:'Screen '+(si+1),V,UV,I,M})});return out}
+function buildFbxPackage(){const S=collectFbx(),files=[],objs=[],conns=[];let nid=1000;const nx=()=>++nid,nm=(n,c)=>pS(n+'\u0000\u0001'+c);
+ S.forEach((s,i)=>{const png=texPng(s.id),fn='textures/screen'+(i+1)+'_led.png',gid=nx(),mid=nx(),m1=nx(),m2=nx(),tid=nx(),vid=nx();files.push({name:fn,data:png});
+  const poly=[];for(let t=0;t<s.I.length;t+=3)poly.push(s.I[t],s.I[t+1],-s.I[t+2]-1);
+  objs.push(Nd('Geometry',[pL(gid),nm(s.name,'Geometry'),pS('Mesh')],[Nd('Properties70'),Nd('GeometryVersion',[pI(124)]),Nd('Vertices',[pdA(s.V)]),Nd('PolygonVertexIndex',[piA(poly)]),
+   Nd('LayerElementUV',[pI(0)],[Nd('Version',[pI(101)]),Nd('Name',[pS('UVMap')]),Nd('MappingInformationType',[pS('ByPolygonVertex')]),Nd('ReferenceInformationType',[pS('IndexToDirect')]),Nd('UV',[pdA(s.UV)]),Nd('UVIndex',[piA(s.I)])]),
+   Nd('LayerElementMaterial',[pI(0)],[Nd('Version',[pI(101)]),Nd('Name',[pS('')]),Nd('MappingInformationType',[pS('ByPolygon')]),Nd('ReferenceInformationType',[pS('IndexToDirect')]),Nd('Materials',[piA(s.M)])]),
+   Nd('Layer',[pI(0)],[Nd('Version',[pI(100)]),Nd('LayerElement',[],[Nd('Type',[pS('LayerElementUV')]),Nd('TypedIndex',[pI(0)])]),Nd('LayerElement',[],[Nd('Type',[pS('LayerElementMaterial')]),Nd('TypedIndex',[pI(0)])])])]));
+  objs.push(Nd('Model',[pL(mid),nm(s.name,'Model'),pS('Mesh')],[Nd('Version',[pI(232)]),Nd('Properties70',[],[Nd('P',[pS('Lcl Translation'),pS('Lcl Translation'),pS(''),pS('A'),pD(0),pD(0),pD(0)]),Nd('P',[pS('Lcl Rotation'),pS('Lcl Rotation'),pS(''),pS('A'),pD(0),pD(0),pD(0)]),Nd('P',[pS('Lcl Scaling'),pS('Lcl Scaling'),pS(''),pS('A'),pD(1),pD(1),pD(1)])]),Nd('Shading',[pC(1)]),Nd('Culling',[pS('CullingOff')])]));
+  objs.push(Nd('Material',[pL(m1),nm(s.name+' LED','Material'),pS('')],[Nd('Version',[pI(102)]),Nd('ShadingModel',[pS('lambert')]),Nd('MultiLayer',[pI(0)]),Nd('Properties70',[],[PC_('DiffuseColor',1,1,1),PC_('EmissiveColor',1,1,1),PD_('EmissiveFactor',1),PD_('DiffuseFactor',1)])]));
+  objs.push(Nd('Material',[pL(m2),nm(s.name+' Housing','Material'),pS('')],[Nd('Version',[pI(102)]),Nd('ShadingModel',[pS('lambert')]),Nd('MultiLayer',[pI(0)]),Nd('Properties70',[],[PC_('DiffuseColor',.23,.23,.25),PD_('DiffuseFactor',1)])]));
+  objs.push(Nd('Texture',[pL(tid),nm(s.name+' LED','Texture'),pS('')],[Nd('Type',[pS('TextureVideoClip')]),Nd('Version',[pI(202)]),Nd('TextureName',[nm(s.name+' LED','Texture')]),Nd('Properties70'),Nd('Media',[nm(s.name+' LED','Video')]),Nd('FileName',[pS(fn)]),Nd('RelativeFilename',[pS(fn)]),Nd('ModelUVTranslation',[pD(0),pD(0)]),Nd('ModelUVScaling',[pD(1),pD(1)]),Nd('Texture_Alpha_Source',[pS('None')]),Nd('Cropping',[pI(0),pI(0),pI(0),pI(0)])]));
+  objs.push(Nd('Video',[pL(vid),nm(s.name+' LED','Video'),pS('Clip')],[Nd('Type',[pS('Clip')]),Nd('Properties70',[],[Nd('P',[pS('Path'),pS('KString'),pS('XRefUrl'),pS(''),pS(fn)])]),Nd('UseMipMap',[pI(0)]),Nd('Filename',[pS(fn)]),Nd('RelativeFilename',[pS(fn)]),Nd('Content',[pR(png)])]));
+  conns.push(Nd('C',[pS('OO'),pL(mid),pL(0)]),Nd('C',[pS('OO'),pL(gid),pL(mid)]),Nd('C',[pS('OO'),pL(m1),pL(mid)]),Nd('C',[pS('OO'),pL(m2),pL(mid)]),Nd('C',[pS('OP'),pL(tid),pL(m1),pS('DiffuseColor')]),Nd('C',[pS('OP'),pL(tid),pL(m1),pS('EmissiveColor')]),Nd('C',[pS('OO'),pL(vid),pL(tid)]))});
+ const n=S.length,ot=(a,c)=>Nd('ObjectType',[pS(a)],[Nd('Count',[pI(c)])]);
+ const top=[Nd('FBXHeaderExtension',[],[Nd('FBXHeaderVersion',[pI(1003)]),Nd('FBXVersion',[pI(7400)]),Nd('Creator',[pS('Eyebyte Screen Builder')])]),
+  Nd('GlobalSettings',[],[Nd('Version',[pI(1000)]),Nd('Properties70',[],[PI_('UpAxis',1),PI_('UpAxisSign',1),PI_('FrontAxis',2),PI_('FrontAxisSign',1),PI_('CoordAxis',0),PI_('CoordAxisSign',1),PI_('OriginalUpAxis',1),PI_('OriginalUpAxisSign',1),PD_('UnitScaleFactor',1),PD_('OriginalUnitScaleFactor',1)])]),
+  Nd('Documents',[],[Nd('Count',[pI(1)]),Nd('Document',[pL(900000),pS('Scene'),pS('Scene')],[Nd('Properties70'),Nd('RootNode',[pL(0)])])]),Nd('References'),
+  Nd('Definitions',[],[Nd('Version',[pI(100)]),Nd('Count',[pI(1+n*6)]),ot('GlobalSettings',1),ot('Model',n),ot('Geometry',n),ot('Material',n*2),ot('Texture',n),ot('Video',n)]),
+  Nd('Objects',[],objs),Nd('Connections',[],conns)];
+ files.unshift({name:'eyebyte-screens.fbx',data:fbxBytes(top)},{name:'README.txt',data:_te.encode('Eyebyte screens - FBX 7.4 binary\r\nUnits: centimetres (1 unit = 1 cm), Y-up, true size.\r\nEach screen is one mesh with two materials: LED (textured with the current look, UV 0-1 across the screen) and Housing (dark grey, 80 mm deep panels).\r\nTextures are embedded in the FBX and also supplied in /textures.\r\n')});return files}
+const CRC=(()=>{const t=[];for(let n=0;n<256;n++){let c=n;for(let k=0;k<8;k++)c=c&1?0xEDB88320^(c>>>1):c>>>1;t[n]=c>>>0}return t})(),crc32=u=>{let c=-1;for(let i=0;i<u.length;i++)c=CRC[(c^u[i])&255]^(c>>>8);return(c^-1)>>>0};
+function zipStore(files){const enc=new TextEncoder(),ch=[],cd=[];let off=0;files.forEach(f=>{const n=enc.encode(f.name),crc=crc32(f.data),h=new DataView(new ArrayBuffer(30)),c=new DataView(new ArrayBuffer(46));
+ h.setUint32(0,0x04034b50,true);h.setUint16(4,20,true);h.setUint16(12,0x21,true);h.setUint32(14,crc,true);h.setUint32(18,f.data.length,true);h.setUint32(22,f.data.length,true);h.setUint16(26,n.length,true);
+ c.setUint32(0,0x02014b50,true);c.setUint16(4,20,true);c.setUint16(6,20,true);c.setUint16(14,0x21,true);c.setUint32(16,crc,true);c.setUint32(20,f.data.length,true);c.setUint32(24,f.data.length,true);c.setUint16(28,n.length,true);c.setUint32(42,off,true);
+ ch.push(new Uint8Array(h.buffer),n,f.data);cd.push(new Uint8Array(c.buffer),n);off+=30+n.length+f.data.length});
+ const e=new DataView(new ArrayBuffer(22));e.setUint32(0,0x06054b50,true);e.setUint16(8,files.length,true);e.setUint16(10,files.length,true);e.setUint32(12,cd.reduce((s,a)=>s+a.length,0),true);e.setUint32(16,off,true);return new Blob([...ch,...cd,new Uint8Array(e.buffer)],{type:'application/zip'})}
+function dl(blob,name){const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=name;document.body.appendChild(a);a.click();setTimeout(()=>{URL.revokeObjectURL(a.href);a.remove()},3000)}
+function exportFBX(){if(!P.length)return toast('Add some panels first');toast('Building FBX\u2026');setTimeout(()=>{try{dl(zipStore(buildFbxPackage()),'eyebyte-screens-fbx.zip');toast('FBX exported \u2014 centimetres, to scale, with textures')}catch(e){toast('Export failed: '+e.message)}},40)}
+// pixel map: LED-pixel accurate layout; panel tiles coloured by data run, numbered in cable order, with pixel coordinates and the data path
+function pixelMapCanvas(){const R=wiring(),ids=Object.keys(SC),info={},K=168/.5;R.dt.forEach(r=>r.list.forEach((p,i)=>info[p.id]={run:r.n,i:i+1,r}));
+ const sc2=ids.map(id=>({id,d:scrDims(id)})),maxW=Math.max(...sc2.map(s=>s.d.px)),totH=sc2.reduce((a,s)=>a+s.d.py+110,60),k=Math.min(1,8192/maxW,16000/totH),W=Math.max(1000,Math.round(maxW*k)+80),H=Math.round(sc2.reduce((a,s)=>a+s.d.py*k+110,60)),cv=document.createElement('canvas');cv.width=W;cv.height=H;
+ const x=cv.getContext('2d');x.fillStyle='#000';x.fillRect(0,0,W,H);let oy=24;
+ sc2.forEach((s,si)=>{const d=s.d,L=P.filter(p=>p.sc==s.id);let a=1e9,e=-1e9;L.forEach(p=>{const[w,h]=dm(p);a=Math.min(a,p.x);e=Math.max(e,p.y+h)});
+  x.fillStyle='#d9a441';x.font='bold 26px sans-serif';x.textBaseline='alphabetic';x.fillText('Screen '+(si+1)+'  \u2014  '+d.px+' \u00d7 '+d.py+' px  \u00b7  '+d.w.toFixed(2)+' \u00d7 '+d.h.toFixed(2)+' m  \u00b7  '+L.length+' panels  \u00b7  P2.9',40,oy+26);const top=oy+50,pos={};
+  L.forEach(p=>{const[w,h]=dm(p),X=40+(p.x-a)*G*K*k,Y=top+(e-(p.y+h))*G*K*k,Wp=w*G*K*k,Hp=h*G*K*k,f=info[p.id],col=f?DCOL[(f.run-1)%8]:'#888';pos[p.id]=[X+Wp/2,Y+Hp/2];
+   x.globalAlpha=.4;x.fillStyle=col;x.fillRect(X,Y,Wp,Hp);x.globalAlpha=1;x.strokeStyle='#fff';x.lineWidth=2;x.strokeRect(X+1,Y+1,Wp-2,Hp-2);
+   if(Wp>56&&Hp>40){const m=Math.min(Wp,Hp);x.fillStyle='#fff';x.textAlign='center';x.textBaseline='middle';x.font='bold '+Math.round(m*.3)+'px sans-serif';x.fillText(f?f.i:'',X+Wp/2,Y+Hp/2);
+    x.textAlign='left';x.textBaseline='top';x.font=Math.max(9,Math.round(m*.1))+'px sans-serif';x.fillStyle='#ffe9a8';x.fillText(Math.round((p.x-a)*G*K)+','+Math.round((e-(p.y+h))*G*K),X+5,Y+4);x.textAlign='right';x.fillStyle=col;x.fillText(f?'D'+f.run:'',X+Wp-5,Y+4)}});
+  R.dt.filter(r=>r.sc==s.id).forEach(r=>{const c=DCOL[(r.n-1)%8];x.strokeStyle='#fff';x.fillStyle='#fff';x.lineWidth=2;r.list.forEach((p,i)=>{if(!i)return;const A=pos[r.list[i-1].id],B=pos[p.id],an=Math.atan2(B[1]-A[1],B[0]-A[0]),mx=(A[0]+B[0])/2,my=(A[1]+B[1])/2;x.beginPath();x.moveTo(A[0],A[1]);x.lineTo(B[0],B[1]);x.stroke();x.beginPath();x.moveTo(mx+10*Math.cos(an),my+10*Math.sin(an));x.lineTo(mx-8*Math.cos(an)+7*Math.sin(an),my-8*Math.sin(an)-7*Math.cos(an));x.lineTo(mx-8*Math.cos(an)-7*Math.sin(an),my-8*Math.sin(an)+7*Math.cos(an));x.fill()});
+   const p0=pos[r.list[0].id];x.fillStyle='#30d158';x.beginPath();x.arc(p0[0],p0[1],9,0,7);x.fill()});
+  oy=top+d.py*k+36});return cv}
+function exportPixelMap(){if(!P.length)return toast('Add some panels first');try{pixelMapCanvas().toBlob(b=>{dl(b,'eyebyte-pixel-map.png');toast('Pixel map exported')})}catch(e){toast('Export failed: '+e.message)}}
+$('#exf').onclick=exportFBX;$('#exp').onclick=exportPixelMap;
 uiReady=1;
 loadCode(urlCode());norm();if(VIEW)buildView();build();fit();
 </script></body></html>

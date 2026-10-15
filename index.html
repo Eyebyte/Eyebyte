@@ -103,13 +103,13 @@
     .work-grid { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
     .work-card { min-height:380px; position:relative; overflow:hidden; background:#171a1f; border:1px solid rgba(255,255,255,.1); isolation:isolate; }
     .work-card:first-child { grid-column:span 2; min-height:480px; }
-    .work-img { position:absolute; inset:0; z-index:-2; background-position:center; background-size:cover; transition:transform .7s cubic-bezier(.2,.8,.2,1), filter .7s ease; filter:grayscale(.25) saturate(.75); }
+    .work-img { position:absolute; inset:0; z-index:0; background-position:center; background-size:cover; transition:transform .7s cubic-bezier(.2,.8,.2,1), filter .7s ease, opacity .35s ease; filter:grayscale(.25) saturate(.75); }
     .work-card:hover .work-img { transform:scale(1.04); filter:grayscale(0) saturate(1); }
-    .work-card::after { content:""; position:absolute; inset:0; z-index:-1; background:linear-gradient(0deg,rgba(5,6,8,.94),rgba(5,6,8,.15) 72%),linear-gradient(90deg,rgba(5,6,8,.2),transparent); }
+    .work-card::after { content:""; position:absolute; inset:0; z-index:2; pointer-events:none; background:linear-gradient(0deg,rgba(5,6,8,.94),rgba(5,6,8,.15) 72%),linear-gradient(90deg,rgba(5,6,8,.2),transparent); }
     .work-card:nth-child(1) .work-img { background-image:url('https://images.unsplash.com/photo-1506157786151-b8491531f063?auto=format&fit=crop&w=1800&q=85'); }
     .work-card:nth-child(2) .work-img { background-image:url('https://images.unsplash.com/photo-1501386761578-eac5c94b800a?auto=format&fit=crop&w=1100&q=85'); }
     .work-card:nth-child(3) .work-img { background-image:url('https://images.unsplash.com/photo-1507874457470-272b3c8d8ee2?auto=format&fit=crop&w=1100&q=85'); }
-    .work-content { position:absolute; left:clamp(20px,3vw,42px); right:clamp(20px,3vw,42px); bottom:clamp(22px,3vw,40px); display:flex; justify-content:space-between; align-items:flex-end; gap:24px; }
+    .work-content { position:absolute; z-index:3; left:clamp(20px,3vw,42px); right:clamp(20px,3vw,42px); bottom:clamp(22px,3vw,40px); display:flex; justify-content:space-between; align-items:flex-end; gap:24px; }
     .work-info { max-width:650px; }
     .card-index { color:var(--acid); font-size:10px; margin-bottom:12px; }
     .work-card h3 { font:700 clamp(34px,5vw,62px)/.95 'Barlow Condensed',sans-serif; text-transform:uppercase; margin:0 0 11px; letter-spacing:-.015em; }
@@ -594,7 +594,7 @@
     .media-loop { background:transparent; }
     .hero-loop { position:absolute; inset:5% 4% 8% 6%; width:90%; height:87%; object-fit:cover; clip-path:polygon(14% 0,100% 0,100% 86%,82% 100%,0 100%,0 16%); z-index:-1; opacity:0; transition:opacity .6s ease; }
     .hero-visual.has-video .hero-loop { opacity:1; }
-    .work-card .work-loop { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; z-index:-2; opacity:0; transition:opacity .7s ease,transform .7s ease; }
+    .work-card .work-loop { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center; z-index:1; opacity:1; display:block; background:#171a1f; transition:transform .7s ease; }
     .work-card.has-video .work-loop { opacity:1; }
     .work-card.has-video .work-img { opacity:0; }
     .work-card:hover .work-loop { transform:scale(1.035); }
@@ -653,7 +653,6 @@
     }
     @media (prefers-reduced-motion: reduce) {
       .circuit-live,.circuit-edge-overlay,.circuit-current,.circuit-corner-ticks,.visual-cross svg *, .statement-stamp::before,.stamp-live-dot { animation:none !important; }
-      .media-loop { display:none; }
       .cap-video-panel,.step-video-panel { transition:none; }
     }
 
@@ -725,7 +724,8 @@
       .stamp-main { font-size:27px; }
     }
     @media (prefers-reduced-motion: reduce) {
-      .media-loop,.hover-loop { display:none !important; }
+      /* Keep user-requested video content visible; reduce only interface animation. */
+      .circuit-live,.circuit-edge-overlay,.circuit-current,.circuit-corner-ticks { animation:none !important; }
     }
 
 
@@ -883,7 +883,8 @@
     }
     @media (prefers-reduced-motion: reduce) {
       .circuit-live,.circuit-edge-overlay,.circuit-corner-ticks,
-      .visual-cross svg *, .media-loop, .hover-loop { animation:none !important; }
+      .visual-cross svg * { animation:none !important; }
+      /* Pillar videos are content requested by the site owner: don't hide them. */
       .cap > .cap-video-panel, .step > .step-video-panel { transition:none !important; }
     }
 
@@ -1485,6 +1486,19 @@
       .circuit-live { transform:none !important; }
     }
 
+
+    /* Supplied pillar videos are portrait 4:5, so keep each card on the same canvas. */
+    .work-grid { grid-template-columns:repeat(3,minmax(0,1fr)); align-items:stretch; }
+    .work-card, .work-card:first-child { grid-column:auto; width:100%; min-width:0; min-height:0; height:auto; aspect-ratio:4 / 5; }
+    .work-card .work-loop { object-fit:cover; object-position:center; }
+    @media (max-width:980px) and (min-width:701px) {
+      .work-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
+      .work-card, .work-card:first-child { grid-column:auto; min-height:0; height:auto; aspect-ratio:4 / 5; }
+    }
+    @media (max-width:700px) {
+      .work-grid { grid-template-columns:minmax(0,1fr); }
+      .work-card, .work-card:first-child { grid-column:auto; min-height:0; height:auto; aspect-ratio:4 / 5; }
+    }
   </style>
 </head>
 <body>
@@ -1572,7 +1586,7 @@
         </div>
         <div class="hero-visual circuit-box" aria-label="Live visual systems video loop">
           <div class="hero-photo" role="img" aria-label="Crowd and stage at a live music event"></div>
-          <video class="media-loop hero-loop" data-video-src="assets/videos/hero-independent-visual-systems.mp4" poster="assets/images/hero-poster.webp" data-autoload="true" muted autoplay loop playsinline preload="auto" aria-hidden="true"></video>
+          <video class="media-loop hero-loop" data-video-src="assets/video/hero-independent-visual-systems.mp4" poster="assets/images/hero-poster.webp" data-autoload="true" muted autoplay loop playsinline preload="auto" aria-hidden="true"></video>
           <div class="hero-orbit"></div>
           <div class="visual-cross" aria-label="Eyebyte EB hexagonal mark">
             <svg viewBox="0 0 120 104" aria-hidden="true" focusable="false">
@@ -1606,17 +1620,17 @@
         <div class="work-grid">
           <a class="work-card reveal circuit-box" href="#contact" aria-label="Explore Eyebyte live performance">
             <div class="work-img" role="img" aria-label="Immersive live event stage and audience"></div>
-            <video class="media-loop work-loop" data-video-src="assets/videos/pillar-live-performance.mp4" poster="assets/images/pillar-live-performance-poster.webp" data-autoload="true" muted autoplay loop playsinline preload="auto" aria-hidden="true"></video>
+            <video class="media-loop work-loop" src="assets/video/performance.mp4" data-video-src="assets/video/performance.mp4" data-autoload="true" muted autoplay loop playsinline preload="auto" aria-hidden="true"></video>
             <div class="work-content"><div class="work-info"><div class="card-index">01 — Live performance</div><h3>Read the room.<br>Move the crowd.</h3><p>World-class live video artistry, performed in real time—reading the music, shaping the energy and turning the screens into part of the show.</p></div><span class="round-link" aria-hidden="true">↗</span></div>
           </a>
           <a class="work-card reveal delay-1 circuit-box" href="#contact" aria-label="Explore Eyebyte modular LED hardware">
             <div class="work-img" role="img" aria-label="Colour and movement at a festival performance"></div>
-            <video class="media-loop work-loop" data-video-src="assets/videos/pillar-modular-led-hardware.mp4" poster="assets/images/pillar-modular-led-hardware-poster.webp" data-autoload="true" muted autoplay loop playsinline preload="auto" aria-hidden="true"></video>
+            <video class="media-loop work-loop" src="assets/video/hardware.mp4" data-video-src="assets/video/hardware.mp4" data-autoload="true" muted autoplay loop playsinline preload="auto" aria-hidden="true"></video>
             <div class="work-content"><div class="work-info"><div class="card-index">02 — Modular LED hardware</div><h3>More than<br>a rectangle.</h3><p>Bespoke modular LED configurations that adapt to the space, design and event. Unusual formats, versatile systems, more possibilities.</p></div><span class="round-link" aria-hidden="true">↗</span></div>
           </a>
           <a class="work-card reveal delay-2 circuit-box" href="#contact" aria-label="Explore Eyebyte content and real-time effects">
             <div class="work-img" role="img" aria-label="Electronic music crowd and concert lighting"></div>
-            <video class="media-loop work-loop" data-video-src="assets/videos/pillar-content-library-effects.mp4" poster="assets/images/pillar-content-library-effects-poster.webp" data-autoload="true" muted autoplay loop playsinline preload="auto" aria-hidden="true"></video>
+            <video class="media-loop work-loop" src="assets/video/content.mp4" data-video-src="assets/video/content.mp4" data-autoload="true" muted autoplay loop playsinline preload="auto" aria-hidden="true"></video>
             <div class="work-content"><div class="work-info"><div class="card-index">03 — Content &amp; real-time effects</div><h3>Built to hit<br>different.</h3><p>A massive Eyebyte visual library, bespoke event content and real-time effects—ready to combine, bend and respond live.</p></div><span class="round-link" aria-hidden="true">↗</span></div>
           </a>
         </div>
@@ -1667,7 +1681,7 @@
       <div class="wrap hardware-grid">
         <div class="hardware-visual reveal circuit-box" aria-label="Eyebyte high-resolution, curved modular LED hardware video loop">
           <div class="led-wall" aria-hidden="true"><span style="--i:0"></span><span style="--i:1"></span><span style="--i:2"></span><span style="--i:3"></span><span style="--i:4"></span><span style="--i:5"></span><span style="--i:6"></span><span style="--i:7"></span><span style="--i:8"></span><span style="--i:9"></span><span style="--i:10"></span><span style="--i:11"></span><span style="--i:12"></span><span style="--i:13"></span><span style="--i:14"></span><span style="--i:15"></span><span style="--i:16"></span><span style="--i:17"></span><span style="--i:18"></span><span style="--i:19"></span><span style="--i:20"></span><span style="--i:21"></span><span style="--i:22"></span><span style="--i:23"></span><span style="--i:24"></span><span style="--i:25"></span><span style="--i:26"></span><span style="--i:27"></span><span style="--i:28"></span><span style="--i:29"></span></div>
-          <video class="media-loop hardware-loop" data-video-src="assets/videos/hardware-resolution-curved-led.mp4" poster="assets/images/hardware-led-poster.webp" data-load-visible="true" muted loop playsinline preload="none" aria-hidden="true"></video>
+          <video class="media-loop hardware-loop" data-video-src="assets/video/hardware-resolution-curved-led.mp4" poster="assets/images/hardware-led-poster.webp" data-load-visible="true" muted loop playsinline preload="none" aria-hidden="true"></video>
           <div class="hardware-caption">High resolution / Flexible by design / Ready for the field</div>
         </div>
         <div class="hardware-copy reveal delay-1">
@@ -2004,15 +2018,26 @@
       });
     });
 
-    // Attach local video sources only when needed. Hero and the three work
-    // loops start immediately; hardware/contact loops load near the viewport;
-    // capability tile previews play only while their tile is active.
+    // Attach local video sources. The three Eyebyte pillar videos must start
+    // immediately and loop continuously, even when their cards are off-screen.
+    // Hardware/contact media remains viewport-loaded to keep non-pillar media light.
     const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     function attachSource(video) {
       if (!video || video.dataset.sourceAttached === 'true') return;
-      const src = video.dataset.videoSrc;
-      if (!src) return;
-      video.src = src;
+      const src = video.dataset.videoSrc || video.getAttribute('src');
+      if (!src) {
+        console.error('[Eyebyte video] No video source configured for', video);
+        return;
+      }
+      // Set an explicit relative URL and call load() before play(). This avoids
+      // relying only on the browser's parser/preload timing for background loops.
+      if (video.getAttribute('src') !== src) video.setAttribute('src', src);
+      video.muted = true;
+      video.defaultMuted = true;
+      video.loop = true;
+      video.autoplay = true;
+      video.playsInline = true;
+      video.preload = 'auto';
       video.dataset.sourceAttached = 'true';
       video.load();
     }
@@ -2024,18 +2049,32 @@
     }
     document.querySelectorAll('.media-loop, .hover-loop').forEach(video => {
       video.muted = true;
+      video.defaultMuted = true;
       video.loop = true;
       video.playsInline = true;
-      video.addEventListener('canplay', () => markReady(video));
+      video.addEventListener('canplay', () => {
+        // Non-pillar visuals can be revealed as soon as decoded data is available.
+        // Pillar cards wait for `playing`, otherwise a blocked autoplay looks like a frozen first frame.
+        if (!video.classList.contains('work-loop')) markReady(video);
+      });
+      video.addEventListener('playing', () => {
+        markReady(video);
+        video.dataset.playbackState = 'playing';
+        delete video.dataset.playbackError;
+      });
       video.addEventListener('error', () => {
         const panel = video.closest('.cap-video-panel, .step-video-panel, .contact-media');
         if (panel) panel.classList.remove('video-ready');
+        const err = video.error;
+        video.dataset.playbackState = 'error';
+        console.error('[Eyebyte video] Failed to load/play:', video.currentSrc || video.dataset.videoSrc || '(missing src)', err ? `MediaError ${err.code}: ${err.message || ''}` : 'unknown media error', {readyState:video.readyState, networkState:video.networkState, currentTime:video.currentTime, duration:video.duration});
       });
     });
     const eyebyteConnection = navigator.connection || navigator.mozConnection || navigator.webkitConnection || null;
     const eyebyteLowData = Boolean(eyebyteConnection && (eyebyteConnection.saveData || /(^|-)2g$/i.test(eyebyteConnection.effectiveType || '')));
     const eyebyteSmallViewport = window.matchMedia('(max-width:700px)').matches;
-    // Hero media starts first. Large work videos are deferred until near the viewport to keep mobile startup quick.
+
+    // Hero media follows the site's motion/data preferences.
     if (!reducedMotion && !eyebyteLowData) {
       document.querySelectorAll('.media-loop[data-autoload="true"]:not(.work-loop)').forEach(video => {
         attachSource(video);
@@ -2043,25 +2082,85 @@
       });
     }
 
+    // Pillar videos: start immediately, continuously loop, and retry on media-ready,
+    // tab-return and first user interaction. Never pause these three videos on scroll.
+    const pillarLoops = [...document.querySelectorAll('.media-loop.work-loop[data-autoload="true"]')];
+    function attemptPillarPlayback(video) {
+      if (!video || document.visibilityState === 'hidden') return;
+      if ((!video.paused && !video.ended) || video.dataset.playPending === 'true') return;
+      video.muted = true;
+      video.defaultMuted = true;
+      video.loop = true;
+      video.autoplay = true;
+      video.playsInline = true;
+      video.dataset.playPending = 'true';
+      let promise;
+      try { promise = video.play(); }
+      catch (error) {
+        delete video.dataset.playPending;
+        video.dataset.playbackState = 'error';
+        console.error('[Eyebyte video] Playback threw for', video.currentSrc || video.dataset.videoSrc, error);
+        return;
+      }
+      if (promise && typeof promise.then === 'function') {
+        promise.then(() => {
+          video.dataset.playbackState = 'playing';
+          delete video.dataset.playbackError;
+        }).catch(error => {
+          video.dataset.playbackState = 'blocked';
+          video.dataset.playbackError = error && error.name ? error.name : 'play-rejected';
+          console.warn('[Eyebyte video] Autoplay was rejected for', video.currentSrc || video.dataset.videoSrc, error);
+          // Some mobile/browser policies require the first user gesture before playback.
+          const retryFromGesture = () => attemptPillarPlayback(video);
+          window.addEventListener('pointerdown', retryFromGesture, { once:true, passive:true });
+          window.addEventListener('touchstart', retryFromGesture, { once:true, passive:true });
+          window.addEventListener('keydown', retryFromGesture, { once:true });
+        }).finally(() => { delete video.dataset.playPending; });
+      } else {
+        delete video.dataset.playPending;
+      }
+    }
+    pillarLoops.forEach(video => {
+      video.setAttribute('autoplay', '');
+      video.setAttribute('muted', '');
+      video.setAttribute('loop', '');
+      video.setAttribute('playsinline', '');
+      video.preload = 'auto';
+      attachSource(video);
+      ['loadeddata','canplay','canplaythrough'].forEach(eventName => {
+        video.addEventListener(eventName, () => attemptPillarPlayback(video));
+      });
+      video.addEventListener('ended', () => {
+        if (video.loop) {
+          try { video.currentTime = 0; } catch (_) {}
+          attemptPillarPlayback(video);
+        }
+      });
+      // Explicit retry for page restores / mobile app switching; scrolling never pauses a pillar loop.
+      attemptPillarPlayback(video);
+    });
+    document.addEventListener('visibilitychange', () => {
+      if (document.visibilityState === 'visible') pillarLoops.forEach(attemptPillarPlayback);
+    });
+    window.addEventListener('pageshow', () => pillarLoops.forEach(attemptPillarPlayback));
+
+    // Only the larger hardware loop loads near the viewport. Pillar loops are
+    // deliberately excluded from this observer so scrolling never stops them.
     if ('IntersectionObserver' in window) {
       const lazyObserver = new IntersectionObserver(entries => {
         entries.forEach(entry => {
           const video = entry.target;
-          if (entry.isIntersecting) {
-            if (!eyebyteLowData) {
-              attachSource(video);
-              if (!reducedMotion) video.play().catch(() => {});
-            }
-          } else if (video.classList.contains('work-loop')) {
-            video.pause();
+          if (entry.isIntersecting && !eyebyteLowData) {
+            attachSource(video);
+            if (!reducedMotion) video.play().catch(() => {});
           }
         });
       }, { rootMargin: eyebyteSmallViewport ? '100px 0px' : '220px 0px', threshold:0.01 });
       if (!reducedMotion) {
-        document.querySelectorAll('.media-loop[data-load-visible="true"], .media-loop.work-loop').forEach(video => lazyObserver.observe(video));
+        document.querySelectorAll('.media-loop[data-load-visible="true"]').forEach(video => lazyObserver.observe(video));
       }
     } else if (!reducedMotion && !eyebyteLowData) {
-      document.querySelectorAll('.media-loop[data-load-visible="true"], .media-loop.work-loop').forEach(video => {
+      document.querySelectorAll('.media-loop[data-load-visible="true"]').forEach(video => {
         attachSource(video);
         video.play().catch(() => {});
       });

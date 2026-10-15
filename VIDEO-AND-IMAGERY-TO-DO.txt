@@ -34,11 +34,11 @@ STILL IMAGE MASTER FORMAT
 
 1. HERO — OPENING VIDEO
 -----------------------
-[ ] Filename: assets/videos/hero-independent-visual-systems.mp4
+[ ] Filename: assets/video/hero-independent-visual-systems.mp4
     Dimensions: 1440 x 1800 px | Ratio: 4:5 portrait
     Codec/bitrate: H.264 High, yuv420p, 25 or 30 fps, VBR target 8–10 Mbps, max ~12 Mbps
     Duration: 8–12 sec, seamless loop, silent
-    Playback: starts automatically, muted, loops on page load
+    Playback: starts immediately on page load, muted, loops continuously; does not pause when off-screen
     Content direction: make an immediate statement about Eyebyte. Show world-class live visual performance, custom LED architecture and high-resolution content. Strong graphic composition, deliberate movement, black/dark negative space, rust-gold signal accents. Avoid a generic concert montage. Leave the upper-right and outside edges visually calm because the EB badge/frames and responsive crop may overlap.
 [ ] Poster image: assets/images/hero-poster.webp
     Dimensions: 1440 x 1800 px | WebP, quality 82, sRGB
@@ -46,22 +46,19 @@ STILL IMAGE MASTER FORMAT
 
 2. SECTION 01 — THREE PILLARS: LIVE PERFORMANCE / HARDWARE / CONTENT
 --------------------------------------------------------------------
-All three videos: 1920 x 1080 px | 16:9 | MP4 H.264 High | yuv420p | 25 or 30 fps | VBR target 6–8 Mbps, max ~10 Mbps | silent | 8–12 sec seamless loop.
+The three pillar loops are specified as 1440 x 1800 px | 4:5 portrait | MP4 H.264/AVC High | yuv420p | 25 or 30 fps | recommended VBR target 8–10 Mbps, max ~12 Mbps | silent | seamless loop. The matching cards use 4:5 aspect ratio so the media is not cropped. In the website, these three files start immediately on page load, muted, and loop continuously without being paused when off-screen.
 
-[ ] Video 01: assets/videos/pillar-live-performance.mp4
-    Theme: elite live VJ performance. Include control/performance context and the scale of visuals responding to music and crowd. Communicate skill and instinct, not just crowd shots.
-[ ] Poster 01: assets/images/pillar-live-performance-poster.webp
-    Dimensions: 1920 x 1080 px | WebP quality 82. Choose a frame from the matching video.
+[✓] Website mapped to: assets/video/performance.mp4 — “Read the room. Move the crowd.”
+[✓] Website mapped to: assets/video/hardware.mp4 — “More than a rectangle.”
+[✓] Website mapped to: assets/video/content.mp4 — “Built to hit different.”
+[ ] Confirm the three MP4 binaries are present in assets/video/ before deployment; they were not present in the working folder used to prepare this package.
+[ ] Optional poster: assets/images/performance-poster.webp — 1440 x 1800 px, 4:5, WebP quality 82. Not required; the image fallback remains visible until the video is ready.
 
-[ ] Video 02: assets/videos/pillar-modular-led-hardware.mp4
-    Theme: bespoke modular LED. Show non-standard screen shapes, modular layouts, real curved panels and a sense of physical scale. Prioritize close-up resolution and structure, not just a wide festival shot.
-[ ] Poster 02: assets/images/pillar-modular-led-hardware-poster.webp
-    Dimensions: 1920 x 1080 px | WebP quality 82. Choose a frame from the matching video.
+[✓] Website mapped to: assets/video/hardware.mp4 — “More than a rectangle.” The MP4 itself was not available in the working package at edit time; ensure the supplied file is copied into this path before deployment.
+[ ] Optional poster: assets/images/hardware-poster.webp — 1440 x 1800 px, 4:5, WebP quality 82. Not required; the image fallback remains visible until the video is ready.
 
-[ ] Video 03: assets/videos/pillar-content-library-effects.mp4
-    Theme: bespoke content, large Eyebyte visual library and live real-time effects. Show varied content looks morphing/combining coherently; keep it purposeful rather than random effects for effects' sake.
-[ ] Poster 03: assets/images/pillar-content-library-effects-poster.webp
-    Dimensions: 1920 x 1080 px | WebP quality 82. Choose a frame from the matching video.
+[✓] Website mapped to: assets/video/content.mp4 — “Built to hit different.” The MP4 itself was not available in the working package at edit time; ensure the supplied file is copied into this path before deployment.
+[ ] Optional poster: assets/images/content-poster.webp — 1440 x 1800 px, 4:5, WebP quality 82. Not required; the image fallback remains visible until the video is ready.
 
 3. SECTION 02 — ESTABLISHED 1995 / EXPERIENCE GRAPHIC
 ----------------------------------------------------
@@ -84,7 +81,7 @@ The tile image fades in BEHIND the copy on hover, keyboard focus or tap. Composi
 
 5. SECTION 04 — EYEBYTE HARDWARE VIDEO (LEFT SIDE)
 --------------------------------------------------
-[ ] Video: assets/videos/hardware-resolution-curved-led.mp4
+[ ] Video: assets/video/hardware-resolution-curved-led.mp4
     Dimensions: 1440 x 1200 px | Ratio: 6:5 landscape
     Codec/bitrate: H.264 High, yuv420p, 25 or 30 fps, VBR target 8–10 Mbps, max ~12 Mbps
     Duration: 8–12 sec, silent seamless loop
