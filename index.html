@@ -3,6 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
   <meta name="theme-color" content="#111214">
   <meta name="description" content="Eyebyte combines world-class live video performance, bespoke modular LED hardware and custom event content. Innovative visual systems, established 1995.">
   <meta property="og:title" content="Eyebyte — Live Visuals. Built to Impress.">
@@ -1499,6 +1500,230 @@
       .work-grid { grid-template-columns:minmax(0,1fr); }
       .work-card, .work-card:first-child { grid-column:auto; min-height:0; height:auto; aspect-ratio:4 / 5; }
     }
+  
+
+    /* YouTube background embeds: no controls, muted autoplay, loop; sized to cover their frames. */
+    .youtube-cover {
+      position:absolute; overflow:hidden; pointer-events:none; background:#050505;
+      isolation:isolate;
+    }
+    .youtube-cover iframe {
+      position:absolute; top:50%; left:50%; display:block; border:0;
+      width:100%; height:100%; max-width:none; max-height:none;
+      transform:translate(-50%,-50%); pointer-events:none;
+    }
+    .hero-youtube {
+      inset:5% 4% 8% 6%; z-index:-1;
+      clip-path:polygon(14% 0,100% 0,100% 86%,82% 100%,0 100%,0 16%);
+    }
+    .hardware-youtube {
+      inset:8%; z-index:2;
+      clip-path:polygon(11% 0,100% 0,100% 88%,81% 100%,0 100%,0 15%);
+      background:#070809;
+    }
+    .hardware-youtube iframe { z-index:1; }
+    .hardware-caption { position:absolute; left:8%; bottom:8%; z-index:4; }
+
+    /* Four white, transparent 150px partner marks in compact flat-top hexagon frames. */
+    .project-row { grid-template-columns:34px 72px minmax(0,1fr) 38px; gap:clamp(12px,2vw,22px); }
+    .project-logo {
+      width:72px; height:63px; padding:8px; flex:0 0 72px;
+      display:grid; place-items:center; justify-self:start;
+      border:1px solid rgba(209,132,67,.36);
+      background:linear-gradient(145deg,rgba(209,132,67,.075),rgba(17,18,19,.15));
+      clip-path:polygon(25% 0,75% 0,100% 50%,75% 100%,25% 100%,0 50%);
+      transition:background .25s ease,border-color .25s ease,transform .25s ease;
+    }
+    .project-logo img {
+      display:block; width:100%; height:100%; max-width:none; max-height:none;
+      object-fit:contain; object-position:center; filter:none;
+    }
+    .project-row:hover .project-logo,.project-row:focus-visible .project-logo {
+      background:rgba(182,83,36,.15); border-color:var(--rust-hot); transform:translateY(-1px);
+    }
+    .project-logo--more {
+      font-size:7px; text-align:center; letter-spacing:.03em; line-height:1.15; overflow-wrap:anywhere;
+    }
+    .logo-fallback { font-size:7px; line-height:1.1; text-align:center; letter-spacing:.02em; overflow-wrap:anywhere; }
+    @media (max-width:700px) {
+      .project-row { grid-template-columns:24px 58px minmax(0,1fr) 28px; gap:10px; }
+      .project-logo { width:58px; height:52px; padding:6px; flex-basis:58px; }
+      .project-logo--more { font-size:6px; }
+      .hero-youtube { inset:4% 4% 7% 5%; }
+      .hardware-youtube { inset:7%; }
+    }
+    @media (prefers-reduced-motion:reduce) {
+      .project-logo { transition:none; }
+    }
+
+      .project-logo.logo-missing { clip-path:none; padding:5px; }
+    .project-logo.logo-missing .logo-fallback { color:#e6c7a6; }
+  
+
+    /* FINAL USER FIXES: always-on square imagery for section 03, minimal text hover, no contact wallpaper. */
+    .cap-grid .cap > .cap-image-panel {
+      opacity:1 !important;
+      visibility:visible !important;
+      display:block !important;
+      position:absolute;
+      inset:0;
+      width:100%; height:100%;
+      z-index:0;
+      overflow:hidden;
+      pointer-events:none;
+    }
+    .cap-grid .cap-image-panel img {
+      position:absolute; inset:0; width:100%; height:100%;
+      object-fit:cover; object-position:center;
+    }
+    .cap-grid .cap h3,
+    .cap-grid .cap p {
+      transition:transform .22s ease, color .22s ease;
+      transform-origin:left center;
+    }
+    .cap-grid .cap:hover h3,
+    .cap-grid .cap:focus-visible h3,
+    .cap-grid .cap.is-previewing h3 { transform:scale(1.035); }
+    .cap-grid .cap:hover p,
+    .cap-grid .cap:focus-visible p,
+    .cap-grid .cap.is-previewing p { transform:scale(1.012); }
+    .social-section.connect-section,
+    .social-section.connect-section .social-panel {
+      background-image:none !important;
+    }
+    @media (prefers-reduced-motion:reduce) {
+      .cap-grid .cap h3, .cap-grid .cap p { transition:none !important; }
+    }
+
+  
+
+    /* Final interface cleanup: permanent photography, bottom-anchored copy, no build notes. */
+    .preview-cue { display:none !important; }
+
+    /* Section 03: let the supplied square imagery carry the top of each card. */
+    .cap-grid .cap > .cap-image-panel {
+      opacity:1 !important;
+      visibility:visible !important;
+      display:block !important;
+      position:absolute !important;
+      inset:0 !important;
+      width:100% !important;
+      height:100% !important;
+      z-index:0 !important;
+      overflow:hidden !important;
+      pointer-events:none !important;
+      background:#171819;
+    }
+    .cap-grid .cap-image-panel img {
+      position:absolute !important;
+      inset:0 !important;
+      width:100% !important;
+      height:100% !important;
+      display:block !important;
+      object-fit:cover !important;
+      object-position:center !important;
+      filter:saturate(1.12) contrast(1.04) brightness(1.22) !important;
+      transform:scale(1.005);
+    }
+    .cap-grid .cap-image-panel::after {
+      content:"";
+      position:absolute;
+      inset:0;
+      pointer-events:none;
+      background:linear-gradient(180deg,
+        rgba(17,18,19,.015) 0%,
+        rgba(17,18,19,.06) 28%,
+        rgba(17,18,19,.44) 54%,
+        rgba(17,18,19,.91) 100%) !important;
+    }
+    .cap-grid .cap {
+      display:flex !important;
+      flex-direction:column !important;
+      justify-content:flex-start !important;
+      overflow:hidden;
+    }
+    .cap-grid .cap .cap-icon { display:none !important; }
+    .cap-grid .cap .cap-no { position:relative; z-index:6; font-size:10px; color:#f0b77c; }
+    .cap-grid .cap .cap-plus { z-index:6; color:#fff; font-size:22px; text-shadow:0 1px 12px rgba(0,0,0,.65); }
+    .cap-grid .cap h3 {
+      position:relative;
+      z-index:4;
+      margin-top:auto !important;
+      margin-bottom:10px !important;
+      max-width:none !important;
+      font-size:clamp(27px,2.25vw,36px) !important;
+      line-height:.98 !important;
+      text-shadow:0 2px 14px rgba(0,0,0,.65);
+      transform-origin:left bottom;
+    }
+    .cap-grid .cap p {
+      position:relative;
+      z-index:4;
+      max-width:44ch !important;
+      color:rgba(255,249,242,.94) !important;
+      font-size:clamp(12.5px,.98vw,14px) !important;
+      line-height:1.45 !important;
+      text-shadow:0 1px 9px rgba(0,0,0,.72);
+      margin:0 !important;
+      transform-origin:left bottom;
+    }
+    .cap-grid .cap:hover h3,
+    .cap-grid .cap:focus-visible h3 { transform:scale(1.035); }
+    .cap-grid .cap:hover p,
+    .cap-grid .cap:focus-visible p { transform:scale(1.012); }
+
+    /* The navigation item is a genuine builder action, not an in-page About link. */
+    .nav .nav-screen-builder {
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:8px;
+      min-height:38px;
+      padding:9px 12px;
+      color:#fff4e9;
+      border:1px solid rgba(209,132,67,.52);
+      background:rgba(182,83,36,.08);
+      white-space:nowrap;
+      transition:background .22s ease,border-color .22s ease,color .22s ease;
+    }
+    .nav .nav-screen-builder::after { display:none !important; }
+    .nav .nav-screen-builder span { color:#D18443; font-size:15px; line-height:1; transition:transform .22s ease; }
+    .nav .nav-screen-builder:hover,
+    .nav .nav-screen-builder:focus-visible { color:#fff; background:rgba(182,83,36,.19); border-color:#D18443; outline:none; }
+    .nav .nav-screen-builder:hover span,
+    .nav .nav-screen-builder:focus-visible span { transform:translate(2px,-2px); }
+
+    /* Use a crisp white plus as the visual mark for the broader project list. */
+    .project-logo.project-logo--more { display:grid !important; place-items:center !important; color:#fff !important; }
+    .project-logo--more .more-plus-icon {
+      display:grid;
+      place-items:center;
+      color:#fff !important;
+      font:300 46px/.8 Arial,Helvetica,sans-serif;
+      letter-spacing:0;
+      text-shadow:0 0 14px rgba(255,255,255,.18);
+      transform:translateY(-2px);
+    }
+
+    @media (max-width:1050px) {
+      .nav .nav-screen-builder { justify-content:flex-start; min-height:48px; padding:12px 3px; border:0; border-bottom:1px solid rgba(209,132,67,.14); background:transparent; }
+      .nav .nav-screen-builder::after { display:none !important; }
+    }
+    @media (max-width:700px) {
+      .cap-grid .cap { min-height:315px; padding:20px 18px !important; }
+      .cap-grid .cap .cap-no { font-size:10px; }
+      .cap-grid .cap h3 { font-size:clamp(29px,6.5vw,36px) !important; }
+      .cap-grid .cap p { font-size:13px !important; line-height:1.48 !important; }
+      .project-logo--more .more-plus-icon { font-size:40px; }
+    }
+    @media (max-width:420px) {
+      .cap-grid .cap { min-height:340px; }
+      .cap-grid .cap h3 { font-size:31px !important; }
+    }
+    @media (prefers-reduced-motion:reduce) {
+      .cap-grid .cap h3,.cap-grid .cap p,.nav .nav-screen-builder,.nav .nav-screen-builder span { transition:none !important; }
+    }
+
   </style>
 </head>
 <body>
@@ -1564,7 +1789,7 @@
         <a href="#work">Selected work</a>
         <a href="#capabilities">What we do</a>
         <a href="#hardware">Custom LED</a>
-        <a href="#about">About</a>
+        <a class="nav-screen-builder" href="screen-builder.html" target="_blank" rel="noopener noreferrer" aria-label="Open the 3D Screen Builder in a new tab">Screen Builder <span aria-hidden="true">↗</span></a>
         <a href="#connect">Connect</a>
         <a class="nav-cta" href="#contact">Start a project&nbsp; ↗</a>
       </nav>
@@ -1586,7 +1811,9 @@
         </div>
         <div class="hero-visual circuit-box" aria-label="Live visual systems video loop">
           <div class="hero-photo" role="img" aria-label="Crowd and stage at a live music event"></div>
-          <video class="media-loop hero-loop" data-video-src="assets/video/hero-independent-visual-systems.mp4" poster="assets/images/hero-poster.webp" data-autoload="true" muted autoplay loop playsinline preload="auto" aria-hidden="true"></video>
+          <div class="youtube-cover hero-youtube" data-youtube-cover aria-hidden="true">
+            <iframe src="https://www.youtube.com/embed/PYdTqzLeXHo?autoplay=1&amp;mute=1&amp;controls=0&amp;loop=1&amp;playlist=PYdTqzLeXHo&amp;playsinline=1&amp;rel=0&amp;disablekb=1&amp;fs=0&amp;iv_load_policy=3&amp;cc_load_policy=0" title="Eyebyte live visuals showreel" loading="eager" allow="autoplay; encrypted-media; picture-in-picture" referrerpolicy="strict-origin-when-cross-origin" tabindex="-1" aria-hidden="true"></iframe>
+          </div>
           <div class="hero-orbit"></div>
           <div class="visual-cross" aria-label="Eyebyte EB hexagonal mark">
             <svg viewBox="0 0 120 104" aria-hidden="true" focusable="false">
@@ -1662,16 +1889,16 @@
         </div>
         <div class="cap-grid">
           <div class="cap-item">
-            <article class="cap circuit-box" tabindex="0" role="button" aria-expanded="false" aria-controls="cap-preview-live" data-preview="cap-preview-live"><div class="cap-image-panel" id="cap-preview-live" aria-label="Stage integration image preview"><img src="assets/images/what-we-do-01-integrate-stage.webp" alt="" loading="lazy" decoding="async"></div><span class="cap-no">01 / COLLABORATE</span><span class="cap-plus">+</span><svg class="cap-icon" viewBox="0 0 48 48" fill="none" aria-hidden="true"><path d="M5 24h8l5-13 10 27 6-17 4 8h5" stroke="currentColor" stroke-width="1.5" stroke-linecap="square"/><circle cx="24" cy="24" r="21" stroke="currentColor" stroke-opacity=".3" stroke-width="1"/></svg><h3>Start with<br>the vision.</h3><p>We collaborate early with creative and production teams, shaping the visual ambition and integrating screens into the stage architecture—not bolting them on at the end.</p><span class="preview-cue">Hover / focus to preview <b>↘</b></span></article>
+            <article class="cap circuit-box"><div class="cap-image-panel"><img src="assets/images/starting.jpg" alt="" loading="lazy" decoding="async"></div><span class="cap-no">01 / COLLABORATE</span><span class="cap-plus">+</span><svg class="cap-icon" viewBox="0 0 48 48" fill="none" aria-hidden="true"><path d="M5 24h8l5-13 10 27 6-17 4 8h5" stroke="currentColor" stroke-width="1.5" stroke-linecap="square"/><circle cx="24" cy="24" r="21" stroke="currentColor" stroke-opacity=".3" stroke-width="1"/></svg><h3>Start with<br>the vision.</h3><p>We collaborate early with creative and production teams, shaping the visual ambition and integrating screens into the stage architecture—not bolting them on at the end.</p></article>
           </div>
           <div class="cap-item">
-            <article class="cap circuit-box" tabindex="0" role="button" aria-expanded="false" aria-controls="cap-preview-led" data-preview="cap-preview-led"><div class="cap-image-panel" id="cap-preview-led" aria-label="Screen design and content image preview"><img src="assets/images/what-we-do-02-screen-design-content.webp" alt="" loading="lazy" decoding="async"></div><span class="cap-no">02 / DESIGN</span><span class="cap-plus">+</span><svg class="cap-icon" viewBox="0 0 48 48" fill="none" aria-hidden="true"><path d="M7 7h15v15H7zM26 7h15v15H26zM7 26h15v15H7zM26 26h15v15H26z" stroke="currentColor" stroke-width="1.5"/><path d="M22 14.5h4M14.5 22v4M33.5 22v4M22 33.5h4" stroke="currentColor" stroke-width="1.5"/></svg><h3>Design the Spatial<br>Experience.</h3><p>We shape screen layouts, bespoke content and playback strategy around the space, theme and event. Every pixel and every form has a purpose.</p><span class="preview-cue">Hover / focus to preview <b>↘</b></span></article>
+            <article class="cap circuit-box"><div class="cap-image-panel"><img src="assets/images/designing.jpg" alt="" loading="lazy" decoding="async"></div><span class="cap-no">02 / DESIGN</span><span class="cap-plus">+</span><svg class="cap-icon" viewBox="0 0 48 48" fill="none" aria-hidden="true"><path d="M7 7h15v15H7zM26 7h15v15H26zM7 26h15v15H7zM26 26h15v15H26z" stroke="currentColor" stroke-width="1.5"/><path d="M22 14.5h4M14.5 22v4M33.5 22v4M22 33.5h4" stroke="currentColor" stroke-width="1.5"/></svg><h3>Design the Spatial<br>Experience.</h3><p>We shape screen layouts, bespoke content and playback strategy around the space, theme and event. Every pixel and every form has a purpose.</p></article>
           </div>
           <div class="cap-item">
-            <article class="cap circuit-box" tabindex="0" role="button" aria-expanded="false" aria-controls="cap-preview-content" data-preview="cap-preview-content"><div class="cap-image-panel" id="cap-preview-content" aria-label="Onsite execution image preview"><img src="assets/images/what-we-do-03-onsite-execution.webp" alt="" loading="lazy" decoding="async"></div><span class="cap-no">03 / DELIVER</span><span class="cap-plus">+</span><svg class="cap-icon" viewBox="0 0 48 48" fill="none" aria-hidden="true"><path d="M24 4 44 24 24 44 4 24 24 4Z" stroke="currentColor" stroke-width="1.5"/><path d="M24 12 36 24 24 36 12 24 24 12Z" stroke="currentColor" stroke-width="1.5"/><path d="M24 19v10M19 24h10" stroke="currentColor" stroke-width="1.5"/></svg><h3>Make it<br>happen.</h3><p>On site, we’re hands on with the hardware, coordinating crew and solving problems in real time. Good planning keeps delivery on time and on budget—without compromise.</p><span class="preview-cue">Hover / focus to preview <b>↘</b></span></article>
+            <article class="cap circuit-box"><div class="cap-image-panel"><img src="assets/images/building.jpg" alt="" loading="lazy" decoding="async"></div><span class="cap-no">03 / DELIVER</span><span class="cap-plus">+</span><svg class="cap-icon" viewBox="0 0 48 48" fill="none" aria-hidden="true"><path d="M24 4 44 24 24 44 4 24 24 4Z" stroke="currentColor" stroke-width="1.5"/><path d="M24 12 36 24 24 36 12 24 24 12Z" stroke="currentColor" stroke-width="1.5"/><path d="M24 19v10M19 24h10" stroke="currentColor" stroke-width="1.5"/></svg><h3>Make it<br>happen.</h3><p>On site, we’re hands on with the hardware, coordinating crew and solving problems in real time. Good planning keeps delivery on time and on budget—without compromise.</p></article>
           </div>
           <div class="cap-item">
-            <article class="cap circuit-box" tabindex="0" role="button" aria-expanded="false" aria-controls="cap-preview-capture" data-preview="cap-preview-capture"><div class="cap-image-panel" id="cap-preview-capture" aria-label="Live performance image preview"><img src="assets/images/what-we-do-04-live-performance.webp" alt="" loading="lazy" decoding="async"></div><span class="cap-no">04 / PERFORM</span><span class="cap-plus">+</span><svg class="cap-icon" viewBox="0 0 48 48" fill="none" aria-hidden="true"><rect x="4" y="10" width="40" height="28" rx="2" stroke="currentColor" stroke-width="1.5"/><path d="m20 17 12 7-12 7V17Z" fill="currentColor"/><path d="M10 5h28M10 43h28" stroke="currentColor" stroke-opacity=".4" stroke-width="1.5"/></svg><h3>Mastery in the<br>Moment.</h3><p>Live performance artistry, perfect timing and real-time tools make the system sing—responding to the music, the crowd and the moment. Precision when it matters. Instinct when it counts.</p><span class="preview-cue">Hover / focus to preview <b>↘</b></span></article>
+            <article class="cap circuit-box"><div class="cap-image-panel"><img src="assets/images/executing.jpg" alt="" loading="lazy" decoding="async"></div><span class="cap-no">04 / PERFORM</span><span class="cap-plus">+</span><svg class="cap-icon" viewBox="0 0 48 48" fill="none" aria-hidden="true"><rect x="4" y="10" width="40" height="28" rx="2" stroke="currentColor" stroke-width="1.5"/><path d="m20 17 12 7-12 7V17Z" fill="currentColor"/><path d="M10 5h28M10 43h28" stroke="currentColor" stroke-opacity=".4" stroke-width="1.5"/></svg><h3>Mastery in the<br>Moment.</h3><p>Live performance artistry, perfect timing and real-time tools make the system sing—responding to the music, the crowd and the moment. Precision when it matters. Instinct when it counts.</p></article>
           </div>
         </div>
       </div>
@@ -1681,7 +1908,9 @@
       <div class="wrap hardware-grid">
         <div class="hardware-visual reveal circuit-box" aria-label="Eyebyte high-resolution, curved modular LED hardware video loop">
           <div class="led-wall" aria-hidden="true"><span style="--i:0"></span><span style="--i:1"></span><span style="--i:2"></span><span style="--i:3"></span><span style="--i:4"></span><span style="--i:5"></span><span style="--i:6"></span><span style="--i:7"></span><span style="--i:8"></span><span style="--i:9"></span><span style="--i:10"></span><span style="--i:11"></span><span style="--i:12"></span><span style="--i:13"></span><span style="--i:14"></span><span style="--i:15"></span><span style="--i:16"></span><span style="--i:17"></span><span style="--i:18"></span><span style="--i:19"></span><span style="--i:20"></span><span style="--i:21"></span><span style="--i:22"></span><span style="--i:23"></span><span style="--i:24"></span><span style="--i:25"></span><span style="--i:26"></span><span style="--i:27"></span><span style="--i:28"></span><span style="--i:29"></span></div>
-          <video class="media-loop hardware-loop" data-video-src="assets/video/hardware-resolution-curved-led.mp4" poster="assets/images/hardware-led-poster.webp" data-load-visible="true" muted loop playsinline preload="none" aria-hidden="true"></video>
+          <div class="youtube-cover hardware-youtube" data-youtube-cover aria-hidden="true">
+            <iframe src="https://www.youtube.com/embed/IPklb2zfcgg?autoplay=1&amp;mute=1&amp;controls=0&amp;loop=1&amp;playlist=IPklb2zfcgg&amp;playsinline=1&amp;rel=0&amp;disablekb=1&amp;fs=0&amp;iv_load_policy=3&amp;cc_load_policy=0" title="Eyebyte modular LED hardware and installations" loading="eager" allow="autoplay; encrypted-media; picture-in-picture" referrerpolicy="strict-origin-when-cross-origin" tabindex="-1" aria-hidden="true"></iframe>
+          </div>
           <div class="hardware-caption">High resolution / Flexible by design / Ready for the field</div>
         </div>
         <div class="hardware-copy reveal delay-1">
@@ -1708,11 +1937,11 @@
           <p>From enduring festival relationships to bespoke corporate activations, this is a snapshot of Eyebyte’s recent visual direction, VJ coordination and live delivery in the field.</p>
         </div>
         <div class="project-list reveal">
-          <a class="project-row circuit-box" data-project="earth-frequency" href="#contact" aria-label="Enquire about Eyebyte Earth Frequency work"><span class="project-no">01</span><span class="project-logo"><img src="assets/field-logos/earth-frequency.svg" alt="Earth Frequency logo" loading="lazy"><span class="logo-fallback" hidden>EARTH FREQUENCY</span></span><span class="project-copy"><h3>Earth Frequency</h3><span class="project-type">Directing visuals since 2015</span></span><span class="project-arrow" aria-hidden="true">↗</span></a>
-          <a class="project-row circuit-box" data-project="subsonic" href="#contact" aria-label="Enquire about Eyebyte Subsonic work"><span class="project-no">02</span><span class="project-logo"><img src="assets/field-logos/subsonic.svg" alt="Subsonic logo" loading="lazy"><span class="logo-fallback" hidden>SUBSONIC</span></span><span class="project-copy"><h3>Subsonic</h3><span class="project-type">Directing visuals since 2009</span></span><span class="project-arrow" aria-hidden="true">↗</span></a>
-          <a class="project-row circuit-box" data-project="rainbow-spirit" href="#contact" aria-label="Enquire about Eyebyte Rainbow Spirit work"><span class="project-no">03</span><span class="project-logo"><img src="assets/field-logos/rainbow-spirit.svg" alt="Rainbow Spirit logo" loading="lazy"><span class="logo-fallback" hidden>RAINBOW SPIRIT</span></span><span class="project-copy"><h3>Rainbow Spirit</h3><span class="project-type">Formerly Rainbow Serpent · VJ Coordinator since 2014</span></span><span class="project-arrow" aria-hidden="true">↗</span></a>
-          <a class="project-row circuit-box" data-project="return-to-rio" href="#contact" aria-label="Enquire about Eyebyte Return to Rio work"><span class="project-no">04</span><span class="project-logo"><img src="assets/field-logos/return-to-rio.svg" alt="Return to Rio logo" loading="lazy"><span class="logo-fallback" hidden>RETURN TO RIO</span></span><span class="project-copy"><h3>Return to Rio</h3><span class="project-type">Directing vision since 2016</span></span><span class="project-arrow" aria-hidden="true">↗</span></a>
-          <a class="project-row project-row--more circuit-box" data-project="more-work" href="#contact" aria-label="Enquire about other Eyebyte projects"><span class="project-no">05</span><span class="project-logo project-logo--more"><span>EYEBYTE / INDEX</span></span><span class="project-copy"><h3>So, so many more...</h3><span class="project-type">One-off shows · clubs · stages · custom builds</span></span><span class="project-arrow" aria-hidden="true">↗</span></a>
+          <a class="project-row circuit-box" data-project="earth-frequency" href="#contact" aria-label="Enquire about Eyebyte Earth Frequency work"><span class="project-no">01</span><span class="project-logo"><img src="assets/images/eff.png" alt="Earth Frequency logo" loading="lazy"><span class="logo-fallback" hidden>EARTH FREQUENCY</span></span><span class="project-copy"><h3>Earth Frequency</h3><span class="project-type">Directing visuals since 2015</span></span><span class="project-arrow" aria-hidden="true">↗</span></a>
+          <a class="project-row circuit-box" data-project="subsonic" href="#contact" aria-label="Enquire about Eyebyte Subsonic work"><span class="project-no">02</span><span class="project-logo"><img src="assets/images/sub.png" alt="Subsonic logo" loading="lazy"><span class="logo-fallback" hidden>SUBSONIC</span></span><span class="project-copy"><h3>Subsonic</h3><span class="project-type">Directing visuals since 2009</span></span><span class="project-arrow" aria-hidden="true">↗</span></a>
+          <a class="project-row circuit-box" data-project="rainbow-spirit" href="#contact" aria-label="Enquire about Eyebyte Rainbow Spirit work"><span class="project-no">03</span><span class="project-logo"><img src="assets/images/rainbow.png" alt="Rainbow Spirit logo" loading="lazy"><span class="logo-fallback" hidden>RAINBOW SPIRIT</span></span><span class="project-copy"><h3>Rainbow Spirit</h3><span class="project-type">Formerly Rainbow Serpent · VJ Coordinator since 2014</span></span><span class="project-arrow" aria-hidden="true">↗</span></a>
+          <a class="project-row circuit-box" data-project="return-to-rio" href="#contact" aria-label="Enquire about Eyebyte Return to Rio work"><span class="project-no">04</span><span class="project-logo"><img src="assets/images/rio.png" alt="Return to Rio logo" loading="lazy"><span class="logo-fallback" hidden>RETURN TO RIO</span></span><span class="project-copy"><h3>Return to Rio</h3><span class="project-type">Directing vision since 2016</span></span><span class="project-arrow" aria-hidden="true">↗</span></a>
+          <a class="project-row project-row--more circuit-box" data-project="more-work" href="#contact" aria-label="Enquire about other Eyebyte projects"><span class="project-no">05</span><span class="project-logo project-logo--more"><span class="more-plus-icon" aria-hidden="true">+</span></span><span class="project-copy"><h3>So, so many more...</h3><span class="project-type">One-off shows · clubs · stages · custom builds</span></span><span class="project-arrow" aria-hidden="true">↗</span></a>
         </div>
         <div class="project-foot">Long relationships. Live-tested systems. New ideas, every time.</div>
       </div>
@@ -1745,7 +1974,7 @@
               <label class="enquiry-field"><span>Event / project</span><input name="project" type="text" maxlength="180" placeholder="What are you planning?"></label>
               <label class="enquiry-field"><span>Tell us about the idea *</span><textarea name="message" rows="5" required maxlength="3000" placeholder="The venue, the vibe, the ambition…"></textarea></label>
               <button class="enquiry-submit" type="submit">Let’s make it happen <span aria-hidden="true">↗</span></button>
-              <p class="enquiry-status" id="enquiry-status" role="status" aria-live="polite">Your enquiry is sent directly to Eyebyte. No email app required. Form delivery is handled by FormSubmit.</p>
+              <p class="enquiry-status" id="enquiry-status" role="status" aria-live="polite">On the live website, your enquiry is sent directly to Eyebyte without opening an email app. First-time setup requires confirming FormSubmit’s activation email.</p>
             </form>
             <div class="contact-email-row"><a class="contact-email" href="mailto:eyebyte@gmail.com">eyebyte@gmail.com</a><button class="copy-email" type="button" data-copy-email="eyebyte@gmail.com">Copy email <span aria-hidden="true">⧉</span></button></div>
           </div>
@@ -1808,6 +2037,13 @@
         if (!enquiryForm.reportValidity()) return;
         if (submitButton && submitButton.disabled) return;
 
+        // FormSubmit and YouTube embeds require the page to be served over HTTP(S).
+        // A page opened directly as file:// has no usable HTTP Referer.
+        if (window.location.protocol === 'file:') {
+          if (status) status.textContent = 'The enquiry form is unavailable in this preview. Your details are still here—please email eyebyte@gmail.com directly.';
+          return;
+        }
+
         const fields = new FormData(enquiryForm);
         const stamp = new Intl.DateTimeFormat('en-AU', {
           timeZone: 'Australia/Sydney', day: '2-digit', month: 'short', year: 'numeric',
@@ -1837,14 +2073,24 @@
           const result = await response.json().catch(() => ({}));
           const successful = result.success === true || String(result.success).toLowerCase() === 'true';
           if (!response.ok || !successful) {
-            throw new Error(result.message || 'The form service did not confirm delivery.');
+            const serviceMessage = result.message || result.error || `The form service returned HTTP ${response.status}.`;
+            throw new Error(String(serviceMessage));
           }
           if (status) status.textContent = `Enquiry sent successfully to Eyebyte. Subject: “${subject}”. Thanks for getting in touch.`;
           enquiryForm.reset();
           if (subjectInput) subjectInput.value = 'Website Enquiry - Website form submission';
         } catch (error) {
           console.error('Eyebyte enquiry submission failed:', error);
-          if (status) status.textContent = 'We couldn’t send that just now. Your message is still in the form—please try again, or email eyebyte@gmail.com directly.';
+          if (status) {
+            const detail = String(error && error.message || '');
+            if (/activat|confirm.*email|verify.*email/i.test(detail)) {
+              status.textContent = 'The form service needs email activation. Check eyebyte@gmail.com (including spam) for FormSubmit’s activation message and confirm it, then try again. Your message is still in the form.';
+            } else if (/file:|local file|web server/i.test(detail)) {
+              status.textContent = 'The enquiry form could not send from this preview. Your message is still here—please email eyebyte@gmail.com directly.';
+            } else {
+              status.textContent = 'We couldn’t confirm delivery. Your message is still in the form. Check the browser Console for the FormSubmit response; if this is the first submission, confirm the activation email sent to eyebyte@gmail.com (including spam). The site must be served over HTTP/HTTPS.';
+            }
+          }
         } finally {
           enquiryForm.removeAttribute('aria-busy');
           if (submitButton) {
@@ -1959,6 +2205,50 @@
         if (window.innerWidth > 1050) closeMobileMenu();
       }, { passive:true });
     }
+
+    // YouTube embed identity: set the real page origin on a served HTTP(S) site.
+    // YouTube Error 153 occurs when an embedded player receives no HTTP Referer;
+    // opening this HTML directly as file:// cannot provide one.
+    function configureYoutubeEmbeds() {
+      if (!/^https?:$/.test(window.location.protocol) || window.location.origin === 'null') return;
+      document.querySelectorAll('[data-youtube-cover] iframe').forEach(iframe => {
+        try {
+          const url = new URL(iframe.src);
+          url.searchParams.set('enablejsapi', '1');
+          url.searchParams.set('origin', window.location.origin);
+          iframe.src = url.toString();
+        } catch (error) {
+          console.warn('Eyebyte YouTube embed URL could not be configured:', error);
+        }
+      });
+    }
+    configureYoutubeEmbeds();
+
+    // Size each 16:9 YouTube player to cover its cropped media viewport without distortion.
+    function fitYoutubeCovers() {
+      document.querySelectorAll('[data-youtube-cover]').forEach(frame => {
+        const iframe = frame.querySelector('iframe');
+        if (!iframe) return;
+        const width = frame.clientWidth;
+        const height = frame.clientHeight;
+        if (!width || !height) return;
+        const ratio = 16 / 9;
+        let playerWidth = width;
+        let playerHeight = height;
+        if (width / height > ratio) playerHeight = width / ratio;
+        else playerWidth = height * ratio;
+        iframe.style.width = `${Math.ceil(playerWidth)}px`;
+        iframe.style.height = `${Math.ceil(playerHeight)}px`;
+      });
+    }
+    fitYoutubeCovers();
+    if ('ResizeObserver' in window) {
+      const youtubeResizeObserver = new ResizeObserver(fitYoutubeCovers);
+      document.querySelectorAll('[data-youtube-cover]').forEach(frame => youtubeResizeObserver.observe(frame));
+    } else {
+      window.addEventListener('resize', fitYoutubeCovers, {passive:true});
+    }
+    window.addEventListener('orientationchange', fitYoutubeCovers, {passive:true});
 
     // Scroll reveal
     const revealEls = document.querySelectorAll('.reveal');
@@ -2166,73 +2456,14 @@
       });
     }
 
-    function stopPreview(tile) {
-      const id = tile.dataset.preview;
-      const panel = id ? document.getElementById(id) : null;
-      const video = panel ? panel.querySelector('video.hover-loop') : null;
-      tile.classList.remove('is-previewing');
-      tile.setAttribute('aria-expanded', 'false');
-      if (panel) panel.classList.remove('is-active');
-      if (video) { video.pause(); try { video.currentTime = 0; } catch (_) {} }
-    }
-    function startPreview(tile) {
-      const id = tile.dataset.preview;
-      const panel = id ? document.getElementById(id) : null;
-      if (!panel) return;
-      // Close any other preview in the same interaction family.
-      const family = tile.closest('.cap-grid, .process-grid');
-      if (family) family.querySelectorAll('[data-preview].is-previewing').forEach(other => { if (other !== tile) stopPreview(other); });
-      const video = panel.querySelector('video.hover-loop');
-      tile.classList.add('is-previewing');
-      tile.setAttribute('aria-expanded', 'true');
-      panel.classList.add('is-active');
-      if (video) {
-        attachSource(video);
-        if (!reducedMotion) video.play().catch(() => {});
-      }
-    }
-    document.querySelectorAll('[data-preview]').forEach(tile => {
-      tile.addEventListener('pointerenter', event => { if (event.pointerType !== 'touch') startPreview(tile); });
-      tile.addEventListener('pointerleave', event => {
-        if (event.pointerType === 'touch' || tile.matches(':focus')) return;
-        // Keep the preview open while the pointer moves from the tile into its video bay.
-        const item = tile.closest('.cap-item, .step-item');
-        const related = event.relatedTarget instanceof Element ? event.relatedTarget.closest('.cap-item, .step-item') : null;
-        if (item && related === item) return;
-        stopPreview(tile);
-      });
-      // Preview on deliberate activation for keyboard users; pointer hover handles desktop previews.
-      // Avoid starting on focus alone so a touch tap won't immediately toggle the preview back off.
-      tile.addEventListener('blur', () => stopPreview(tile));
-      tile.addEventListener('click', event => {
-        // Touch users can tap a tile to toggle the preview.
-        if (event.pointerType === 'touch' || window.matchMedia('(hover: none)').matches) {
-          if (tile.classList.contains('is-previewing')) stopPreview(tile); else startPreview(tile);
-        }
-      });
-      tile.addEventListener('keydown', event => {
-        if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); tile.classList.contains('is-previewing') ? stopPreview(tile) : startPreview(tile); }
-        if (event.key === 'Escape') stopPreview(tile);
-      });
-    });
-
-    document.querySelectorAll('.cap-image-panel, .step-image-panel, .cap-video-panel, .step-video-panel').forEach(panel => {
-      panel.addEventListener('pointerleave', event => {
-        if (event.pointerType === 'touch') return;
-        const item = panel.closest('.cap-item, .step-item');
-        const related = event.relatedTarget instanceof Element ? event.relatedTarget.closest('.cap-item, .step-item') : null;
-        if (item && related === item) return;
-        const tile = document.querySelector(`[data-preview="${panel.id}"]`);
-        if (tile && !tile.matches(':focus')) stopPreview(tile);
-      });
-    });
-
     // Missing supplied logos gracefully fall back to text labels.
     document.querySelectorAll('.project-logo img').forEach(img => {
       img.addEventListener('error', () => {
         img.hidden = true;
         const fallback = img.nextElementSibling;
         if (fallback) fallback.hidden = false;
+        const logoFrame = img.closest('.project-logo');
+        if (logoFrame) logoFrame.classList.add('logo-missing');
       });
     });
 
