@@ -41,3 +41,18 @@ SEO
 
 YOUTUBE BACKGROUND VIDEO NOTE
 The hero and hardware YouTube embeds hide standard controls and mask common title/avatar and watermark zones. YouTube does not guarantee fully unbranded embeds; for a completely clean background loop, replace these embeds with the original MP4 files hosted from assets/video/. See ASSET-SPECS.md.
+
+
+SEARCH / SHARING UPDATES (17 OCT 2026)
+- Added three dedicated, crawlable service landing pages: live-vj-performance.html, modular-led-screens.html, event-visual-content.html. Each has unique title/description/canonical, Organization + Service + Breadcrumb structured data, internal cross-links and relevant FAQs.
+- Homepage service cards link into the detailed pages. Sitemap updated to include those pages, Screen Builder and Privacy.
+- Added favicon.svg, Apple touch icon, web manifest and custom 1200x630 Open Graph images for more legible social sharing.
+- Added keyboard skip links and a Privacy Information page explaining the current form, counter, font and embedded-video integrations. Review that page if integrations change.
+- The original explicit font-weight requests have been restored to preserve the previous typography.
+- Before launch: submit https://eyebyte.tv/sitemap.xml in Google Search Console and Bing Webmaster Tools; verify the domain; run Lighthouse/PageSpeed on the deployed HTTPS URL and fix any field-measured Core Web Vitals issues. Rankings are not guaranteed by metadata alone.
+
+SEO / DISCOVERABILITY
+- Three dedicated service landing pages provide more specific content for VJ performance, modular LED screens, and bespoke visual content. See SEO-LAUNCH-CHECKLIST.txt for post-deployment steps and current dependencies.
+- Social preview images are in assets/images/og-*.png. Favicon and install metadata are included.
+
+- Added a branded 404.html page for hosts that support custom static 404 documents.

@@ -1,0 +1,29 @@
+EYEBYTE SEO & PERFORMANCE — LAUNCH CHECKLIST
+============================================
+
+BUILT INTO THIS SITE PACKAGE
+- Dedicated service pages for Live VJ Performance, Custom Modular LED Screens, and Bespoke Event Visuals.
+- Unique page titles, concise meta descriptions, canonical URLs and Open Graph/Twitter preview metadata.
+- Organization and Service structured data, plus breadcrumbs on service pages.
+- Internal links from the homepage service cards and service-to-service cross-links.
+- XML sitemap and robots.txt.
+- Branded favicon, Apple touch icon, web manifest, and 1200 × 630 social preview images.
+- Semantic heading structure, image alternative text, keyboard skip link, and responsive service pages.
+- Variable-font loading and smaller external image fallback requests.
+- Privacy information describing current third-party integrations.
+
+AFTER UPLOADING TO HTTPS HOSTING
+1. Open the live homepage and every service URL on real phones and desktops. Confirm images, local videos, social links and the contact form all work.
+2. Verify domain ownership in Google Search Console. Submit https://eyebyte.tv/sitemap.xml and inspect the homepage and each service URL.
+3. Verify the site in Bing Webmaster Tools and submit the sitemap there too.
+4. Run PageSpeed Insights/Lighthouse on the deployed URLs. Good Core Web Vitals targets: LCP ≤ 2.5 s, INP < 200 ms, CLS < 0.1. These are targets, not guarantees of search ranking.
+5. Test Open Graph previews with a link-preview debugger after social metadata has gone live. The crawler must be able to fetch the PNG preview URLs.
+6. If eligible, complete the Google Business Profile with accurate service areas, category and recent genuine project images; do not publish a private residential address if it is not a customer-facing location.
+7. Ask festivals, venues, production partners and collaborators to link to the relevant Eyebyte service/case-study page where it is natural and accurate.
+8. Add real project case studies over time: event name, role, venue/stage challenge, solution, images/video, and outcomes that can be substantiated. This gives search engines and prospective clients more specific material than a single homepage.
+
+IMPORTANT DEPENDENCIES / CURRENT ASSET AUDIT
+- The media files and supplied project logos listed in ASSET-AUDIT.txt are referenced by the site but were not present in the working folder when this package was rebuilt.
+- YouTube background iframes are not fully unbranded, and playback can vary by browser/embedding policy. Replacing them with the original MP4 exports is the most reliable way to achieve clean, uninterrupted background video; provide hero.mp4 and hardware-feature.mp4 for that switch.
+- FormSubmit must be activated/tested on the live site. CounterAPI is an external dependency for the shared footer counter.
+- Search metadata does not guarantee indexing or rankings. Google needs to crawl the live HTTPS site; monitor results in Search Console over time.

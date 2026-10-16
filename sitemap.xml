@@ -1,15 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://eyebyte.tv/</loc>
-    <lastmod>2026-10-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>1.0</priority>
-  </url>
-  <url>
-    <loc>https://eyebyte.tv/screen-builder.html</loc>
-    <lastmod>2026-10-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
+  <url><loc>https://eyebyte.tv/</loc><lastmod>2026-10-17</lastmod></url>
+  <url><loc>https://eyebyte.tv/live-vj-performance.html</loc><lastmod>2026-10-17</lastmod></url>
+  <url><loc>https://eyebyte.tv/modular-led-screens.html</loc><lastmod>2026-10-17</lastmod></url>
+  <url><loc>https://eyebyte.tv/event-visual-content.html</loc><lastmod>2026-10-17</lastmod></url>
+  <url><loc>https://eyebyte.tv/screen-builder.html</loc><lastmod>2026-10-17</lastmod></url>
 </urlset>

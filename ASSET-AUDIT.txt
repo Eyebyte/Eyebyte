@@ -1,0 +1,20 @@
+EYEBYTE WEBSITE — PRE-LAUNCH ASSET AUDIT
+=========================================
+
+Generated: 17 October 2026
+
+The current packaged working folder was checked for the custom assets below. They are referenced by the site but are not present in this build copy. Copy them into the exact case-sensitive paths before publishing.
+
+MISSING  assets/images/starting.jpg
+MISSING  assets/images/designing.jpg
+MISSING  assets/images/building.jpg
+MISSING  assets/images/executing.jpg
+MISSING  assets/images/eff.png
+MISSING  assets/images/sub.png
+MISSING  assets/images/rainbow.png
+MISSING  assets/images/rio.png
+MISSING  assets/video/performance.mp4
+MISSING  assets/video/hardware.mp4
+MISSING  assets/video/content.mp4
+
+Do not treat this as a replacement for the originals. The site will use its configured text/image fallbacks where available, but the finished branded appearance requires the originals.
