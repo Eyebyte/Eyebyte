@@ -221,7 +221,9 @@
     .button-dark:hover { background:#222621; }
     .footer { padding:30px 0 36px; border-top:1px solid var(--line); }
     .footer-inner { display:flex; justify-content:space-between; align-items:center; gap:25px; }
+    .footer-meta { display:flex; flex-direction:column; align-items:flex-start; gap:5px; min-width:0; }
     .footer-note { color:var(--dim); font-size:11px; }
+    .site-visit-counter { color:rgba(212,132,67,.76); font:9px/1.2 'DM Mono',monospace; letter-spacing:.12em; font-variant-numeric:tabular-nums; opacity:.88; user-select:none; }
     .footer-links { display:flex; gap:20px; color:var(--muted); font:10px 'DM Mono',monospace; text-transform:uppercase; letter-spacing:.1em; }
     .footer-links a:hover { color:var(--acid); }
     .back-top { color:var(--acid); font:10px 'DM Mono',monospace; text-transform:uppercase; letter-spacing:.1em; }
@@ -283,7 +285,7 @@
       .contact-bottom { align-items:flex-start; flex-direction:column; }
       .contact-panel h2 { font-size:clamp(61px,15vw,100px); }
       .footer-inner { flex-wrap:wrap; }
-      .footer-note { order:3; flex-basis:100%; }
+      .footer-meta { order:3; flex-basis:100%; }
     }
     @media (max-width: 390px) {
       .hero-meta { font-size:9px; }
@@ -1444,7 +1446,8 @@
       .footer { padding:25px 0 calc(26px + env(safe-area-inset-bottom)); }
       .footer-inner { display:grid; grid-template-columns:minmax(0,1fr) auto; gap:17px 12px; align-items:center; }
       .footer .brand-logo { width:clamp(150px,44vw,200px); }
-      .footer-note { grid-column:1 / -1; order:3; flex-basis:auto; font-size:10px; line-height:1.6; }
+      .footer-meta { grid-column:1 / -1; order:3; flex-basis:auto; }
+      .footer-note { font-size:10px; line-height:1.6; }
       .footer-links { grid-column:1 / -1; order:4; flex-wrap:wrap; gap:16px; font-size:9px; }
       .back-top { grid-column:2; grid-row:1; }
       .circuit-live { opacity:.40; }
@@ -2136,7 +2139,10 @@
   <footer class="footer">
     <div class="wrap footer-inner">
       <a class="brand" href="#top" aria-label="Eyebyte home"><img class="brand-logo" src="assets/eyebyte-logo-white.png" alt="Eyebyte"></a>
-      <div class="footer-note">Innovative live visual systems · Sydney, Australia · Since 1995</div>
+      <div class="footer-meta">
+        <div class="footer-note">Innovative live visual systems · Sydney, Australia · Since 1995</div>
+        <div class="site-visit-counter" id="site-visit-counter" aria-label="Site visit reference number" title="Eyebyte site reference">1024-123</div>
+      </div>
       <div class="footer-links"><a href="#work">Work</a><a href="#capabilities">Capabilities</a><a href="#contact">Contact</a></div>
       <a class="back-top" href="#top">Back to top ↑</a>
     </div>
@@ -2609,6 +2615,48 @@
         }
       });
     });
+
+    // Shared global page-view counter. CounterAPI provides the remote persistent
+    // store, so this works on static hosting without a site-specific backend,
+    // Cloudflare account, API key, or manual configuration.
+    (function initEyebyteVisitCounter() {
+      const counterEl = document.querySelector('#site-visit-counter');
+      if (!counterEl) return;
+
+      // Only count production page views. Local previews and staging don't
+      // inflate the public counter.
+      const host = window.location.hostname.toLowerCase();
+      if (!['eyebyte.tv', 'www.eyebyte.tv'].includes(host)) {
+        counterEl.title = 'Eyebyte site visit reference';
+        return;
+      }
+
+      const callbackName = 'eyebyteVisitCounterCallback';
+      window[callbackName] = function (result) {
+        const count = Number(result && result.value);
+        if (!Number.isSafeInteger(count) || count < 123) {
+          counterEl.dataset.counterState = 'unavailable';
+          counterEl.title = 'Visit counter temporarily unavailable';
+          console.warn('[Eyebyte visit counter] The counter service returned an invalid value.');
+          return;
+        }
+        counterEl.textContent = `1024-${String(count).padStart(3, '0')}`;
+        counterEl.dataset.counterState = 'live';
+        counterEl.title = 'Eyebyte site visit reference';
+        try { delete window[callbackName]; } catch (_) { window[callbackName] = undefined; }
+      };
+
+      const script = document.createElement('script');
+      script.async = true;
+      script.src = 'https://counterapi.com/api/eyebyte.tv/view/footer-visit-reference?startNumber=123&callback=' + callbackName;
+      script.onerror = function () {
+        counterEl.dataset.counterState = 'unavailable';
+        counterEl.title = 'Visit counter temporarily unavailable';
+        console.warn('[Eyebyte visit counter] CounterAPI could not be reached; the seeded value remains visible.');
+        try { delete window[callbackName]; } catch (_) { window[callbackName] = undefined; }
+      };
+      document.head.appendChild(script);
+    })();
   </script>
 </body>
 </html>

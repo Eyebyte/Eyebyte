@@ -112,3 +112,7 @@ Place all eight supplied image files in `assets/images/`. The current handoff en
 The hero and hardware motion panels currently use YouTube embeds with muted autoplay, `controls=0`, loop, inline playback and keyboard/fullscreen controls disabled. The CSS also masks the typical title/avatar area at the upper-left and watermark area at the lower-right. This is best-effort only: YouTube's official embed documentation says branding treatment is determined by the player and that title/channel information can appear before playback, when paused, or when playback ends. The `modestbranding` parameter is deprecated and has no effect.
 
 If these must be completely free of YouTube logos, headings, player UI and end overlays, use the original licensed MP4 files hosted in `assets/video/` instead of YouTube iframes. An embedded YouTube player cannot guarantee a completely clean, unbranded picture in every browser/state.
+
+FOOTER VISIT COUNTER
+--------------------
+The footer visit reference uses CounterAPI.com with namespace `eyebyte.tv`, action `view`, key `footer-visit-reference`, and `startNumber=123`. No API key or backend deployment is needed. The shared value is stored by the external CounterAPI service. See VISIT-COUNTER-SETUP.md for behaviour and limitations.
