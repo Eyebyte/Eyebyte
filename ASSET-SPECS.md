@@ -41,7 +41,7 @@ Note: The website source uses direct `src` paths for the three pillar MP4s and e
 - `sub.png` — Subsonic
 - `rainbow.png` — Rainbow Spirit
 - `rio.png` — Return to Rio
-The supplied marks are white PNGs on transparent 150 × 150 px canvases. The UI displays each in a compact flat-top hexagonal frame; keep the artwork centred and preserve transparency.
+The supplied marks are white PNGs on transparent 150 × 150 px canvases. They appear unframed in clean horizontal project rows, aligned to the left and scaled with `object-fit: contain`; preserve transparency and original proportions. Each row links to the relevant event website.
 
 ### Project rollover backgrounds (`assets/field-bgs/`)
 Five 1920 × 1080, 16:9 WebP photographs, quality 80–85:
@@ -62,13 +62,13 @@ No separate image or video is required. The “Established 1995 / 30+ years” t
 
 ## Interactive 3D Screen Builder
 
-Section 04's **Design a screen system** CTA opens `screen-builder.html`, a self-contained interactive 3D LED screen configurator adapted from the supplied standalone editor. The editor is included in the website package and does not require separate JavaScript or model assets. Its **← Eyebyte** link returns to the Hardware section.
+Section 04's **Screen Builder** CTA opens `screen-builder.html`, a self-contained interactive 3D LED screen configurator adapted from the supplied standalone editor. The editor is included in the website package and does not require separate JavaScript or model assets. Its **← Eyebyte** link returns to the Hardware section.
 
 When deploying the website, keep `screen-builder.html` beside `index.html` so the relative CTA and return links resolve correctly.
 
 ## Live Performance / Hardware / Content pillar loops
 
-The three promotional cards use these exact paths (filenames are case-sensitive on Linux hosting):
+The three promotional cards use these exact paths (filenames are case-sensitive on Linux hosting) and begin muted autoplay on initial page load, looping continuously:
 - `assets/video/performance.mp4` — Read the room. Move the crowd.
 - `assets/video/hardware.mp4` — More than a rectangle.
 - `assets/video/content.mp4` — Built to hit different.
@@ -93,10 +93,22 @@ The current handoff ZIP does **not** contain the MP4 binaries. Add the original 
 - `executing.jpg` — Section 03 / Perform — “Mastery in the Moment.”
 
 ### User-supplied project logos (`assets/images/`)
-These are white marks on transparent 150 × 150 px canvases, displayed in compact flat-top hexagon frames:
+These are white marks on transparent 150 × 150 px canvases, displayed cleanly without logo frames:
 - `eff.png` — Earth Frequency
 - `sub.png` — Subsonic
 - `rainbow.png` — Rainbow Spirit
 - `rio.png` — Return to Rio
 
 Place all eight supplied image files in `assets/images/`. The current handoff environment did not contain these JPG/PNG files when the package was rebuilt; the HTML paths are connected, and missing logos show readable text fallbacks. Add the actual image files before publishing so the imagery displays.
+
+
+## Search / SEO
+- `index.html` includes a descriptive title, meta description, canonical URL, index/follow robots directive, Open Graph/Twitter metadata and Organization JSON-LD.
+- `robots.txt` allows crawling and points crawlers to `sitemap.xml`; the sitemap lists the home page and `screen-builder.html`.
+- Before launch, ensure `https://eyebyte.tv/` is the canonical production domain and that `assets/eyebyte-logo-white.png` is publicly available for social previews.
+
+
+## Important: clean background video and YouTube overlays
+The hero and hardware motion panels currently use YouTube embeds with muted autoplay, `controls=0`, loop, inline playback and keyboard/fullscreen controls disabled. The CSS also masks the typical title/avatar area at the upper-left and watermark area at the lower-right. This is best-effort only: YouTube's official embed documentation says branding treatment is determined by the player and that title/channel information can appear before playback, when paused, or when playback ends. The `modestbranding` parameter is deprecated and has no effect.
+
+If these must be completely free of YouTube logos, headings, player UI and end overlays, use the original licensed MP4 files hosted in `assets/video/` instead of YouTube iframes. An embedded YouTube player cannot guarantee a completely clean, unbranded picture in every browser/state.

@@ -32,26 +32,30 @@ STILL IMAGE MASTER FORMAT
 [ ] Do not bake UI borders or text into backgrounds. Keep enough dark space where copy will overlay.
 [ ] Photos should be real Eyebyte event/stage/hardware photography where possible, not generic stock.
 
-1. HERO — YOUTUBE BACKGROUND
-----------------------------
-[✓] Source video: https://www.youtube.com/watch?v=PYdTqzLeXHo
-    Embed parameters: autoplay=1, mute=1, controls=0, loop=1, playlist=PYdTqzLeXHo, playsinline=1, disablekb=1.
-    The YouTube iframe is sized to cover the hero media frame without distortion; no local hero MP4 is required.
-[ ] Optional fallback: keep a hero poster image in assets/images/hero-poster.webp if you'd like a local still beneath the embed.
+1. HERO — OPENING VIDEO
+-----------------------
+[ ] Filename: assets/video/hero-independent-visual-systems.mp4
+    Dimensions: 1440 x 1800 px | Ratio: 4:5 portrait
+    Codec/bitrate: H.264 High, yuv420p, 25 or 30 fps, VBR target 8–10 Mbps, max ~12 Mbps
+    Duration: 8–12 sec, seamless loop, silent
+    Playback: starts automatically, muted, loops on page load
+    Content direction: make an immediate statement about Eyebyte. Show world-class live visual performance, custom LED architecture and high-resolution content. Strong graphic composition, deliberate movement, black/dark negative space, rust-gold signal accents. Avoid a generic concert montage. Leave the upper-right and outside edges visually calm because the EB badge/frames and responsive crop may overlap.
+[ ] Poster image: assets/images/hero-poster.webp
+    Dimensions: 1440 x 1800 px | WebP, quality 82, sRGB
+    Choose a strong still frame from the hero loop; used while the video loads and as a fallback.
 
 2. SECTION 01 — THREE PILLARS: LIVE PERFORMANCE / HARDWARE / CONTENT
 --------------------------------------------------------------------
-The website references the following three pillar loops; ensure their binaries are present in assets/video before deployment. Each is 1440 x 1800 px | 4:5 portrait | MP4 H.264/AVC High | yuv420p | 25 or 30 fps | recommended VBR target 8–10 Mbps, max ~12 Mbps | silent | seamless loop. The matching cards now use 4:5 aspect ratio so the media is not cropped.
+All three pillar loops have been supplied per the project brief. Each is 1440 x 1800 px | 4:5 portrait | MP4 H.264/AVC High | yuv420p | 25 or 30 fps | recommended VBR target 8–10 Mbps, max ~12 Mbps | silent | seamless loop. The matching cards now use 4:5 aspect ratio so the media is not cropped.
 
-[ ] Video 01: assets/video/performance.mp4 — used for “Read the room. Move the crowd.”
+[✓] Video 01: assets/video/performance.mp4 — used for “Read the room. Move the crowd.”
 [ ] Optional poster: assets/images/performance-poster.webp — 1440 x 1800 px, 4:5, WebP quality 82. Not required; the image fallback remains visible until the video is ready.
 
-[ ] Video 02: assets/video/hardware.mp4 — used for “More than a rectangle.”
+[✓] Video 02: assets/video/hardware.mp4 — used for “More than a rectangle.”
 [ ] Optional poster: assets/images/hardware-poster.webp — 1440 x 1800 px, 4:5, WebP quality 82. Not required; the image fallback remains visible until the video is ready.
 
-[ ] Video 03: assets/video/content.mp4 — used for “Built to hit different.”
+[✓] Video 03: assets/video/content.mp4 — used for “Built to hit different.”
 [ ] Optional poster: assets/images/content-poster.webp — 1440 x 1800 px, 4:5, WebP quality 82. Not required; the image fallback remains visible until the video is ready.
-The three pillar MP4 binaries were not present in the packaging workspace at the time of this update; copy them into assets/video before deployment.
 
 3. SECTION 02 — ESTABLISHED 1995 / EXPERIENCE GRAPHIC
 ----------------------------------------------------
@@ -59,29 +63,37 @@ The three pillar MP4 binaries were not present in the packaging workspace at the
 [ ] Design intent: compact technical badge on the left, with animated dial rings, fine ticks, small coordinates and restrained rust-gold signal details. Keep the type legible and the border minimal. Do not create a separate video or background SVG for this section.
 
 4. SECTION 03 — WHAT WE DO: FOUR ROLLOVER IMAGES
-------------------------------------------------
-The site uses these supplied JPG files as rollover images behind the tile copy. Keep the focal point centred and leave enough dark contrast for text.
-[ ] assets/images/starting.jpg — Collaborate / “Start with the vision.”
-[ ] assets/images/designing.jpg — Design / “Design the Spatial Experience.”
-[ ] assets/images/building.jpg — Deliver / “Make it happen.”
-[ ] assets/images/executing.jpg — Perform / “Mastery in the Moment.”
-The source files were not present in the packaging workspace at the time of this update; ensure they are copied into assets/images before deployment.
+-----------------------------------------------
+Each image: 1600 x 900 px | 16:9 | WebP quality 80–85 | sRGB | target 200–500 KB, max ~700 KB.
+The tile image fades in BEHIND the copy on hover, keyboard focus or tap. Composition should support a dark gradient overlay; keep bright action in the centre/right and avoid important detail under text.
+
+[ ] Image 01: assets/images/what-we-do-01-integrate-stage.webp
+    Topic: integrating video/LED into a stage plan; show the visual system reading as part of the architecture, rather than a screen added at the last minute.
+[ ] Image 02: assets/images/what-we-do-02-screen-design-content.webp
+    Topic: screen mapping/layout design and bespoke content being designed for non-standard screen geometries.
+[ ] Image 03: assets/images/what-we-do-03-onsite-execution.webp
+    Topic: show-site coordination, technical control, crew and hardware checks. Communicate calm, competent delivery.
+[ ] Image 04: assets/images/what-we-do-04-live-performance.webp
+    Topic: the live VJ performance moment: performer/controls/screens/crowd in a single visual story.
 
 5. SECTION 04 — EYEBYTE HARDWARE VIDEO (LEFT SIDE)
 --------------------------------------------------
-[✓] Source video: https://www.youtube.com/watch?v=IPklb2zfcgg
-    Embed parameters: autoplay=1, mute=1, controls=0, loop=1, playlist=IPklb2zfcgg, playsinline=1, disablekb=1.
-    The YouTube iframe occupies the left hardware media panel and is cropped to cover without stretching. No separate local hardware MP4 is required.
-[ ] Optional: assets/images/hardware-led-poster.webp as a still fallback, 1440 x 1200, WebP quality 82.
+[ ] Video: assets/video/hardware-resolution-curved-led.mp4
+    Dimensions: 1440 x 1200 px | Ratio: 6:5 landscape
+    Codec/bitrate: H.264 High, yuv420p, 25 or 30 fps, VBR target 8–10 Mbps, max ~12 Mbps
+    Duration: 8–12 sec, silent seamless loop
+    Show: high-resolution LED close-ups; true flexible curved panels; modular panel changes and configuration versatility; proof of pixel detail, brightness and contrast; robust, fully IP-rated hardware appropriate for Australian outdoor conditions. Include both macro shots and an intelligible overall view. Do not imply particular numerical brightness/refresh/IP specs unless Eyebyte confirms those actual specs.
+    Keep details central and don't burn in text. The site places captions/frames around the video.
+[ ] Poster image: assets/images/hardware-led-poster.webp
+    Dimensions: 1440 x 1200 px | WebP quality 82; use a detail-rich still from the video.
 
 6. SECTION 05 — IN THE FIELD: FOUR LOGOS + FIVE ROLLOVER BACKGROUNDS
 ---------------------------------------------------------------------
-LOGOS — four white marks with transparent backgrounds, 150 x 150 px PNGs, supplied by Eyebyte. Displayed in compact flat-top hexagon frames.
-[ ] assets/images/eff.png — Earth Frequency
-[ ] assets/images/sub.png — Subsonic
-[ ] assets/images/rainbow.png — Rainbow Spirit (formerly Rainbow Serpent)
-[ ] assets/images/rio.png — Return to Rio
-The actual files were not present in the packaging workspace at the time of this update; copy them into assets/images before deployment.
+LOGOS — four files, preferably white/monochrome SVG with transparent background. Preserve original proportions. If SVG is unavailable, provide transparent PNG with a 1200 x 480 px canvas (5:2 equivalent) and the logo occupying most of the canvas without clipping.
+[ ] assets/field-logos/earth-frequency.svg — Earth Frequency
+[ ] assets/field-logos/subsonic.svg — Subsonic
+[ ] assets/field-logos/rainbow-spirit.svg — Rainbow Spirit (formerly Rainbow Serpent)
+[ ] assets/field-logos/return-to-rio.svg — Return to Rio
 
 ROLLOVER BACKGROUNDS — each 1920 x 1080 px | 16:9 | WebP quality 80–85 | target 200–500 KB.
 The row reveals a darkened photo when hovered/focused. Supply a wide crop with stage/audience/visual activity across the frame; ensure a dark gradient can preserve text readability.
@@ -98,9 +110,13 @@ Displayed experience labels:
 [ ] Return to Rio — Directing vision since 2016
 [ ] So, so many more... — one-off shows, clubs, stages and custom builds (no separate logo needed)
 
-7. SECTION 03 PROCESS — COMBINED WHAT WE DO / HOW WE WORK
---------------------------------------------------------
-[✓] No separate “How We Work” images are required. The four assets above support the complete process: collaborate, design, deliver, perform.
+7. SECTION 06 — HOW WE WORK: THREE ROLLOVER IMAGES
+--------------------------------------------------
+Each image: 1600 x 900 px | 16:9 | WebP quality 80–85 | target 200–500 KB.
+The image fades behind the wording on hover, focus or tap. Keep people/equipment/action clear enough to read at tile size; leave some negative space for text.
+[ ] assets/images/how-we-work-01-discover.webp — early collaboration, brief/venue/stage planning
+[ ] assets/images/how-we-work-02-design.webp — screen diagrams, content development, technical planning
+[ ] assets/images/how-we-work-03-deliver.webp — onsite crew/operation/show-day delivery
 
 8. COMBINED CONTACT + SOCIAL SECTION
 ------------------------------------

@@ -4,15 +4,47 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="referrer" content="strict-origin-when-cross-origin">
-  <meta name="theme-color" content="#111214">
-  <meta name="description" content="Eyebyte combines world-class live video performance, bespoke modular LED hardware and custom event content. Innovative visual systems, established 1995.">
-  <meta property="og:title" content="Eyebyte — Live Visuals. Built to Impress.">
-  <meta property="og:description" content="World-class live video performance, bespoke modular LED hardware and inventive event visuals by Eyebyte.">
+  <title>Eyebyte | Live VJ, Custom LED Screens &amp; Event Visuals</title>
+  <meta name="description" content="Sydney-based Eyebyte delivers live VJ performance, modular LED screens and bespoke event visuals across Australia. Innovative visual systems since 1995.">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <link rel="canonical" href="https://eyebyte.tv/">
+  <meta name="theme-color" content="#111213">
+  <meta property="og:site_name" content="Eyebyte">
+  <meta property="og:locale" content="en_AU">
+  <meta property="og:title" content="Eyebyte | Live VJ, Custom LED Screens & Event Visuals">
+  <meta property="og:description" content="Live video performance, bespoke modular LED hardware and inventive event visuals for festivals, clubs, stages and events. Established 1995.">
   <meta property="og:type" content="website">
-  <title>Eyebyte — Live Visuals. Built to Impress.</title>
+  <meta property="og:url" content="https://eyebyte.tv/">
+  <meta property="og:image" content="https://eyebyte.tv/assets/eyebyte-logo-white.png">
+  <meta property="og:image:alt" content="Eyebyte — innovative live visual systems">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Eyebyte | Live VJ, Custom LED Screens & Event Visuals">
+  <meta name="twitter:description" content="Live video performance, bespoke modular LED hardware and custom event visuals. Established 1995.">
+  <meta name="twitter:image" content="https://eyebyte.tv/assets/eyebyte-logo-white.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800;900&family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Eyebyte",
+    "url": "https://eyebyte.tv/",
+    "logo": "https://eyebyte.tv/assets/eyebyte-logo-white.png",
+    "email": "eyebyte@gmail.com",
+    "foundingDate": "1995",
+    "description": "Australian live visual systems brand delivering live video performance, bespoke modular LED hardware, custom event visuals and show production.",
+    "areaServed": {"@type": "Country", "name": "Australia"},
+    "sameAs": [
+      "https://www.instagram.com/eyebyte/",
+      "https://www.facebook.com/Eyebyte",
+      "https://www.youtube.com/@EyebyteVisuals",
+      "https://m.me/Eyebyte"
+    ],
+    "knowsAbout": ["Live video performance", "VJ performance", "Modular LED screens", "Custom event visuals", "Projection mapping", "Live event production"]
+  }
+  </script>
   <style>
     :root {
       --bg: #08090b;
@@ -1509,8 +1541,21 @@
     }
     .youtube-cover iframe {
       position:absolute; top:50%; left:50%; display:block; border:0;
-      width:100%; height:100%; max-width:none; max-height:none;
+      width:100%; height:100%; max-width:none; max-height:none; z-index:0;
       transform:translate(-50%,-50%); pointer-events:none;
+    }
+    /* Best-effort masking for YouTube's unavoidable title/avatar and watermark areas.
+       YouTube does not allow every brand/player overlay to be disabled in embeds. */
+    .youtube-cover::before, .youtube-cover::after {
+      content:""; position:absolute; z-index:5; pointer-events:none;
+    }
+    .youtube-cover::before {
+      top:0; left:0; width:66%; height:26%;
+      background:radial-gradient(ellipse at top left, rgba(5,5,5,.98) 0%, rgba(5,5,5,.84) 33%, rgba(5,5,5,.35) 61%, transparent 82%);
+    }
+    .youtube-cover::after {
+      right:0; bottom:0; width:24%; height:20%;
+      background:radial-gradient(ellipse at bottom right, rgba(5,5,5,.96) 0%, rgba(5,5,5,.72) 34%, rgba(5,5,5,.2) 64%, transparent 84%);
     }
     .hero-youtube {
       inset:5% 4% 8% 6%; z-index:-1;
@@ -1521,7 +1566,6 @@
       clip-path:polygon(11% 0,100% 0,100% 88%,81% 100%,0 100%,0 15%);
       background:#070809;
     }
-    .hardware-youtube iframe { z-index:1; }
     .hardware-caption { position:absolute; left:8%; bottom:8%; z-index:4; }
 
     /* Four white, transparent 150px partner marks in compact flat-top hexagon frames. */
@@ -1724,6 +1768,82 @@
       .cap-grid .cap h3,.cap-grid .cap p,.nav .nav-screen-builder,.nav .nav-screen-builder span { transition:none !important; }
     }
 
+
+    /* Search-ready metadata is paired with readable semantic headings and real outbound project links. */
+    .hardware-feature-grid {
+      display:grid;
+      grid-template-columns:repeat(2,minmax(0,1fr));
+      gap:10px;
+      border:0;
+      margin:28px 0 30px;
+    }
+    .hardware-feature {
+      min-width:0;
+      padding:17px 16px 18px;
+      border:1px solid rgba(209,132,67,.24);
+      background:linear-gradient(140deg,rgba(209,132,67,.055),rgba(18,19,20,.8) 72%);
+      position:relative;
+    }
+    .hardware-feature::before {
+      content:""; position:absolute; left:0; top:0; width:22px; height:1px; background:#D18443;
+    }
+    .hardware-feature-title { display:block; color:#f3e8df; font:600 17px/1.15 'Barlow Condensed',sans-serif; text-transform:uppercase; letter-spacing:.025em; }
+    .hardware-feature p { margin:8px 0 0; color:#aaa197; font-size:11px; line-height:1.55; }
+    .hardware-feature:last-child { grid-column:1 / -1; }
+
+    /* Keep supplied event logos clean and unframed; the event row itself is the link. */
+    .projects-section .project-row { border-radius:0; }
+    .projects-section .project-logo {
+      width:100%; max-width:120px; height:66px; padding:0; flex:0 0 auto;
+      clip-path:none !important; border:0 !important; border-radius:0 !important;
+      background:transparent !important; filter:none !important; transform:none !important;
+      display:flex !important; align-items:center; justify-content:flex-start;
+    }
+    .projects-section .project-logo img {
+      width:100%; height:100%; max-width:120px; max-height:66px; object-fit:contain; object-position:left center;
+      clip-path:none !important; filter:none !important;
+    }
+    .projects-section .project-logo--more { width:100%; max-width:120px; height:66px; }
+    .projects-section .project-logo--more .more-plus-icon { font-size:50px; }
+    .projects-section .project-row .circuit-edge-overlay { display:none !important; }
+    .projects-section .project-row:hover { padding-inline:13px; }
+    .projects-section .project-row:focus-visible { outline:1px solid #D18443; outline-offset:3px; }
+
+    /* Form feedback is a prominent, accessible panel for success and failure states. */
+    .enquiry-status {
+      display:block; margin:3px 0 0; min-height:52px; padding:13px 15px;
+      border:1px solid rgba(209,132,67,.32); border-left:3px solid #D18443;
+      background:rgba(209,132,67,.07); color:#f0ddd0; font-size:13px; line-height:1.55;
+      overflow-wrap:anywhere; transition:background .2s ease,border-color .2s ease,color .2s ease;
+    }
+    .enquiry-status:empty { display:none; }
+    .enquiry-status[data-state="success"] { border-color:rgba(129,190,130,.65); border-left-color:#81be82; background:rgba(70,140,75,.12); color:#d9f2d8; }
+    .enquiry-status[data-state="error"] { border-color:rgba(230,105,84,.7); border-left-color:#e66954; background:rgba(158,48,34,.16); color:#ffe0da; }
+    .enquiry-status[data-state="info"] { border-color:rgba(209,132,67,.45); border-left-color:#D18443; background:rgba(209,132,67,.1); color:#f6e6d9; }
+    .enquiry-status:focus-visible { outline:2px solid #D18443; outline-offset:3px; }
+
+    @media (max-width:980px) {
+      .hardware-feature-grid { gap:8px; }
+      .hardware-feature { padding:15px 13px; }
+      .projects-section .project-row { grid-template-columns:28px 112px minmax(0,1fr) 34px; gap:14px; }
+    }
+    @media (max-width:700px) {
+      .hardware-feature-grid { grid-template-columns:1fr; gap:8px; }
+      .hardware-feature:last-child { grid-column:auto; }
+      .hardware-feature { padding:15px 14px; }
+      .hardware-feature-title { font-size:18px; }
+      .hardware-feature p { font-size:12px; }
+      .projects-section .project-row { grid-template-columns:22px minmax(66px,84px) minmax(0,1fr) 28px; gap:9px; padding:14px 2px; }
+      .projects-section .project-logo { max-width:84px; height:48px; }
+      .projects-section .project-logo img { max-width:84px; max-height:48px; }
+      .projects-section .project-row h3 { font-size:clamp(18px,5vw,27px); }
+      .enquiry-status { font-size:13px; padding:14px; }
+    }
+    @media (max-width:380px) {
+      .projects-section .project-row { grid-template-columns:18px minmax(55px,68px) minmax(0,1fr) 25px; gap:7px; }
+      .projects-section .project-logo { max-width:68px; height:40px; }
+      .projects-section .project-logo img { max-width:68px; max-height:40px; }
+    }
   </style>
 </head>
 <body>
@@ -1789,8 +1909,8 @@
         <a href="#work">Selected work</a>
         <a href="#capabilities">What we do</a>
         <a href="#hardware">Custom LED</a>
-        <a class="nav-screen-builder" href="screen-builder.html" target="_blank" rel="noopener noreferrer" aria-label="Open the 3D Screen Builder in a new tab">Screen Builder <span aria-hidden="true">↗</span></a>
         <a href="#connect">Connect</a>
+        <a class="nav-screen-builder" href="screen-builder.html" target="_blank" rel="noopener noreferrer" aria-label="Open the 3D Screen Builder in a new tab">Screen Builder <span aria-hidden="true">↗</span></a>
         <a class="nav-cta" href="#contact">Start a project&nbsp; ↗</a>
       </nav>
     </div>
@@ -1802,7 +1922,7 @@
         <div class="hero-copy">
           <div class="eyebrow">Innovative visual systems · Est. 1995</div>
           <h1><span>Live</span><span class="outline">Visuals.</span><span class="accent">Built to</span><span>Impress.</span></h1>
-          <p class="hero-lede">Eyebyte brings live video performance, custom LED environments and unapologetically inventive thinking to stages that deserve more than just a rectangular screen.</p>
+          <p class="hero-lede">Eyebyte brings live video performance, custom LED environments and inventive thinking to stages that deserve more than just a rectangular screen.</p>
           <div class="actions">
             <a class="button button-primary" href="#work">Explore the work <span class="arrow">↘</span></a>
             <a class="button button-ghost" href="#contact">Make something happen <span class="arrow">↗</span></a>
@@ -1812,7 +1932,7 @@
         <div class="hero-visual circuit-box" aria-label="Live visual systems video loop">
           <div class="hero-photo" role="img" aria-label="Crowd and stage at a live music event"></div>
           <div class="youtube-cover hero-youtube" data-youtube-cover aria-hidden="true">
-            <iframe src="https://www.youtube.com/embed/PYdTqzLeXHo?autoplay=1&amp;mute=1&amp;controls=0&amp;loop=1&amp;playlist=PYdTqzLeXHo&amp;playsinline=1&amp;rel=0&amp;disablekb=1&amp;fs=0&amp;iv_load_policy=3&amp;cc_load_policy=0" title="Eyebyte live visuals showreel" loading="eager" allow="autoplay; encrypted-media; picture-in-picture" referrerpolicy="strict-origin-when-cross-origin" tabindex="-1" aria-hidden="true"></iframe>
+            <iframe src="https://www.youtube.com/embed/PYdTqzLeXHo?autoplay=1&amp;mute=1&amp;controls=0&amp;loop=1&amp;playlist=PYdTqzLeXHo&amp;playsinline=1&amp;rel=0&amp;disablekb=1&amp;fs=0&amp;iv_load_policy=3&amp;cc_load_policy=0&amp;modestbranding=1" title="Eyebyte live visuals showreel" loading="eager" allow="autoplay; encrypted-media; picture-in-picture" referrerpolicy="strict-origin-when-cross-origin" tabindex="-1" aria-hidden="true"></iframe>
           </div>
           <div class="hero-orbit"></div>
           <div class="visual-cross" aria-label="Eyebyte EB hexagonal mark">
@@ -1825,7 +1945,7 @@
             <span>EB</span>
           </div>
           <div class="visual-coordinates">SYD / AU · LIVE SYSTEMS / 001</div>
-          <div class="visual-label"><b>01</b><span>Built for the Space<br>Made for the moment</span></div>
+          <div class="visual-label"><b>01</b><span>Australia’s leading<br>live vision brand</span></div>
         </div>
       </div>
       <div class="hero-gridline"></div>
@@ -1833,8 +1953,8 @@
 
     <div class="ticker circuit-box" aria-label="Eyebyte capabilities">
       <div class="ticker-track" aria-hidden="true">
-        <span>Live video performance <i>✳</i> Custom LED environments <i>✳</i> Visual design <i>✳</i> Multicam capture <i>✳</i> Creative meets technical <i>✳</i> Independent since 1995 <i>✳</i> From sketch to showtime <i>✳</i> VJ Management <i>✳</i> Timecoded performance <i>✳</i></span>
-        <span>Live video performance <i>✳</i> Custom LED environments <i>✳</i> Visual design <i>✳</i> Multicam capture <i>✳</i> Creative meets technical <i>✳</i> Independent since 1995 <i>✳</i> From sketch to showtime <i>✳</i> VJ Management <i>✳</i> Timecoded performance <i>✳</i></span>
+        <span>Live video performance <i>✳</i> Custom LED environments <i>✳</i> Visual design <i>✳</i> Multicam capture <i>✳</i> Creative meets technical <i>✳</i> From sketch to showtime <i>✳</i> VJ Management <i>✳</i> Timecoded performance <i>✳</i></span>
+        <span>Live video performance <i>✳</i> Custom LED environments <i>✳</i> Visual design <i>✳</i> Multicam capture <i>✳</i> Creative meets technical <i>✳</i> From sketch to showtime <i>✳</i> VJ Management <i>✳</i> Timecoded performance <i>✳</i></span>
       </div>
     </div>
 
@@ -1876,7 +1996,7 @@
         </div><div class="reveal delay-1">
           <div class="eyebrow">02 / A little different</div>
           <h2>Built on 30 Years<br>of <em>Innovation.</em><br><span class="statement-next">Focused on What’s Next.</span></h2>
-          <div class="statement-bottom"><p>Since 1995, Eyebyte has worked where creative ambition meets live-event reality. Three decades of festivals, clubs, stages and custom systems bring practical knowledge to every new idea—tested under pressure and built to make an impression that lasts.</p><span class="since">30+ years of live systems<br>Experience built into every show</span></div>
+          <div class="statement-bottom"><p>Since 1995, Eyebyte has thrived where creative ambition meets live-event reality. During that time, Eyebyte has delivered thousands of events and entertained millions of people.</p><span class="since">30+ years of live systems<br>Experience built into every show</span></div>
         </div>
       </div>
     </section>
@@ -1889,16 +2009,16 @@
         </div>
         <div class="cap-grid">
           <div class="cap-item">
-            <article class="cap circuit-box"><div class="cap-image-panel"><img src="assets/images/starting.jpg" alt="" loading="lazy" decoding="async"></div><span class="cap-no">01 / COLLABORATE</span><span class="cap-plus">+</span><svg class="cap-icon" viewBox="0 0 48 48" fill="none" aria-hidden="true"><path d="M5 24h8l5-13 10 27 6-17 4 8h5" stroke="currentColor" stroke-width="1.5" stroke-linecap="square"/><circle cx="24" cy="24" r="21" stroke="currentColor" stroke-opacity=".3" stroke-width="1"/></svg><h3>Start with<br>the vision.</h3><p>We collaborate early with creative and production teams, shaping the visual ambition and integrating screens into the stage architecture—not bolting them on at the end.</p></article>
+            <article class="cap circuit-box"><div class="cap-image-panel"><img src="assets/images/starting.jpg" alt="Live event concept development and creative collaboration" width="1500" height="1500" loading="lazy" decoding="async"></div><span class="cap-no">01 / COLLABORATE</span><span class="cap-plus">+</span><svg class="cap-icon" viewBox="0 0 48 48" fill="none" aria-hidden="true"><path d="M5 24h8l5-13 10 27 6-17 4 8h5" stroke="currentColor" stroke-width="1.5" stroke-linecap="square"/><circle cx="24" cy="24" r="21" stroke="currentColor" stroke-opacity=".3" stroke-width="1"/></svg><h3>Start with<br>the vision.</h3><p>We collaborate early with creative and production teams, shaping the visual ambition and integrating screens into the stage architecture—not bolting them on at the end.</p></article>
           </div>
           <div class="cap-item">
-            <article class="cap circuit-box"><div class="cap-image-panel"><img src="assets/images/designing.jpg" alt="" loading="lazy" decoding="async"></div><span class="cap-no">02 / DESIGN</span><span class="cap-plus">+</span><svg class="cap-icon" viewBox="0 0 48 48" fill="none" aria-hidden="true"><path d="M7 7h15v15H7zM26 7h15v15H26zM7 26h15v15H7zM26 26h15v15H26z" stroke="currentColor" stroke-width="1.5"/><path d="M22 14.5h4M14.5 22v4M33.5 22v4M22 33.5h4" stroke="currentColor" stroke-width="1.5"/></svg><h3>Design the Spatial<br>Experience.</h3><p>We shape screen layouts, bespoke content and playback strategy around the space, theme and event. Every pixel and every form has a purpose.</p></article>
+            <article class="cap circuit-box"><div class="cap-image-panel"><img src="assets/images/designing.jpg" alt="Spatial stage design and custom screen layout planning" width="1500" height="1500" loading="lazy" decoding="async"></div><span class="cap-no">02 / DESIGN</span><span class="cap-plus">+</span><svg class="cap-icon" viewBox="0 0 48 48" fill="none" aria-hidden="true"><path d="M7 7h15v15H7zM26 7h15v15H26zM7 26h15v15H7zM26 26h15v15H26z" stroke="currentColor" stroke-width="1.5"/><path d="M22 14.5h4M14.5 22v4M33.5 22v4M22 33.5h4" stroke="currentColor" stroke-width="1.5"/></svg><h3>Design the Spatial<br>Experience.</h3><p>We shape screen layouts, bespoke content and playback strategy around the space, theme and event. Every pixel and every form has a purpose.</p></article>
           </div>
           <div class="cap-item">
-            <article class="cap circuit-box"><div class="cap-image-panel"><img src="assets/images/building.jpg" alt="" loading="lazy" decoding="async"></div><span class="cap-no">03 / DELIVER</span><span class="cap-plus">+</span><svg class="cap-icon" viewBox="0 0 48 48" fill="none" aria-hidden="true"><path d="M24 4 44 24 24 44 4 24 24 4Z" stroke="currentColor" stroke-width="1.5"/><path d="M24 12 36 24 24 36 12 24 24 12Z" stroke="currentColor" stroke-width="1.5"/><path d="M24 19v10M19 24h10" stroke="currentColor" stroke-width="1.5"/></svg><h3>Make it<br>happen.</h3><p>On site, we’re hands on with the hardware, coordinating crew and solving problems in real time. Good planning keeps delivery on time and on budget—without compromise.</p></article>
+            <article class="cap circuit-box"><div class="cap-image-panel"><img src="assets/images/building.jpg" alt="On-site LED hardware installation and crew coordination" width="1500" height="1500" loading="lazy" decoding="async"></div><span class="cap-no">03 / DELIVER</span><span class="cap-plus">+</span><svg class="cap-icon" viewBox="0 0 48 48" fill="none" aria-hidden="true"><path d="M24 4 44 24 24 44 4 24 24 4Z" stroke="currentColor" stroke-width="1.5"/><path d="M24 12 36 24 24 36 12 24 24 12Z" stroke="currentColor" stroke-width="1.5"/><path d="M24 19v10M19 24h10" stroke="currentColor" stroke-width="1.5"/></svg><h3>Make it<br>happen.</h3><p>On site, we’re hands on with the hardware, coordinating crew and solving problems in real time. Good planning keeps delivery on time and on budget—without compromise.</p></article>
           </div>
           <div class="cap-item">
-            <article class="cap circuit-box"><div class="cap-image-panel"><img src="assets/images/executing.jpg" alt="" loading="lazy" decoding="async"></div><span class="cap-no">04 / PERFORM</span><span class="cap-plus">+</span><svg class="cap-icon" viewBox="0 0 48 48" fill="none" aria-hidden="true"><rect x="4" y="10" width="40" height="28" rx="2" stroke="currentColor" stroke-width="1.5"/><path d="m20 17 12 7-12 7V17Z" fill="currentColor"/><path d="M10 5h28M10 43h28" stroke="currentColor" stroke-opacity=".4" stroke-width="1.5"/></svg><h3>Mastery in the<br>Moment.</h3><p>Live performance artistry, perfect timing and real-time tools make the system sing—responding to the music, the crowd and the moment. Precision when it matters. Instinct when it counts.</p></article>
+            <article class="cap circuit-box"><div class="cap-image-panel"><img src="assets/images/executing.jpg" alt="Live VJ performance and real-time visuals" width="1500" height="1500" loading="lazy" decoding="async"></div><span class="cap-no">04 / PERFORM</span><span class="cap-plus">+</span><svg class="cap-icon" viewBox="0 0 48 48" fill="none" aria-hidden="true"><rect x="4" y="10" width="40" height="28" rx="2" stroke="currentColor" stroke-width="1.5"/><path d="m20 17 12 7-12 7V17Z" fill="currentColor"/><path d="M10 5h28M10 43h28" stroke="currentColor" stroke-opacity=".4" stroke-width="1.5"/></svg><h3>Mastery in the<br>Moment.</h3><p>Live performance artistry, perfect timing and real-time tools make the system sing—responding to the music, the crowd and the moment. Precision when it matters. Instinct when it counts.</p></article>
           </div>
         </div>
       </div>
@@ -1909,23 +2029,23 @@
         <div class="hardware-visual reveal circuit-box" aria-label="Eyebyte high-resolution, curved modular LED hardware video loop">
           <div class="led-wall" aria-hidden="true"><span style="--i:0"></span><span style="--i:1"></span><span style="--i:2"></span><span style="--i:3"></span><span style="--i:4"></span><span style="--i:5"></span><span style="--i:6"></span><span style="--i:7"></span><span style="--i:8"></span><span style="--i:9"></span><span style="--i:10"></span><span style="--i:11"></span><span style="--i:12"></span><span style="--i:13"></span><span style="--i:14"></span><span style="--i:15"></span><span style="--i:16"></span><span style="--i:17"></span><span style="--i:18"></span><span style="--i:19"></span><span style="--i:20"></span><span style="--i:21"></span><span style="--i:22"></span><span style="--i:23"></span><span style="--i:24"></span><span style="--i:25"></span><span style="--i:26"></span><span style="--i:27"></span><span style="--i:28"></span><span style="--i:29"></span></div>
           <div class="youtube-cover hardware-youtube" data-youtube-cover aria-hidden="true">
-            <iframe src="https://www.youtube.com/embed/IPklb2zfcgg?autoplay=1&amp;mute=1&amp;controls=0&amp;loop=1&amp;playlist=IPklb2zfcgg&amp;playsinline=1&amp;rel=0&amp;disablekb=1&amp;fs=0&amp;iv_load_policy=3&amp;cc_load_policy=0" title="Eyebyte modular LED hardware and installations" loading="eager" allow="autoplay; encrypted-media; picture-in-picture" referrerpolicy="strict-origin-when-cross-origin" tabindex="-1" aria-hidden="true"></iframe>
+            <iframe src="https://www.youtube.com/embed/IPklb2zfcgg?autoplay=1&amp;mute=1&amp;controls=0&amp;loop=1&amp;playlist=IPklb2zfcgg&amp;playsinline=1&amp;rel=0&amp;disablekb=1&amp;fs=0&amp;iv_load_policy=3&amp;cc_load_policy=0&amp;modestbranding=1" title="Eyebyte modular LED hardware and installations" loading="eager" allow="autoplay; encrypted-media; picture-in-picture" referrerpolicy="strict-origin-when-cross-origin" tabindex="-1" aria-hidden="true"></iframe>
           </div>
           <div class="hardware-caption">High resolution / Flexible by design / Ready for the field</div>
         </div>
         <div class="hardware-copy reveal delay-1">
           <div class="eyebrow">04 / Eyebyte hardware</div>
           <h2>Peak Image Quality.<br><span>Zero Shortcuts.</span></h2>
-          <p class="hardware-lead">The latest modular LED technology opens up screen formats that conventional flat walls can’t deliver—including true flexible curved panels that follow the design of the stage, not the other way around.</p>
-          <p>Exceptional resolution, paired with outstanding brightness, colour accuracy, refresh rate and contrast ratio, keeps the image crisp, rich and confident.</p>
-          <div class="hardware-list">
-            <div><span>High-resolution image quality</span><span>Detail first</span></div>
-            <div><span>True flexible curved panels</span><span>Unique by design</span></div>
-            <div><span>Brightness / refresh / contrast</span><span>Image performance</span></div>
-            <div><span>Fully IP-rated, strengthened systems</span><span>Australian conditions</span></div>
-            <div><span>Modular, versatile configurations</span><span>Designed for designers.</span></div>
+          <p class="hardware-lead">Beyond the boundaries of traditional displays. With latest-generation modular LED technology, we create custom screen formats conventional flat walls simply can’t match. From bespoke LED setups and projection to precision camera and control gear—all owned, managed and delivered in-house to uncompromising standards.</p>
+          <p>Anchoring our technology lineup is our new modular LED screen system. Boasting exceptional resolution, vibrant brightness, precise colour accuracy and high refresh rates, it delivers sharp, rich and impactful visuals every time.</p>
+          <div class="hardware-list hardware-feature-grid" aria-label="Eyebyte LED hardware features">
+            <article class="hardware-feature"><span class="hardware-feature-title">High-Resolution Detail</span><p>Crisp, pixel-perfect clarity where every detail comes first.</p></article>
+            <article class="hardware-feature"><span class="hardware-feature-title">Flexible Curved Panels</span><p>Unique, bendable design options to reshape any space.</p></article>
+            <article class="hardware-feature"><span class="hardware-feature-title">Peak Image Performance</span><p>Superior brightness, contrast and high refresh rates built for high impact.</p></article>
+            <article class="hardware-feature"><span class="hardware-feature-title">Built Tough for Australia</span><p>Fully IP-rated and reinforced to withstand rugged outdoor conditions.</p></article>
+            <article class="hardware-feature"><span class="hardware-feature-title">Modular &amp; Versatile</span><p>Engineered for creative freedom and custom designer layouts.</p></article>
           </div>
-          <a class="button button-ghost" href="screen-builder.html" target="_blank" rel="noopener noreferrer" aria-label="Open the interactive 3D screen system builder in a new tab">Design a screen system <span class="arrow">↗</span></a>
+          <a class="button button-ghost" href="screen-builder.html" target="_blank" rel="noopener noreferrer" aria-label="Open the interactive 3D Screen Builder in a new tab">Screen Builder <span class="arrow">↗</span></a>
         </div>
       </div>
     </section>
@@ -1934,14 +2054,14 @@
       <div class="wrap">
         <div class="section-head reveal">
           <div><div class="eyebrow">05 / In the field</div><h2>Long-term trust.<br>Live-tested work.</h2></div>
-          <p>From enduring festival relationships to bespoke corporate activations, this is a snapshot of Eyebyte’s recent visual direction, VJ coordination and live delivery in the field.</p>
+          <p>From enduring festival relationships to bespoke corporate activations, this is a snapshot of Eyebyte’s recent favourite event brands.</p>
         </div>
         <div class="project-list reveal">
-          <a class="project-row circuit-box" data-project="earth-frequency" href="#contact" aria-label="Enquire about Eyebyte Earth Frequency work"><span class="project-no">01</span><span class="project-logo"><img src="assets/images/eff.png" alt="Earth Frequency logo" loading="lazy"><span class="logo-fallback" hidden>EARTH FREQUENCY</span></span><span class="project-copy"><h3>Earth Frequency</h3><span class="project-type">Directing visuals since 2015</span></span><span class="project-arrow" aria-hidden="true">↗</span></a>
-          <a class="project-row circuit-box" data-project="subsonic" href="#contact" aria-label="Enquire about Eyebyte Subsonic work"><span class="project-no">02</span><span class="project-logo"><img src="assets/images/sub.png" alt="Subsonic logo" loading="lazy"><span class="logo-fallback" hidden>SUBSONIC</span></span><span class="project-copy"><h3>Subsonic</h3><span class="project-type">Directing visuals since 2009</span></span><span class="project-arrow" aria-hidden="true">↗</span></a>
-          <a class="project-row circuit-box" data-project="rainbow-spirit" href="#contact" aria-label="Enquire about Eyebyte Rainbow Spirit work"><span class="project-no">03</span><span class="project-logo"><img src="assets/images/rainbow.png" alt="Rainbow Spirit logo" loading="lazy"><span class="logo-fallback" hidden>RAINBOW SPIRIT</span></span><span class="project-copy"><h3>Rainbow Spirit</h3><span class="project-type">Formerly Rainbow Serpent · VJ Coordinator since 2014</span></span><span class="project-arrow" aria-hidden="true">↗</span></a>
-          <a class="project-row circuit-box" data-project="return-to-rio" href="#contact" aria-label="Enquire about Eyebyte Return to Rio work"><span class="project-no">04</span><span class="project-logo"><img src="assets/images/rio.png" alt="Return to Rio logo" loading="lazy"><span class="logo-fallback" hidden>RETURN TO RIO</span></span><span class="project-copy"><h3>Return to Rio</h3><span class="project-type">Directing vision since 2016</span></span><span class="project-arrow" aria-hidden="true">↗</span></a>
-          <a class="project-row project-row--more circuit-box" data-project="more-work" href="#contact" aria-label="Enquire about other Eyebyte projects"><span class="project-no">05</span><span class="project-logo project-logo--more"><span class="more-plus-icon" aria-hidden="true">+</span></span><span class="project-copy"><h3>So, so many more...</h3><span class="project-type">One-off shows · clubs · stages · custom builds</span></span><span class="project-arrow" aria-hidden="true">↗</span></a>
+          <a class="project-row" data-project="earth-frequency" href="https://www.earthfrequency.com.au/" target="_blank" rel="noopener noreferrer" aria-label="Earth Frequency official website"><span class="project-no">01</span><span class="project-logo"><img src="assets/images/eff.png" alt="Earth Frequency logo" width="150" height="150" loading="lazy"><span class="logo-fallback" hidden>EARTH FREQUENCY</span></span><span class="project-copy"><h3>Earth Frequency</h3><span class="project-type">Directing visuals since 2015</span></span><span class="project-arrow" aria-hidden="true">↗</span></a>
+          <a class="project-row" data-project="subsonic" href="https://www.subsonicmusic.com.au/" target="_blank" rel="noopener noreferrer" aria-label="Subsonic official website"><span class="project-no">02</span><span class="project-logo"><img src="assets/images/sub.png" alt="Subsonic logo" width="150" height="150" loading="lazy"><span class="logo-fallback" hidden>SUBSONIC</span></span><span class="project-copy"><h3>Subsonic</h3><span class="project-type">Directing visuals since 2009</span></span><span class="project-arrow" aria-hidden="true">↗</span></a>
+          <a class="project-row" data-project="rainbow-spirit" href="https://rainbowspirit.net/" target="_blank" rel="noopener noreferrer" aria-label="Rainbow Spirit official website"><span class="project-no">03</span><span class="project-logo"><img src="assets/images/rainbow.png" alt="Rainbow Spirit logo" width="150" height="150" loading="lazy"><span class="logo-fallback" hidden>RAINBOW SPIRIT</span></span><span class="project-copy"><h3>Rainbow Spirit</h3><span class="project-type">Formerly Rainbow Serpent · VJ Coordinator since 2014</span></span><span class="project-arrow" aria-hidden="true">↗</span></a>
+          <a class="project-row" data-project="return-to-rio" href="https://returntorio.com/" target="_blank" rel="noopener noreferrer" aria-label="Return to Rio official website"><span class="project-no">04</span><span class="project-logo"><img src="assets/images/rio.png" alt="Return to Rio logo" width="150" height="150" loading="lazy"><span class="logo-fallback" hidden>RETURN TO RIO</span></span><span class="project-copy"><h3>Return to Rio</h3><span class="project-type">Directing vision since 2016</span></span><span class="project-arrow" aria-hidden="true">↗</span></a>
+          <a class="project-row project-row--more" data-project="more-work" href="https://www.facebook.com/Eyebyte" target="_blank" rel="noopener noreferrer" aria-label="Find more Eyebyte event brands on Facebook"><span class="project-no">05</span><span class="project-logo project-logo--more"><span class="more-plus-icon" aria-hidden="true">+</span></span><span class="project-copy"><h3>So, so many more...</h3><span class="project-type">One-off shows · clubs · stages · custom builds</span></span><span class="project-arrow" aria-hidden="true">↗</span></a>
         </div>
         <div class="project-foot">Long relationships. Live-tested systems. New ideas, every time.</div>
       </div>
@@ -1974,7 +2094,7 @@
               <label class="enquiry-field"><span>Event / project</span><input name="project" type="text" maxlength="180" placeholder="What are you planning?"></label>
               <label class="enquiry-field"><span>Tell us about the idea *</span><textarea name="message" rows="5" required maxlength="3000" placeholder="The venue, the vibe, the ambition…"></textarea></label>
               <button class="enquiry-submit" type="submit">Let’s make it happen <span aria-hidden="true">↗</span></button>
-              <p class="enquiry-status" id="enquiry-status" role="status" aria-live="polite">On the live website, your enquiry is sent directly to Eyebyte without opening an email app. First-time setup requires confirming FormSubmit’s activation email.</p>
+              <p class="enquiry-status" id="enquiry-status" data-state="info" role="status" aria-live="polite">Your message goes straight to Eyebyte. We’ll be in touch as soon as we can.</p>
             </form>
             <div class="contact-email-row"><a class="contact-email" href="mailto:eyebyte@gmail.com">eyebyte@gmail.com</a><button class="copy-email" type="button" data-copy-email="eyebyte@gmail.com">Copy email <span aria-hidden="true">⧉</span></button></div>
           </div>
@@ -2031,6 +2151,14 @@
       const status = document.querySelector('#enquiry-status');
       const subjectInput = document.querySelector('#enquiry-subject');
       const defaultButtonMarkup = submitButton ? submitButton.innerHTML : '';
+      const setEnquiryStatus = (message, state = 'info') => {
+        if (!status) return;
+        status.textContent = message;
+        status.dataset.state = state;
+        status.setAttribute('role', state === 'error' ? 'alert' : 'status');
+        status.setAttribute('tabindex', '-1');
+        status.scrollIntoView({ behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'nearest' });
+      };
 
       enquiryForm.addEventListener('submit', async event => {
         event.preventDefault();
@@ -2040,7 +2168,7 @@
         // FormSubmit and YouTube embeds require the page to be served over HTTP(S).
         // A page opened directly as file:// has no usable HTTP Referer.
         if (window.location.protocol === 'file:') {
-          if (status) status.textContent = 'The enquiry form is unavailable in this preview. Your details are still here—please email eyebyte@gmail.com directly.';
+          setEnquiryStatus('This preview cannot send enquiries. Your details are still here—please email eyebyte@gmail.com directly.', 'error');
           return;
         }
 
@@ -2062,7 +2190,7 @@
           submitButton.innerHTML = 'Sending enquiry… <span aria-hidden="true">↗</span>';
         }
         enquiryForm.setAttribute('aria-busy', 'true');
-        if (status) status.textContent = 'Sending your enquiry directly to Eyebyte…';
+        setEnquiryStatus('Sending your enquiry directly to Eyebyte…', 'info');
 
         try {
           const response = await fetch('https://formsubmit.co/ajax/eyebyte@gmail.com', {
@@ -2076,7 +2204,7 @@
             const serviceMessage = result.message || result.error || `The form service returned HTTP ${response.status}.`;
             throw new Error(String(serviceMessage));
           }
-          if (status) status.textContent = `Enquiry sent successfully to Eyebyte. Subject: “${subject}”. Thanks for getting in touch.`;
+          setEnquiryStatus(`Enquiry sent successfully to Eyebyte. Subject: “${subject}”. Thanks for getting in touch.`, 'success');
           enquiryForm.reset();
           if (subjectInput) subjectInput.value = 'Website Enquiry - Website form submission';
         } catch (error) {
@@ -2084,11 +2212,11 @@
           if (status) {
             const detail = String(error && error.message || '');
             if (/activat|confirm.*email|verify.*email/i.test(detail)) {
-              status.textContent = 'The form service needs email activation. Check eyebyte@gmail.com (including spam) for FormSubmit’s activation message and confirm it, then try again. Your message is still in the form.';
+              setEnquiryStatus('Email confirmation is still required by the form service. Check eyebyte@gmail.com (including spam), confirm FormSubmit, then try again. Your message is still in the form.', 'error');
             } else if (/file:|local file|web server/i.test(detail)) {
-              status.textContent = 'The enquiry form could not send from this preview. Your message is still here—please email eyebyte@gmail.com directly.';
+              setEnquiryStatus('The enquiry form could not send from this preview. Your message is still here—please email eyebyte@gmail.com directly.', 'error');
             } else {
-              status.textContent = 'We couldn’t confirm delivery. Your message is still in the form. Check the browser Console for the FormSubmit response; if this is the first submission, confirm the activation email sent to eyebyte@gmail.com (including spam). The site must be served over HTTP/HTTPS.';
+              setEnquiryStatus('We couldn’t confirm delivery. Your message is still in the form. Please try again shortly or email eyebyte@gmail.com directly. If this is the first enquiry, check for FormSubmit’s activation email.', 'error');
             }
           }
         } finally {
