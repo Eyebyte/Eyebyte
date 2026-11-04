@@ -1,0 +1,18 @@
+EYEBYTE SINGLE-PAGE STRUCTURE
+=============================
+
+Public marketing site: index.html
+Only separate tool: screen-builder.html
+
+In-page navigation anchors:
+- #work — The Eyebyte system / three service pillars
+- #about — Established 1995 / experience statement
+- #capabilities — four-stage process
+- #live-performance — Mastery in the Moment / live performance stage
+- #spatial-design — Design the Spatial Experience / content direction stage
+- #hardware — modular LED hardware and specifications
+- #projects — selected event brands and relationships
+- #contact / #connect — contact form and social links
+- #privacy — expandable privacy and third-party services disclosure
+
+The former separate service pages and privacy page are removed. The 404 page remains as the hosting platform's not-found handler and points back to homepage anchors.

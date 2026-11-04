@@ -27,7 +27,7 @@ Use the included `VIDEO-AND-IMAGERY-TO-DO.txt` as the full production checklist.
 4. `content.mp4` — referenced pillar loop for “Built to hit different.”, 1440 × 1800, 4:5 portrait; H.264/AVC, yuv420p, 25 or 30 fps, recommended VBR target 8–10 Mbps, silent seamless loop.
 5. Hardware section video: embedded from YouTube video `IPklb2zfcgg` (muted autoplay, no controls, loop enabled); no local hardware MP4 is required unless you later replace the YouTube embed.
 
-Note: The website source uses direct `src` paths for the three pillar MP4s and explicitly sets `autoplay`, `muted`, `playsinline`, and `loop`. It retries playback when data becomes available and when the browser tab returns to the foreground. These videos are not paused when scrolled off-screen. If a browser shows only the initial frame, check the console for `[Eyebyte video]` messages and confirm the MP4s are browser-safe H.264/AVC, 8-bit `yuv420p`, and Fast Start encoded. HEVC/H.265 or 10-bit encodes may show a poster/first frame in browsers that cannot decode the full stream. Keep the actual MP4 files in `assets/video/` when deploying. The MP4 binaries were not present in the working folder used for this code update, so their codecs and playback could not be verified here. The website now attaches their source after checking motion/data preferences and avoids reloading a source the browser has already started.
+Note: The website source uses direct `src` paths for the three pillar MP4s and explicitly sets `autoplay`, `muted`, `playsinline`, and `loop`. It retries playback when data becomes available and when the browser tab returns to the foreground. These videos are not paused when scrolled off-screen. If a browser shows only the initial frame, check the console for `[Eyebyte video]` messages and confirm the MP4s are browser-safe H.264/AVC, 8-bit `yuv420p`, and Fast Start encoded. HEVC/H.265 or 10-bit encodes may show a poster/first frame in browsers that cannot decode the full stream. Keep the actual MP4 files in `assets/video/` when deploying. The MP4 binaries were not present in the working folder used for this code update, so their codecs and playback could not be verified here. Each MP4 source is declared directly in the video element in the HTML with autoplay, muted, playsinline, loop and preload="auto". Playback starts on page load and retries on media-ready events, page restoration and the first user gesture if the browser initially rejects autoplay. The videos are never paused on scroll and are not skipped because of reduced-motion or data-saving preferences.
 
 ### Rollover and supporting images (`assets/images/`)
 - Four always-visible “What We Do” image backplates supplied by Eyebyte: `starting.jpg`, `designing.jpg`, `building.jpg`, and `executing.jpg`. Each source is 1500 × 1500 px (square). The images fill the four process frames using `object-fit: cover`; a dark overlay preserves text contrast, and heading/body text enlarges very slightly on hover.
@@ -73,7 +73,7 @@ The three promotional cards use these exact paths (filenames are case-sensitive 
 - `assets/video/hardware.mp4` — More than a rectangle.
 - `assets/video/content.mp4` — Built to hit different.
 
-All three are expected to be 1440 × 1800 px (4:5 portrait), muted, inline, autoplaying, and continuously looping. The current website sets explicit source loading and `load()` before attempting playback. Video layers render above the poster/background and below the text/contrast overlay.
+All three are expected to be 1440 × 1800 px (4:5 portrait), muted, inline, autoplaying, and continuously looping. The current website declares each MP4 source directly in HTML and requests preload immediately; JavaScript reinforces muted autoplay, inline playback and continuous looping. Video layers render above the poster/background and below the text/contrast overlay.
 
 The current handoff ZIP does **not** contain the MP4 binaries. Add the original videos to `assets/video/` before deployment. If a first frame is visible but motion does not continue, check DevTools → Network for a successful 200/206 request per MP4 and the Console for `[Eyebyte video]` errors. The browser must be receiving the actual MP4 data, not a 404 page, access-denied response, or HTML fallback.
 
@@ -130,3 +130,15 @@ The footer visit reference uses CounterAPI.com with namespace `eyebyte.tv`, acti
 - Viewing angle: 170° × 170°
 - A variety of rigging and ground-support options
 - Extensive 4K control system
+
+
+## Promotional video loops
+
+Place these files in `assets/video/` with these exact names:
+
+- `performance.mp4` — Performance / Read the Room
+- `hardware.mp4` — Hardware / More than a Rectangle
+- `content.mp4` — Content / Built to Hit Different
+
+The homepage requests all three on page load and uses muted, inline, continuous looping playback. No hover or scroll action is required; browsers that defer off-screen autoplay are prompted again as each card approaches the viewport.
+

@@ -3,9 +3,9 @@ EYEBYTE SEO, PERFORMANCE & COMPATIBILITY — LAUNCH CHECKLIST
 
 BUILT INTO THIS PACKAGE
 - Australian English document language, unique page titles and descriptions, canonical URLs, Open Graph/Twitter metadata.
-- Organization, WebSite, Service, Breadcrumb and Screen Builder WebApplication structured data where relevant.
-- Sitemap (including homepage, service pages, Screen Builder and Privacy), robots.txt, custom 404 page (noindex), favicon, Apple touch icon, 192/512 install icons, web manifest, CNAME and .nojekyll for GitHub Pages.
-- Dedicated service landing pages for live VJ performance, modular LED screens and bespoke event visuals.
+- Organization and WebSite structured data on the homepage; Screen Builder WebApplication structured data on the tool page.
+- Sitemap (homepage and Screen Builder only), robots.txt, custom 404 page (noindex), favicon, Apple touch icon, 192/512 install icons, web manifest, CNAME and .nojekyll for GitHub Pages.
+- One-page homepage with section anchors for live VJ performance, modular LED screens, bespoke event visuals, selected work, contact and privacy information.
 - Semantic headings, descriptive links, image alt text, explicit image dimensions, responsive layouts and keyboard focus indicators.
 - Responsive image/media handling, lazy hardware YouTube iframe, and local work-video playback that avoids a redundant load() reset.
 - Three work videos autoplay muted and loop on normal settings; reduced-motion and Save-Data visitors keep the static fallback rather than downloading large loops automatically.
@@ -14,15 +14,15 @@ BUILT INTO THIS PACKAGE
 
 AFTER UPLOADING TO HTTPS HOSTING
 1. Confirm https://eyebyte.tv/ and https://www.eyebyte.tv/ resolve to one preferred HTTPS hostname; the canonical is https://eyebyte.tv/.
-2. Verify the domain in Google Search Console. Submit https://eyebyte.tv/sitemap.xml and inspect the homepage plus each service page and Screen Builder.
-3. Verify the site in Bing Webmaster Tools and submit the same sitemap. The sitemap also includes privacy.html.
-4. Test the contact form on the live domain. Confirm FormSubmit activation at eyebyte@gmail.com, send a real test, and confirm delivery.
-5. Check the YouTube hero and hardware embeds in Chrome, Safari, Firefox and Edge. YouTube controls/branding cannot be completely removed; original MP4s provide full control.
-6. Test the 3 pillar MP4s in Chrome and Safari over HTTPS. Confirm the host serves video/mp4 and byte-range requests (HTTP 206) for seeking/streaming support.
-7. Run PageSpeed Insights on the deployed homepage and each service page. Targets: LCP ≤ 2.5 s, INP < 200 ms, CLS < 0.1. Re-test on mobile data and a real iPhone/Android device.
-8. Test 320 px, 360 px, 390 px, 768 px, 1024 px, 1440 px and 2560 px widths; also test short landscape phones and keyboard-only navigation.
-9. Confirm all custom files listed in ASSET-AUDIT.txt exist at the exact paths. This working package does not include the supplied festival logos, process images or 3 local MP4 binaries.
-10. If eligible, complete the Google Business Profile with accurate services and service areas; ask genuine event partners for natural credits/links; publish substantive case studies using verifiable project details.
+2. Verify the domain in Google Search Console. Submit https://eyebyte.tv/sitemap.xml and inspect the homepage and Screen Builder.
+3. Test the contact form on the live domain. Confirm FormSubmit activation at eyebyte@gmail.com, send a real test, and confirm delivery.
+4. Check the YouTube hero and hardware embeds in Chrome, Safari, Firefox and Edge. YouTube controls/branding cannot be completely removed; original MP4s provide full control.
+5. Test the three pillar MP4s in Chrome and Safari over HTTPS. Confirm the host serves video/mp4 and byte-range requests (HTTP 206) for seeking/streaming support.
+6. Run PageSpeed Insights on the deployed homepage. Targets: LCP ≤ 2.5 s, INP < 200 ms, CLS < 0.1. Re-test on mobile data and a real iPhone/Android device.
+7. Test 320 px, 360 px, 390 px, 768 px, 1024 px, 1440 px and 2560 px widths; also test short landscape phones and keyboard-only navigation.
+8. Confirm all custom files listed in ASSET-AUDIT.txt exist at the exact paths. This working package does not include the supplied festival logos, process images or 3 local MP4 binaries.
+9. If eligible, complete the Google Business Profile with accurate services and service areas; ask genuine event partners for natural credits/links; publish substantive case studies using verifiable project details.
+10. Review OPTIMIZATION-REPORT.txt for static QA results and remaining live-domain/device tests.
 
 IMPORTANT
 - Search engines choose rankings; metadata and sitemap submission do not guarantee indexing or position.
@@ -30,3 +30,9 @@ IMPORTANT
 - Static-source checks are not a substitute for live-domain, field Core Web Vitals and real-device testing.
 
 11. Review OPTIMIZATION-REPORT.txt for the static QA results and the remaining live-domain/device tests.
+
+SINGLE-PAGE STRUCTURE
+- index.html is the only marketing page; service and section links use homepage anchors.
+- screen-builder.html is the only separate interactive page.
+- Sitemap includes the homepage and Screen Builder only.
+- Privacy information is disclosed in the homepage footer, not on a separate page.

@@ -2,51 +2,40 @@ EYEBYTE WEBSITE — COMPATIBILITY, PERFORMANCE & SEO AUDIT
 =========================================================
 Audit date: 5 November 2026
 
+CURRENT SITE STRUCTURE
+- index.html is the single public marketing site. All services, work, hardware, contact, social and privacy navigation uses in-page anchors.
+- screen-builder.html is the only separate interactive page. It opens in a new tab and returns to the homepage hardware section.
+- The former live-vj-performance.html, modular-led-screens.html, event-visual-content.html and privacy.html pages have been removed.
+- 404.html remains as the static host's not-found handler; it links back to homepage anchors and Screen Builder.
+- Privacy information is disclosed in an expandable footer section on the homepage.
+
 CHANGES IN THIS PASS
-- Committed the Burnished Copper & Champagne palette across the homepage, service pages, 3D Screen Builder, browser theme metadata, favicon and social-preview/app icon artwork. The approved white wordmark and Barlow Condensed / Manrope / DM Mono typography are unchanged.
-- Added BRAND-COLOURS.txt and COPY-REVIEW-RECOMMENDATIONS.txt for consistent future design and editorial work.
-- Preserved the restored Barlow Condensed, Manrope and DM Mono font families and the committed Burnished Copper & Champagne / warm charcoal identity.
-- Added intrinsic width and height to the footer wordmark to reduce layout shift.
-- Added complete Open Graph image alt text and Twitter image alt metadata to the homepage and indexable service, privacy and Screen Builder pages.
-- Added the indexable privacy page to sitemap.xml and ensured the Screen Builder and privacy pages request large image previews.
-- Hardened the WebGL fallback's DOM insertion for broader browser compatibility.
-- Kept lazy loading on the non-hero hardware YouTube embed and retained the hero's eager load for immediate presentation.
-- Retained responsive image dimensions, lazy loading for below-the-fold imagery, async image decoding, reduced-motion/data-saving handling and video autoplay recovery logic.
-- Retained the local service pages, canonical tags, structured data, sitemap, robots.txt, favicon, web manifest, custom 404 and static-hosting CNAME/.nojekyll files.
-- Retained unframed partner logo treatment and the existing mobile/tablet navigation and touch-target refinements.
+- Added AOB Pixel Protection to the modular LED system capabilities.
+- Converted former service-page links into anchors: live performance → #live-performance; LED hardware → #hardware; content/spatial design → #spatial-design.
+- Consolidated footer navigation into homepage anchors, with Screen Builder as the only separate page.
+- Moved the plain-language privacy and third-party provider disclosure into the homepage footer.
+- Updated sitemap.xml to contain only the homepage and Screen Builder.
+- Removed the four obsolete HTML pages and their unused service-specific social preview images.
+- Preserved Burnished Copper & Champagne palette, white Eyebyte wordmark and Barlow Condensed / Manrope / DM Mono typography.
 
-STATIC VALIDATION RESULTS
-- Seven HTML pages parsed: homepage, three service pages, Screen Builder, privacy and 404. Combined HTML size: 877,837 bytes.
-- All indexable pages have unique page titles, meta descriptions, canonical URLs, viewport declarations and Australian English language tags.
-- Exactly one H1 was found on each content page; no duplicate element IDs were found.
-- No broken in-page fragments or broken local page links were found.
-- Every image has alt text; every iframe has a title; external target=_blank links have rel protection.
-- All JSON-LD blocks parsed as valid JSON.
-- Inline JavaScript in all pages passed Node.js syntax checks (JSON-LD data blocks were validated as JSON, not treated as JavaScript).
-- CSS in the HTML pages and external service stylesheet parsed without CSS errors or invalid selectors.
-- sitemap.xml parsed as valid XML and every sitemap URL maps to a file in the package.
-- site.webmanifest parsed as valid JSON; critical logo, favicon, Open Graph image, robots and Screen Builder files exist.
-- Homepage HTML: 190,487 bytes; estimated gzip size: 42,413 bytes.
-- 3D Screen Builder HTML: 648,346 bytes; estimated gzip size: 165,110 bytes.
+STATIC VALIDATION
+- Three HTML documents are included: index.html, screen-builder.html and 404.html.
+- Homepage has one H1, unique IDs, valid JSON-LD, a valid sitemap target set, and no links to the removed service/privacy pages.
+- Inline JavaScript passed Node.js syntax checks. CSS blocks parsed without errors.
+- Sitemap XML and ZIP integrity checks passed.
+- Local custom process images, event logos and local MP4 media are referenced but are not included in this available package copy; see ASSET-AUDIT.txt.
 
-KNOWN ASSET LIMITATION
-The working package copy still does not contain the eight user-supplied process images / festival logos and three local pillar MP4 files listed in ASSET-AUDIT.txt. The HTML references are preserved and image fallbacks remain, but those files must be present in the deployment folder for the real images and local videos to appear. The three local videos are intentionally loaded and played immediately on normal-motion, non-data-saving visits, as requested; this makes their actual file size and encoding an important part of real-world loading performance.
+KNOWN LIVE-ONLY CHECKS
+- This static build cannot verify live Google/Bing indexing, real-world rankings, live FormSubmit delivery, CounterAPI increments, YouTube playback or Core Web Vitals on your domain.
+- YouTube branding and overlays cannot be completely suppressed by embed parameters. Use original MP4s hosted in assets/video/ for fully clean video backgrounds.
+- Real browser and device testing is still required on current Chrome, Safari, Firefox and Edge, including iOS and Android.
 
-EXTERNAL SERVICES / LIVE-ONLY CHECKS
-- Google Fonts is used for the approved brand typefaces.
-- YouTube supplies the hero and hardware embeds; YouTube branding/overlays cannot be completely suppressed by embed parameters.
-- FormSubmit handles contact-form delivery and requires successful activation/testing on the live domain.
-- CounterAPI supplies the shared public visit counter; availability depends on that third party.
-- This static build cannot verify actual search indexing, Google/Bing rankings, live form delivery, live counter increments, HTTP range support for MP4s, or field Core Web Vitals.
+DEPLOYMENT
+1. Upload all package files to HTTPS hosting, preserving exact paths and case.
+2. Confirm https://eyebyte.tv/ is the preferred canonical host and redirects variants consistently.
+3. Verify the domain in Google Search Console and Bing Webmaster Tools; submit https://eyebyte.tv/sitemap.xml.
+4. Test the contact form and confirm delivery to eyebyte@gmail.com. Test the shared visit counter on the live domain.
+5. Test the homepage and Screen Builder at phone, tablet, laptop and desktop sizes.
+6. Run PageSpeed Insights on the live homepage; review LCP, INP and CLS using field data when available.
 
-DEPLOYMENT VERIFICATION
-1. Upload all package files to the HTTPS host, preserving exact relative paths and case-sensitive filenames.
-2. Add the assets listed in ASSET-AUDIT.txt if they are not already on the host.
-3. Confirm https://eyebyte.tv/ is the preferred canonical host and redirects variants consistently.
-4. Verify the domain in Google Search Console and Bing Webmaster Tools; submit https://eyebyte.tv/sitemap.xml.
-5. Test each page and each media URL on current Chrome, Safari, Firefox and Edge, including a real iPhone and Android device.
-6. Run PageSpeed Insights on the deployed homepage and service pages. Google's recommended good Core Web Vitals are LCP ≤ 2.5 s, INP < 200 ms and CLS < 0.1; field data requires real visitor data.
-7. Submit a test enquiry and confirm delivery to eyebyte@gmail.com; test the visit counter increment on the live domain.
-8. Confirm the server returns video/mp4 and supports byte-range requests for the local video assets.
-
-Compatibility goal: current evergreen browsers and current iOS/Android browsers, with graceful fallbacks where supported APIs are unavailable. No website can be guaranteed error-free on every historical browser, device, network or browser extension.
+No static validation can guarantee error-free operation across every historical browser, device, network, media encoder or browser extension.

@@ -22,7 +22,7 @@ IN THE FIELD — PARTNER LOGOS (white transparent PNG, 150 × 150 px):
 - assets/video/hardware.mp4
 - assets/video/content.mp4
 
-The homepage includes branded gradient/text fallbacks for missing images and retains the exact media paths. The three pillar MP4s are configured to autoplay muted, inline and loop on normal-motion, non-data-saving visits. Actual video playback cannot be verified until the MP4 binaries are present and served over HTTPS as video/mp4.
+The homepage includes branded gradient/text fallbacks for missing images and retains the exact media paths. The three pillar MP4s are configured for immediate muted inline autoplay and continuous looping on page load, independent of motion or data-saving preferences. Actual video playback cannot be verified until the MP4 binaries are present and served over HTTPS as video/mp4.
 
 OPTIONAL EVENT ROW BACKPLATES:
 - assets/field-bgs/earth-frequency.webp
@@ -32,3 +32,5 @@ OPTIONAL EVENT ROW BACKPLATES:
 - assets/field-bgs/more-work.webp
 
 Subsonic logo path is explicitly assets/images/sub.png.
+
+Playback implementation update: local pillar MP4s now have direct `src` attributes in the HTML, `autoplay`, `muted`, `playsinline`, `loop` and `preload="auto"`. The page retries on media-ready events and after the first user gesture if a browser blocks autoplay. No scroll handler pauses them.
