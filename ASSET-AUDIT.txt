@@ -1,20 +1,34 @@
 EYEBYTE WEBSITE — PRE-LAUNCH ASSET AUDIT
-=========================================
+==========================================
 
-Generated: 17 October 2026
+Checked: 4 November 2026
 
-The current packaged working folder was checked for the custom assets below. They are referenced by the site but are not present in this build copy. Copy them into the exact case-sensitive paths before publishing.
+The following files are referenced by the homepage but are not present in the working package copy used for this optimisation pass. If they already exist in your own site folder, keep them at these exact case-sensitive paths when you upload the updated site.
 
-MISSING  assets/images/starting.jpg
-MISSING  assets/images/designing.jpg
-MISSING  assets/images/building.jpg
-MISSING  assets/images/executing.jpg
-MISSING  assets/images/eff.png
-MISSING  assets/images/sub.png
-MISSING  assets/images/rainbow.png
-MISSING  assets/images/rio.png
-MISSING  assets/video/performance.mp4
-MISSING  assets/video/hardware.mp4
-MISSING  assets/video/content.mp4
+SECTION 03 — PROCESS IMAGES (1500 × 1500 px):
+- assets/images/starting.jpg — Starting
+- assets/images/designing.jpg — Designing
+- assets/images/building.jpg — Building
+- assets/images/executing.jpg — Executing
 
-Do not treat this as a replacement for the originals. The site will use its configured text/image fallbacks where available, but the finished branded appearance requires the originals.
+IN THE FIELD — PARTNER LOGOS (white transparent PNG, 150 × 150 px):
+- assets/images/eff.png
+- assets/images/sub.png
+- assets/images/rainbow.png
+- assets/images/rio.png
+
+01 — PILLAR VIDEOS (1440 × 1800 px, portrait):
+- assets/video/performance.mp4
+- assets/video/hardware.mp4
+- assets/video/content.mp4
+
+The homepage includes branded gradient/text fallbacks for missing images and retains the exact media paths. The three pillar MP4s are configured to autoplay muted, inline and loop on normal-motion, non-data-saving visits. Actual video playback cannot be verified until the MP4 binaries are present and served over HTTPS as video/mp4.
+
+OPTIONAL EVENT ROW BACKPLATES:
+- assets/field-bgs/earth-frequency.webp
+- assets/field-bgs/subsonic.webp
+- assets/field-bgs/rainbow-spirit.webp
+- assets/field-bgs/return-to-rio.webp
+- assets/field-bgs/more-work.webp
+
+Subsonic logo path is explicitly assets/images/sub.png.

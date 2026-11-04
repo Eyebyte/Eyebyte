@@ -1,29 +1,32 @@
-EYEBYTE SEO & PERFORMANCE — LAUNCH CHECKLIST
-============================================
+EYEBYTE SEO, PERFORMANCE & COMPATIBILITY — LAUNCH CHECKLIST
+==========================================================
 
-BUILT INTO THIS SITE PACKAGE
-- Dedicated service pages for Live VJ Performance, Custom Modular LED Screens, and Bespoke Event Visuals.
-- Unique page titles, concise meta descriptions, canonical URLs and Open Graph/Twitter preview metadata.
-- Organization and Service structured data, plus breadcrumbs on service pages.
-- Internal links from the homepage service cards and service-to-service cross-links.
-- XML sitemap and robots.txt.
-- Branded favicon, Apple touch icon, web manifest, and 1200 × 630 social preview images.
-- Semantic heading structure, image alternative text, keyboard skip link, and responsive service pages.
-- Variable-font loading and smaller external image fallback requests.
-- Privacy information describing current third-party integrations.
+BUILT INTO THIS PACKAGE
+- Australian English document language, unique page titles and descriptions, canonical URLs, Open Graph/Twitter metadata.
+- Organization, WebSite, Service, Breadcrumb and Screen Builder WebApplication structured data where relevant.
+- Sitemap (including homepage, service pages, Screen Builder and Privacy), robots.txt, custom 404 page (noindex), favicon, Apple touch icon, 192/512 install icons, web manifest, CNAME and .nojekyll for GitHub Pages.
+- Dedicated service landing pages for live VJ performance, modular LED screens and bespoke event visuals.
+- Semantic headings, descriptive links, image alt text, explicit image dimensions, responsive layouts and keyboard focus indicators.
+- Responsive image/media handling, lazy hardware YouTube iframe, and local work-video playback that avoids a redundant load() reset.
+- Three work videos autoplay muted and loop on normal settings; reduced-motion and Save-Data visitors keep the static fallback rather than downloading large loops automatically.
+- External Unsplash fallback downloads have been removed; the website uses its own assets and on-brand CSS fallbacks.
+- Screen Builder remains a separate page and opens in a new tab.
 
 AFTER UPLOADING TO HTTPS HOSTING
-1. Open the live homepage and every service URL on real phones and desktops. Confirm images, local videos, social links and the contact form all work.
-2. Verify domain ownership in Google Search Console. Submit https://eyebyte.tv/sitemap.xml and inspect the homepage and each service URL.
-3. Verify the site in Bing Webmaster Tools and submit the sitemap there too.
-4. Run PageSpeed Insights/Lighthouse on the deployed URLs. Good Core Web Vitals targets: LCP ≤ 2.5 s, INP < 200 ms, CLS < 0.1. These are targets, not guarantees of search ranking.
-5. Test Open Graph previews with a link-preview debugger after social metadata has gone live. The crawler must be able to fetch the PNG preview URLs.
-6. If eligible, complete the Google Business Profile with accurate service areas, category and recent genuine project images; do not publish a private residential address if it is not a customer-facing location.
-7. Ask festivals, venues, production partners and collaborators to link to the relevant Eyebyte service/case-study page where it is natural and accurate.
-8. Add real project case studies over time: event name, role, venue/stage challenge, solution, images/video, and outcomes that can be substantiated. This gives search engines and prospective clients more specific material than a single homepage.
+1. Confirm https://eyebyte.tv/ and https://www.eyebyte.tv/ resolve to one preferred HTTPS hostname; the canonical is https://eyebyte.tv/.
+2. Verify the domain in Google Search Console. Submit https://eyebyte.tv/sitemap.xml and inspect the homepage plus each service page and Screen Builder.
+3. Verify the site in Bing Webmaster Tools and submit the same sitemap. The sitemap also includes privacy.html.
+4. Test the contact form on the live domain. Confirm FormSubmit activation at eyebyte@gmail.com, send a real test, and confirm delivery.
+5. Check the YouTube hero and hardware embeds in Chrome, Safari, Firefox and Edge. YouTube controls/branding cannot be completely removed; original MP4s provide full control.
+6. Test the 3 pillar MP4s in Chrome and Safari over HTTPS. Confirm the host serves video/mp4 and byte-range requests (HTTP 206) for seeking/streaming support.
+7. Run PageSpeed Insights on the deployed homepage and each service page. Targets: LCP ≤ 2.5 s, INP < 200 ms, CLS < 0.1. Re-test on mobile data and a real iPhone/Android device.
+8. Test 320 px, 360 px, 390 px, 768 px, 1024 px, 1440 px and 2560 px widths; also test short landscape phones and keyboard-only navigation.
+9. Confirm all custom files listed in ASSET-AUDIT.txt exist at the exact paths. This working package does not include the supplied festival logos, process images or 3 local MP4 binaries.
+10. If eligible, complete the Google Business Profile with accurate services and service areas; ask genuine event partners for natural credits/links; publish substantive case studies using verifiable project details.
 
-IMPORTANT DEPENDENCIES / CURRENT ASSET AUDIT
-- The media files and supplied project logos listed in ASSET-AUDIT.txt are referenced by the site but were not present in the working folder when this package was rebuilt.
-- YouTube background iframes are not fully unbranded, and playback can vary by browser/embedding policy. Replacing them with the original MP4 exports is the most reliable way to achieve clean, uninterrupted background video; provide hero.mp4 and hardware-feature.mp4 for that switch.
-- FormSubmit must be activated/tested on the live site. CounterAPI is an external dependency for the shared footer counter.
-- Search metadata does not guarantee indexing or rankings. Google needs to crawl the live HTTPS site; monitor results in Search Console over time.
+IMPORTANT
+- Search engines choose rankings; metadata and sitemap submission do not guarantee indexing or position.
+- Real project proof, relevant third-party links, verified indexing and good page experience are more valuable than keyword stuffing.
+- Static-source checks are not a substitute for live-domain, field Core Web Vitals and real-device testing.
+
+11. Review OPTIMIZATION-REPORT.txt for the static QA results and the remaining live-domain/device tests.

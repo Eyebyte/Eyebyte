@@ -1,0 +1,132 @@
+EYEBYTE — COPY & CONTENT REVIEW
+==============================
+
+Purpose
+-------
+Make the website easier to scan, more specific, less repetitive and more persuasive
+without losing Eyebyte's confident live-production voice. The suggestions below are
+editorial recommendations, not claims that have been independently verified.
+
+WHAT IS ALREADY WORKING
+-----------------------
+- “Live Visuals. Built to Impress.” is direct, memorable and visually strong. Keep it.
+- “Performance. Hardware. Content.” gives visitors a clear mental model of Eyebyte.
+- “More than a rectangle.” is an effective differentiator for custom modular LED.
+- “Got a Big Idea? Good.” has personality and is a strong primary contact headline.
+- “From the first sketch. To the Last beat.” gives the process a clear beginning and end.
+- The three dedicated service pages are a better search and reading structure than one
+  long homepage trying to explain every service.
+
+HIGHEST-VALUE COPY IMPROVEMENTS
+-------------------------------
+
+1. HERO — make the proposition more concrete
+Current: “Eyebyte brings live video performance, custom LED environments and inventive
+thinking to stages that deserve more than just a rectangular screen.”
+Suggested: “Eyebyte brings live VJ performance, custom modular LED and original visual
+content together—designed around the stage, the music and the audience.”
+Why: It names the three services in language customers actually use, then explains the
+benefit. “Inventive thinking” is positive but abstract; “original visual content” is clearer.
+
+2. THREE PILLARS — remove repeated wording
+Live Performance suggested: “Live visuals mixed and shaped in real time—responding to
+the music, the energy in the room and the moment. Not just playback. Performance.”
+Hardware suggested: “Custom modular LED systems, including true flexible curved panels,
+configured around the stage design, sightlines and event.”
+Content suggested: “Bespoke event visuals, a deep Eyebyte library and real-time effects,
+combined into a visual identity built for the screen and the show.”
+Why: Each card should explain a different reason to choose Eyebyte, not repeat “real-time”,
+“bespoke” and “event” in all three descriptions.
+
+3. EXPERIENCE — keep the claim, make the benefit clearer
+Current idea: Eyebyte has thrived since 1995, delivering thousands of events and
+entertaining millions.
+Suggested: “Since 1995, Eyebyte has delivered thousands of events and created visual
+experiences for millions. Three decades of live production bring hard-won judgement to
+every brief—from the first design decision to the final show cue.”
+Why: It connects longevity to what a client receives. Only retain “thousands” and “millions”
+if you are comfortable substantiating those claims when asked.
+
+4. PROCESS — simplify the descriptions and make each stage distinct
+Start with the vision: “We bring creative and production teams together early, aligning
+the stage, screen system and visual direction before the build begins.”
+Design the Spatial Experience: “We shape screen layouts, content and playback around
+the space, sightlines and creative brief. Every pixel and every form has a purpose.”
+Make it happen: “On site, we work hands-on with the hardware, coordinate the crew and
+solve problems as they happen. Good planning keeps delivery on time and on budget—
+without compromising the idea.”
+Mastery in the Moment: “Live visual performance, precise timing and real-time tools bring
+the system to life—responding to the music, the crowd and the moment. Precision when it
+matters. Instinct when it counts.”
+Why: Each stage now has one job: align, design, deliver, perform. Avoid repeating
+“real-time” in every stage.
+
+5. HARDWARE — replace broad superlatives with proof
+Current copy uses phrases such as “exceptional resolution”, “vibrant brightness” and
+“high refresh rates”. They sound good but do not help a technical buyer compare systems.
+Recommended improvements:
+- Publish verified pixel pitch / native resolution information.
+- State measured brightness in nits, refresh rate in Hz, contrast information if available,
+  and the exact IP rating.
+- Explain what “true flexible curved panels” enable in practical design terms.
+- Clarify panel sizes, system dimensions, outdoor suitability, control and camera integration.
+- Add a short specification table or downloadable datasheet.
+Do not publish a number unless it matches the actual panel and operating configuration.
+
+Suggested lead: “Beyond the boundaries of a conventional flat wall. Eyebyte's modular
+LED system creates custom screen formats—including true flexible curves—around the
+stage design. The result is a screen system shaped for the space, not the other way around.”
+
+6. IN THE FIELD — present relationships as selected work
+Current: “From enduring festival relationships to bespoke corporate activations, this is
+a snapshot of Eyebyte's recent favourite event brands.”
+Suggested: “Selected festival partnerships and live projects, built through years of visual
+direction, VJ coordination and show delivery.”
+Why: “Favourite event brands” is informal and unclear; “selected partnerships” sounds
+more considered. Keep the role and year attached to each event so the relationship is clear.
+
+For each project, use a consistent format:
+EVENT NAME
+Eyebyte role · Since YYYY
+One short sentence describing the work, if you can substantiate it.
+
+7. CONTACT — make the next step feel easy
+Current: “Tell us what you're imagining, what the space looks like, and what you want
+people to feel. We'll work from there.”
+Suggested: “Tell us about the event, the space and the experience you want to create.
+We'll help shape the visual system to make it happen.”
+Why: Keeps the friendly tone but is more direct and action-oriented.
+
+8. SERVICE PAGES — reduce repetition and deepen useful detail
+The three service pages currently share a similar structure and several repeated phrases
+(“What this brings to your event”, “Part of the same system” and the same contact copy).
+Keep the shared design, but give each page a genuinely different middle section:
+- Live VJ: live mixing, music response, timecode, VJ coordination, show-day workflow.
+- LED hardware: panel formats, flexible curves, resolution, brightness, refresh, IP rating,
+  staging and control integration.
+- Content: custom content pipeline, visual library, unusual screen ratios, real-time effects,
+  playback formats and deliverables.
+Add real examples and FAQs specific to the service, not boilerplate questions.
+
+9. READABILITY — apply these rules throughout
+- Keep most paragraphs to 2–3 sentences.
+- Aim for one idea per paragraph.
+- Use short subheadings that describe the benefit, not vague labels.
+- Keep a consistent capitalisation style: sentence case for body headings unless a deliberate
+  display headline is used. Avoid inconsistent Title Case.
+- Explain specialist terms once (for example, timecoded performance).
+- Replace generic adjectives (“exceptional”, “uncompromising”, “unique”) with a fact, example
+  or result wherever possible.
+- Keep button labels action-led: “Explore the work”, “Open Screen Builder”, “Start a project”.
+
+10. PROOF TO ADD
+- 3–5 detailed case studies with original photos and video.
+- One or two short client testimonials with permission.
+- Actual technical LED specifications and real-world application examples.
+- A clear statement of service area (Sydney-based; available across Australia, if accurate).
+- Credits and links from event partners where permission and attribution are agreed.
+
+IMPORTANT
+---------
+These are suggestions for the next copy edit. No unverified client names, event outcomes,
+technical specifications, audience totals or performance claims have been added to the site.

@@ -27,7 +27,7 @@ Use the included `VIDEO-AND-IMAGERY-TO-DO.txt` as the full production checklist.
 4. `content.mp4` — referenced pillar loop for “Built to hit different.”, 1440 × 1800, 4:5 portrait; H.264/AVC, yuv420p, 25 or 30 fps, recommended VBR target 8–10 Mbps, silent seamless loop.
 5. Hardware section video: embedded from YouTube video `IPklb2zfcgg` (muted autoplay, no controls, loop enabled); no local hardware MP4 is required unless you later replace the YouTube embed.
 
-Note: The website source uses direct `src` paths for the three pillar MP4s and explicitly sets `autoplay`, `muted`, `playsinline`, and `loop`. It retries playback when data becomes available and when the browser tab returns to the foreground. These videos are not paused when scrolled off-screen. If a browser shows only the initial frame, check the console for `[Eyebyte video]` messages and confirm the MP4s are browser-safe H.264/AVC, 8-bit `yuv420p`, and Fast Start encoded. HEVC/H.265 or 10-bit encodes may show a poster/first frame in browsers that cannot decode the full stream. Keep the actual MP4 files in `assets/video/` when deploying. The MP4 binaries were not present in the working folder used for this code update, so their codecs and playback could not be verified here.
+Note: The website source uses direct `src` paths for the three pillar MP4s and explicitly sets `autoplay`, `muted`, `playsinline`, and `loop`. It retries playback when data becomes available and when the browser tab returns to the foreground. These videos are not paused when scrolled off-screen. If a browser shows only the initial frame, check the console for `[Eyebyte video]` messages and confirm the MP4s are browser-safe H.264/AVC, 8-bit `yuv420p`, and Fast Start encoded. HEVC/H.265 or 10-bit encodes may show a poster/first frame in browsers that cannot decode the full stream. Keep the actual MP4 files in `assets/video/` when deploying. The MP4 binaries were not present in the working folder used for this code update, so their codecs and playback could not be verified here. The website now attaches their source after checking motion/data preferences and avoids reloading a source the browser has already started.
 
 ### Rollover and supporting images (`assets/images/`)
 - Four always-visible “What We Do” image backplates supplied by Eyebyte: `starting.jpg`, `designing.jpg`, `building.jpg`, and `executing.jpg`. Each source is 1500 × 1500 px (square). The images fill the four process frames using `object-fit: cover`; a dark overlay preserves text contrast, and heading/body text enlarges very slightly on hover.
@@ -43,7 +43,7 @@ Note: The website source uses direct `src` paths for the three pillar MP4s and e
 - `rio.png` — Return to Rio
 The supplied marks are white PNGs on transparent 150 × 150 px canvases. They appear unframed in clean horizontal project rows, aligned to the left and scaled with `object-fit: contain`; preserve transparency and original proportions. Each row links to the relevant event website.
 
-### Project rollover backgrounds (`assets/field-bgs/`)
+### Optional project rollover backgrounds (`assets/field-bgs/`)
 Five 1920 × 1080, 16:9 WebP photographs, quality 80–85:
 - `earth-frequency.webp`
 - `subsonic.webp`
@@ -116,3 +116,17 @@ If these must be completely free of YouTube logos, headings, player UI and end o
 FOOTER VISIT COUNTER
 --------------------
 The footer visit reference uses CounterAPI.com with namespace `eyebyte.tv`, action `view`, key `footer-visit-reference`, and `startNumber=123`. No API key or backend deployment is needed. The shared value is stored by the external CounterAPI service. See VISIT-COUNTER-SETUP.md for behaviour and limitations.
+
+## Verified Eyebyte modular LED hardware specifications (provided 5 Nov 2026)
+- System area: more than 110 m²
+- Pixel pitch: P2.9
+- Ingress protection: IP65 rated front and rear
+- Refresh rate: 7,680 Hz
+- Brightness: 5,000 nits
+- Magnetic modules and power connections
+- True flexible curved panels
+- Dedicated hard- and soft-90° panels
+- Accurate colour
+- Viewing angle: 170° × 170°
+- A variety of rigging and ground-support options
+- Extensive 4K control system

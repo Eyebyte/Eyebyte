@@ -1,0 +1,17 @@
+EYEBYTE — BURNISHED COPPER & CHAMPAGNE
+====================================
+
+Primary background:       #111213  Near-black charcoal
+Surface / panels:         #1C1A19  Warm graphite
+Raised surface:           #25211F  Warm charcoal
+Primary text / logo:      #F5F2EB  Soft white
+Secondary text:           #B9B0A6  Warm silver
+Deep oxide accent:        #9E482C  Secondary / depth accent
+Burnished copper:         #C47B48  Primary action and interface accent
+Champagne:                #D9B77E  Highlight, fine line and emphasis
+
+Use the white Eyebyte wordmark unchanged. Use copper for buttons and main interaction
+states, champagne for readable accent text and fine detailing, and deep oxide sparingly
+for depth. Avoid using deep oxide as small text on charcoal; its contrast is too low.
+
+Typography remains unchanged: Barlow Condensed, Manrope and DM Mono.
