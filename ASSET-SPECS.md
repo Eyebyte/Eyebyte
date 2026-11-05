@@ -114,31 +114,5 @@ The hero and hardware motion panels currently use YouTube embeds with muted auto
 If these must be completely free of YouTube logos, headings, player UI and end overlays, use the original licensed MP4 files hosted in `assets/video/` instead of YouTube iframes. An embedded YouTube player cannot guarantee a completely clean, unbranded picture in every browser/state.
 
 FOOTER VISIT COUNTER
---------------------
-The footer visit reference uses CounterAPI.com with namespace `eyebyte.tv`, action `view`, key `footer-visit-reference`, and `startNumber=123`. No API key or backend deployment is needed. The shared value is stored by the external CounterAPI service. See VISIT-COUNTER-SETUP.md for behaviour and limitations.
 
-## Verified Eyebyte modular LED hardware specifications (provided 5 Nov 2026)
-- System area: more than 110 m²
-- Pixel pitch: P2.9
-- Ingress protection: IP65 rated front and rear
-- Refresh rate: 7,680 Hz
-- Brightness: 5,000 nits
-- Magnetic modules and power connections
-- True flexible curved panels
-- Dedicated hard- and soft-90° panels
-- Accurate colour
-- Viewing angle: 170° × 170°
-- A variety of rigging and ground-support options
-- Extensive 4K control system
-
-
-## Promotional video loops
-
-Place these files in `assets/video/` with these exact names:
-
-- `performance.mp4` — Performance / Read the Room
-- `hardware.mp4` — Hardware / More than a Rectangle
-- `content.mp4` — Content / Built to Hit Different
-
-The homepage requests all three on page load and uses muted, inline, continuous looping playback. No hover or scroll action is required; browsers that defer off-screen autoplay are prompted again as each card approaches the viewport.
-
+The footer uses CountAPI with a shared public counter key. The live homepage starts at 1024 and increments by one on each page load. See VISIT-COUNTER-SETUP.md for behaviour and limitations.

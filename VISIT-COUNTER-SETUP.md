@@ -1,31 +1,23 @@
 EYEBYTE FOOTER VISIT COUNTER
 ============================
 
-The footer displays a small global page-view reference in the format 1024-123.
-The counter is integrated with CounterAPI.com as a public counter namespace for
-eyebyte.tv. It starts with a visible seed of 123; after a successful live page
-request, the value returned by the service is displayed as 1024-NNN. Each page
-load on eyebyte.tv or www.eyebyte.tv requests an increment.
+The footer displays a discreet shared page-view total, starting at 1024.
+Each load of the live homepage on eyebyte.tv or www.eyebyte.tv increments the
+shared counter by one. The local preview and GitHub Pages staging hostname do
+not increment the production total.
 
-NO MANUAL SETUP REQUIRED
-------------------------
-No Cloudflare, serverless deployment, API key, account, endpoint URL or source
-editing is required. The website calls CounterAPI's public JSONP endpoint directly
-using the fixed namespace `eyebyte.tv` and key `footer-visit-reference`.
+HOW IT WORKS
+------------
+The site uses the public CountAPI service at countapi.mileshilliard.com. The
+first live page load creates the counter and sets its baseline to 1024. Each
+subsequent live page load increments it by one. No Cloudflare, API key, account,
+serverless function, or backend deployment is required.
 
-The public counter API documentation describes its no-auth public API, JSONP
-callback, `startNumber` option, and page-view default behaviour:
-https://counterapi.com/
+The public counter key is `eyebyte_tv_homepage_visits_2026`. It is intentionally
+public because the website must call it from browser JavaScript. Anyone who
+knows the key can read or alter the total, so this is a lightweight display
+counter, not audited analytics. It counts page loads, not verified human users;
+refreshes, bots, crawlers, and link previews may also count.
 
-IMPORTANT LIMITATIONS
----------------------
-- This is a third-party global counter. Its stored total is managed by CounterAPI,
-  not Eyebyte's static web host. Availability and terms depend on that service.
-- The service has a soft limit of 100,000 requests/day before verification may be
-  needed, according to its published documentation.
-- A public counter can be artificially incremented by direct requests; it is a
-  lightweight reference counter, not audited analytics or a security control.
-- The local preview and non-production hostnames intentionally do not increment
-  the public total. Only eyebyte.tv and www.eyebyte.tv are counted.
-- If the counter service is unreachable, the footer keeps the seed value visible
-  and logs a warning in the browser console rather than showing a false local count.
+If the service is unavailable, the footer retains the seed display of 1024 and
+marks the live counter as temporarily unavailable in its title attribute.

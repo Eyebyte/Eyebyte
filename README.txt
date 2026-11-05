@@ -5,8 +5,8 @@ OPENING / DEPLOYING
 - Open index.html for the public website.
 - Keep screen-builder.html beside index.html. The “Screen Builder” action opens it in a new tab.
 - Upload the whole eyebyte-website folder to your web host, preserving the assets folder structure.
-- The enquiry form uses FormSubmit's AJAX endpoint. Confirm the email address after deployment and send a test enquiry before launch. Search metadata, Open Graph/Twitter tags and Organization structured data are included in index.html. Verify the canonical URL and social preview logo match your production domain before launch.
-- The footer visit number uses CounterAPI.com, a public no-auth counter; it is configured in index.html and needs no separate backend deployment or setup. The live counter is incremented on eyebyte.tv and www.eyebyte.tv; local previews do not increment the production total.
+- The enquiry form uses Web3Forms and submits in the background without redirecting the visitor. Send a live test enquiry and confirm delivery before launch. Search metadata, Open Graph/Twitter tags and Organization structured data are included in index.html. Verify the canonical URL and social preview logo match your production domain before launch.
+- The footer visit number uses CountAPI (countapi.mileshilliard.com), with a shared starting value of 1024; see VISIT-COUNTER-SETUP.md.
 
 RESPONSIVE BEHAVIOUR
 - Layout adapts to viewport width and orientation using CSS media queries, not device-name/user-agent guessing.

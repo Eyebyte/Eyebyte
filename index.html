@@ -223,7 +223,7 @@
     .footer-inner { display:flex; justify-content:space-between; align-items:center; gap:25px; }
     .footer-meta { display:flex; flex-direction:column; align-items:flex-start; gap:5px; min-width:0; }
     .footer-note { color:var(--dim); font-size:11px; }
-    .site-visit-counter { color:rgba(212,132,67,.76); font:9px/1.2 'DM Mono',monospace; letter-spacing:.12em; font-variant-numeric:tabular-nums; opacity:.88; user-select:none; }
+    .site-visit-counter { color:rgba(245,242,235,.34); font:9px/1.2 'DM Mono',monospace; letter-spacing:.10em; font-variant-numeric:tabular-nums; opacity:.82; user-select:none; }
     .footer-links { display:flex; gap:20px; color:var(--muted); font:10px 'DM Mono',monospace; text-transform:uppercase; letter-spacing:.1em; }
     .footer-links a:hover { color:var(--acid); }
     .back-top { color:var(--acid); font:10px 'DM Mono',monospace; text-transform:uppercase; letter-spacing:.1em; }
@@ -2268,11 +2268,11 @@
 <div class="enquiry-card">
 <div class="eyebrow">START A PROJECT</div>
 <h3>Start the conversation.</h3>
-<form action="https://formsubmit.co/eyebyte@gmail.com" aria-describedby="enquiry-status" class="enquiry-form" id="eyebyte-enquiry-form" method="POST">
-<input id="enquiry-subject" name="_subject" type="hidden" value="Website Enquiry - Website form submission"/>
-<input name="_next" type="hidden" value="https://eyebyte.tv/?enquiry=sent#contact"/>
-<input name="_template" type="hidden" value="table"/>
-<input aria-hidden="true" autocomplete="off" hidden="" name="_honey" style="display:none" tabindex="-1" type="text"/>
+<form action="https://api.web3forms.com/submit" aria-describedby="enquiry-status" class="enquiry-form" id="eyebyte-enquiry-form" method="POST">
+<input id="web3forms-access-key" name="access_key" type="hidden" value="8542e5eb-b091-4057-87be-98cab57f6f19"/>
+<input id="enquiry-subject" name="subject" type="hidden" value="Website Enquiry - Website form submission"/>
+<input name="from_name" type="hidden" value="Eyebyte Website Enquiry"/>
+<input aria-hidden="true" autocomplete="off" hidden="" name="botcheck" style="display:none" tabindex="-1" type="checkbox" value=""/>
 <div class="enquiry-fields enquiry-fields--two">
 <label class="enquiry-field"><span>Your name *</span><input autocomplete="name" maxlength="120" name="name" placeholder="Name" required="" type="text"/></label>
 <label class="enquiry-field"><span>Your email *</span><input autocomplete="email" maxlength="180" name="email" placeholder="you@example.com" required="" type="email"/></label>
@@ -2321,7 +2321,7 @@
 <a aria-label="Eyebyte home" class="brand" href="#top"><img alt="Eyebyte" class="brand-logo" decoding="async" height="149" loading="lazy" src="assets/eyebyte-logo-white.png" width="915"/></a>
 <div class="footer-meta">
 <div class="footer-note">Innovative live visual systems · Sydney, Australia · Since 1995</div>
-<div aria-label="Site visit reference number" class="site-visit-counter" id="site-visit-counter" title="Eyebyte site reference">1024-123</div>
+<div aria-label="Website visit count" class="site-visit-counter" id="site-visit-counter" title="Website visits">1024</div>
 </div>
 <nav aria-label="Footer navigation" class="footer-links">
 <a href="#work">Work</a>
@@ -2336,8 +2336,8 @@
 <summary>Privacy &amp; website services</summary>
 <div class="footer-privacy-content">
 <h3>Privacy information</h3>
-<p>If you submit the enquiry form, the details you provide—such as your name, email address, project information and message—are processed through FormSubmit so they can be delivered to Eyebyte at <a href="mailto:eyebyte@gmail.com">eyebyte@gmail.com</a>. FormSubmit is a third-party service and handles submissions under its own terms and privacy information.</p>
-<p>The footer visit counter uses CounterAPI.com to maintain a shared visit count. The website may also load embedded YouTube videos, Google Fonts and external social or event websites. Those providers may receive technical information from your browser when their resources load or when you follow an external link. Their own privacy policies govern their handling of that information.</p>
+<p>If you submit the enquiry form, the details you provide—such as your name, email address, project information and message—are processed through Web3Forms so they can be delivered to Eyebyte at <a href="mailto:eyebyte@gmail.com">eyebyte@gmail.com</a>. Web3Forms is a third-party service and handles submissions under its own terms and privacy information.</p>
+<p>The footer visit counter uses CountAPI to maintain a shared visit count. The website may also load embedded YouTube videos, Google Fonts and external social or event websites. Those providers may receive technical information from your browser when their resources load or when you follow an external link. Their own privacy policies govern their handling of that information.</p>
 <p>For questions about a website enquiry or this notice, contact <a href="mailto:eyebyte@gmail.com">eyebyte@gmail.com</a>. This summary describes the integrations included in this website and should be reviewed if providers or data practices change.</p>
 </div>
 </details>
@@ -2345,42 +2345,84 @@
 </div>
 </footer>
 <script>
-    // Enquiry form: use a native HTML POST to FormSubmit. This avoids
-    // browser fetch/CORS restrictions and lets the browser handle the redirect.
+    // Eyebyte enquiry form: Web3Forms delivers email without navigating away.
+    // The Eyebyte Web3Forms public access key is installed in the hidden field.
     const enquiryForm = document.querySelector('#eyebyte-enquiry-form');
     const enquiryStatus = document.querySelector('#enquiry-status');
     const enquirySubject = document.querySelector('#enquiry-subject');
-
-    // FormSubmit redirects back here after a successful submission.
-    const enquiryUrl = new URL(window.location.href);
-    if (enquiryUrl.searchParams.get('enquiry') === 'sent') {
-      if (enquiryStatus) {
-        enquiryStatus.textContent = 'Thanks — your enquiry has been submitted to Eyebyte. We’ll be in touch as soon as we can.';
-        enquiryStatus.dataset.state = 'success';
-        enquiryStatus.setAttribute('role', 'status');
-      }
-      enquiryUrl.searchParams.delete('enquiry');
-      window.history.replaceState({}, '', enquiryUrl.pathname + enquiryUrl.hash);
-    }
+    const enquirySubmit = enquiryForm?.querySelector('button[type="submit"]');
+    const enquirySubmitLabel = enquirySubmit?.innerHTML || 'Let’s make it happen <span aria-hidden="true">↗</span>';
 
     if (enquiryForm) {
-      enquiryForm.addEventListener('submit', () => {
-        // Do not preventDefault: the browser performs the normal POST navigation.
-        if (enquirySubject) {
-          const stamp = new Intl.DateTimeFormat('en-AU', {
-            timeZone: 'Australia/Sydney', day: '2-digit', month: 'short', year: 'numeric',
-            hour: '2-digit', minute: '2-digit', hourCycle: 'h23'
-          }).format(new Date());
-          enquirySubject.value = `Website Enquiry - ${stamp}`;
+      enquiryForm.addEventListener('submit', async (event) => {
+        event.preventDefault();
+        if (!enquiryForm.reportValidity()) return;
+
+        const accessKey = enquiryForm.querySelector('[name="access_key"]')?.value?.trim();
+        if (!accessKey || accessKey === 'YOUR_WEB3FORMS_ACCESS_KEY') {
+          if (enquiryStatus) {
+            enquiryStatus.textContent = 'The contact form is not connected yet. Please email eyebyte@gmail.com directly.';
+            enquiryStatus.dataset.state = 'error';
+          }
+          return;
         }
-        const button = enquiryForm.querySelector('button[type="submit"]');
-        if (button) {
-          button.disabled = true;
-          button.innerHTML = 'Sending enquiry… <span aria-hidden="true">↗</span>';
+
+        const stamp = new Intl.DateTimeFormat('en-AU', {
+          timeZone: 'Australia/Sydney', day: '2-digit', month: 'short', year: 'numeric',
+          hour: '2-digit', minute: '2-digit', hourCycle: 'h23'
+        }).format(new Date());
+        if (enquirySubject) enquirySubject.value = `Website Enquiry - ${stamp}`;
+
+        if (enquirySubmit) {
+          enquirySubmit.disabled = true;
+          enquirySubmit.innerHTML = 'Sending… <span aria-hidden="true">↗</span>';
         }
         if (enquiryStatus) {
-          enquiryStatus.textContent = 'Sending your enquiry securely. You’ll be returned to this page when it has been submitted.';
+          enquiryStatus.textContent = 'Sending your message…';
           enquiryStatus.dataset.state = 'info';
+        }
+
+        const controller = new AbortController();
+        const timeoutId = window.setTimeout(() => controller.abort(), 20000);
+        try {
+          // The access_key is already present as a hidden HTML field, so do not append it again.
+          const formData = new FormData(enquiryForm);
+          // Submit using Web3Forms' documented FormData pattern; the visitor stays on this page.
+          const response = await fetch('https://api.web3forms.com/submit', {
+            method: 'POST',
+            body: formData,
+            signal: controller.signal
+          });
+          const result = await response.json().catch(() => ({}));
+          if (!response.ok || result.success !== true) {
+            throw new Error(result.message || result.body?.message || `Email service returned HTTP ${response.status}.`);
+          }
+          enquiryForm.reset();
+          // Restore fixed hidden fields after reset.
+          const keyField = enquiryForm.querySelector('[name="access_key"]');
+          if (keyField) keyField.value = accessKey;
+          const fromField = enquiryForm.querySelector('[name="from_name"]');
+          if (fromField) fromField.value = 'Eyebyte Website Enquiry';
+          if (enquiryStatus) {
+            enquiryStatus.textContent = 'Message sent. Thanks for getting in touch — Eyebyte will be in touch soon.';
+            enquiryStatus.dataset.state = 'success';
+          }
+        } catch (error) {
+          const message = error?.name === 'AbortError'
+            ? 'The email service took too long to respond. Your message is still here — please try again, or email eyebyte@gmail.com.'
+            : (error instanceof TypeError
+              ? 'We could not connect to the email service. Your message is still here — please try again, or email eyebyte@gmail.com.'
+              : `Your message was not sent: ${error.message} Your details are still here — please try again.`);
+          if (enquiryStatus) {
+            enquiryStatus.textContent = message;
+            enquiryStatus.dataset.state = 'error';
+          }
+        } finally {
+          window.clearTimeout(timeoutId);
+          if (enquirySubmit) {
+            enquirySubmit.disabled = false;
+            enquirySubmit.innerHTML = enquirySubmitLabel;
+          }
         }
       });
     }
@@ -2824,46 +2866,57 @@
       });
     });
 
-    // Shared global page-view counter. CounterAPI provides the remote persistent
-    // store, so this works on static hosting without a site-specific backend,
-    // Cloudflare account, API key, or manual configuration.
+    // Shared global page-view counter. CountAPI stores the total remotely,
+    // allowing this static GitHub Pages site to count visits without its own backend.
     (function initEyebyteVisitCounter() {
       const counterEl = document.querySelector('#site-visit-counter');
       if (!counterEl) return;
 
-      // Only count production page views. Local previews and staging don't
-      // inflate the public counter.
+      // Count production visits only; local previews and staging are excluded.
       const host = window.location.hostname.toLowerCase();
-      if (!['eyebyte.tv', 'www.eyebyte.tv'].includes(host)) {
-        counterEl.title = 'Eyebyte site visit reference';
-        return;
-      }
+      if (!['eyebyte.tv', 'www.eyebyte.tv'].includes(host)) return;
 
-      const callbackName = 'eyebyteVisitCounterCallback';
-      window[callbackName] = function (result) {
-        const count = Number(result && result.value);
-        if (!Number.isSafeInteger(count) || count < 123) {
+      const counterKey = 'eyebyte_tv_homepage_visits_2026';
+      const apiBase = 'https://countapi.mileshilliard.com/api/v1';
+
+      (async function recordVisit() {
+        try {
+          const hitResponse = await fetch(`${apiBase}/hit/${counterKey}`, {
+            method: 'GET',
+            cache: 'no-store'
+          });
+          if (!hitResponse.ok) throw new Error(`Counter request failed (${hitResponse.status})`);
+
+          const hitData = await hitResponse.json();
+          let count = Number(hitData && hitData.value);
+          if (!Number.isSafeInteger(count) || count < 1) {
+            throw new Error('Counter service returned an invalid value');
+          }
+
+          // Establish the requested starting point on the first live visit.
+          // The first hit creates the public counter; set it to 1024 once.
+          if (count < 1024) {
+            const seedResponse = await fetch(`${apiBase}/set/${counterKey}?value=1024`, {
+              method: 'GET',
+              cache: 'no-store'
+            });
+            if (!seedResponse.ok) throw new Error(`Counter initialisation failed (${seedResponse.status})`);
+            const seedData = await seedResponse.json();
+            count = Number(seedData && seedData.value);
+            if (!Number.isSafeInteger(count) || count < 1024) {
+              throw new Error('Counter service could not apply the starting value');
+            }
+          }
+
+          counterEl.textContent = String(count);
+          counterEl.dataset.counterState = 'live';
+          counterEl.title = 'Website visits';
+        } catch (error) {
           counterEl.dataset.counterState = 'unavailable';
-          counterEl.title = 'Visit counter temporarily unavailable';
-          console.warn('[Eyebyte visit counter] The counter service returned an invalid value.');
-          return;
+          counterEl.title = 'Website visit count temporarily unavailable';
+          console.warn('[Eyebyte visit counter]', error);
         }
-        counterEl.textContent = `1024-${String(count).padStart(3, '0')}`;
-        counterEl.dataset.counterState = 'live';
-        counterEl.title = 'Eyebyte site visit reference';
-        try { delete window[callbackName]; } catch (_) { window[callbackName] = undefined; }
-      };
-
-      const script = document.createElement('script');
-      script.async = true;
-      script.src = 'https://counterapi.com/api/eyebyte.tv/view/footer-visit-reference?startNumber=123&callback=' + callbackName;
-      script.onerror = function () {
-        counterEl.dataset.counterState = 'unavailable';
-        counterEl.title = 'Visit counter temporarily unavailable';
-        console.warn('[Eyebyte visit counter] CounterAPI could not be reached; the seeded value remains visible.');
-        try { delete window[callbackName]; } catch (_) { window[callbackName] = undefined; }
-      };
-      document.head.appendChild(script);
+      })();
     })();
   </script>
 </body>

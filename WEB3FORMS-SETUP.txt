@@ -1,0 +1,8 @@
+EYEBYTE CONTACT FORM — WEB3FORMS
+
+The Web3Forms public access key supplied by Eyebyte has been installed in index.html.
+Destination inbox: eyebyte@gmail.com (as configured when the key was created).
+
+The form submits by background fetch to https://api.web3forms.com/submit. Visitors remain on the page; success or failure is shown in the form status line. The subject includes the current Sydney date and time.
+
+Before publishing, upload the website files to the GitHub Pages repository. Then submit one real test enquiry from https://eyebyte.tv and confirm it arrives in eyebyte@gmail.com (also check Spam). This environment cannot verify delivery to the live inbox.
