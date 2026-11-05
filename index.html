@@ -2270,6 +2270,7 @@
 <h3>Start the conversation.</h3>
 <form action="https://formsubmit.co/eyebyte@gmail.com" aria-describedby="enquiry-status" class="enquiry-form" id="eyebyte-enquiry-form" method="POST">
 <input id="enquiry-subject" name="_subject" type="hidden" value="Website Enquiry - Website form submission"/>
+<input name="_next" type="hidden" value="https://eyebyte.tv/?enquiry=sent#contact"/>
 <input name="_template" type="hidden" value="table"/>
 <input aria-hidden="true" autocomplete="off" hidden="" name="_honey" style="display:none" tabindex="-1" type="text"/>
 <div class="enquiry-fields enquiry-fields--two">
@@ -2344,116 +2345,42 @@
 </div>
 </footer>
 <script>
-    // Enquiry form: send directly to Eyebyte through FormSubmit AJAX.
-    // URL-encoded POST avoids the extra CORS preflight that JSON requests can trigger.
+    // Enquiry form: use a native HTML POST to FormSubmit. This avoids
+    // browser fetch/CORS restrictions and lets the browser handle the redirect.
     const enquiryForm = document.querySelector('#eyebyte-enquiry-form');
+    const enquiryStatus = document.querySelector('#enquiry-status');
+    const enquirySubject = document.querySelector('#enquiry-subject');
+
+    // FormSubmit redirects back here after a successful submission.
+    const enquiryUrl = new URL(window.location.href);
+    if (enquiryUrl.searchParams.get('enquiry') === 'sent') {
+      if (enquiryStatus) {
+        enquiryStatus.textContent = 'Thanks — your enquiry has been submitted to Eyebyte. We’ll be in touch as soon as we can.';
+        enquiryStatus.dataset.state = 'success';
+        enquiryStatus.setAttribute('role', 'status');
+      }
+      enquiryUrl.searchParams.delete('enquiry');
+      window.history.replaceState({}, '', enquiryUrl.pathname + enquiryUrl.hash);
+    }
+
     if (enquiryForm) {
-      const submitButton = enquiryForm.querySelector('button[type="submit"]');
-      const status = document.querySelector('#enquiry-status');
-      const subjectInput = document.querySelector('#enquiry-subject');
-      const defaultButtonMarkup = submitButton ? submitButton.innerHTML : '';
-
-      const setEnquiryStatus = (message, state = 'info') => {
-        if (!status) return;
-        status.textContent = message;
-        status.dataset.state = state;
-        status.setAttribute('role', state === 'error' ? 'alert' : 'status');
-        status.setAttribute('tabindex', '-1');
-        status.scrollIntoView({
-          behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth',
-          block: 'nearest'
-        });
-      };
-
-      enquiryForm.addEventListener('submit', async event => {
-        event.preventDefault();
-        if (!enquiryForm.reportValidity()) return;
-        if (submitButton && submitButton.disabled) return;
-
-        if (window.location.protocol === 'file:') {
-          setEnquiryStatus('This preview cannot send enquiries. Open the website through your hosted domain or a local web server. Your message is still in the form.', 'error');
-          return;
+      enquiryForm.addEventListener('submit', () => {
+        // Do not preventDefault: the browser performs the normal POST navigation.
+        if (enquirySubject) {
+          const stamp = new Intl.DateTimeFormat('en-AU', {
+            timeZone: 'Australia/Sydney', day: '2-digit', month: 'short', year: 'numeric',
+            hour: '2-digit', minute: '2-digit', hourCycle: 'h23'
+          }).format(new Date());
+          enquirySubject.value = `Website Enquiry - ${stamp}`;
         }
-
-        const fields = new FormData(enquiryForm);
-        const stamp = new Intl.DateTimeFormat('en-AU', {
-          timeZone: 'Australia/Sydney', day: '2-digit', month: 'short', year: 'numeric',
-          hour: '2-digit', minute: '2-digit', hourCycle: 'h23'
-        }).format(new Date());
-        const subject = `Website Enquiry - ${stamp}`;
-        if (subjectInput) subjectInput.value = subject;
-
-        const payload = Object.fromEntries(fields.entries());
-        payload._subject = subject;
-        payload._template = 'table';
-        payload._url = window.location.href;
-
-        const encodedPayload = new URLSearchParams();
-        for (const [key, value] of Object.entries(payload)) {
-          encodedPayload.set(key, String(value ?? ''));
+        const button = enquiryForm.querySelector('button[type="submit"]');
+        if (button) {
+          button.disabled = true;
+          button.innerHTML = 'Sending enquiry… <span aria-hidden="true">↗</span>';
         }
-
-        if (submitButton) {
-          submitButton.disabled = true;
-          submitButton.innerHTML = 'Sending enquiry… <span aria-hidden="true">↗</span>';
-        }
-        enquiryForm.setAttribute('aria-busy', 'true');
-        setEnquiryStatus('Sending your enquiry directly to Eyebyte…', 'info');
-
-        try {
-          const controller = new AbortController();
-          const timeoutId = window.setTimeout(() => controller.abort(), 25000);
-          let response;
-          let responseText = '';
-          try {
-            response = await fetch('https://formsubmit.co/ajax/eyebyte@gmail.com', {
-              method: 'POST',
-              headers: { 'Accept': 'application/json' },
-              body: encodedPayload,
-              mode: 'cors',
-              credentials: 'omit',
-              cache: 'no-store',
-              referrerPolicy: 'strict-origin-when-cross-origin',
-              signal: controller.signal
-            });
-            responseText = await response.text();
-          } finally {
-            window.clearTimeout(timeoutId);
-          }
-
-          let result = {};
-          try { result = responseText ? JSON.parse(responseText) : {}; }
-          catch (_) {
-            throw new Error(`The form service returned an unreadable response (HTTP ${response.status}).`);
-          }
-
-          const successful = result.success === true || String(result.success).toLowerCase() === 'true';
-          if (!response.ok || !successful) {
-            const serviceMessage = result.message || result.error || `The form service returned HTTP ${response.status}.`;
-            throw new Error(String(serviceMessage));
-          }
-
-          setEnquiryStatus(`Enquiry sent successfully to Eyebyte. Subject: “${subject}”. Thanks for getting in touch.`, 'success');
-          enquiryForm.reset();
-          if (subjectInput) subjectInput.value = 'Website Enquiry - Website form submission';
-        } catch (error) {
-          console.error('Eyebyte enquiry submission failed:', error);
-          const detail = String(error && error.message || '');
-          if (/activat|confirm.*email|verify.*email/i.test(detail)) {
-            setEnquiryStatus('FormSubmit needs one-time email activation. Check eyebyte@gmail.com (including spam) for its “Activate Form” message, confirm it, then submit again. Your message is still in the form.', 'error');
-          } else if (error && error.name === 'AbortError') {
-            setEnquiryStatus('The form service took too long to respond. Your message is still in the form—please try again shortly.', 'error');
-          } else if (/failed to fetch|networkerror|load failed|cors|network request/i.test(detail)) {
-            setEnquiryStatus('Your browser could not connect to the form service. A browser privacy shield, ad blocker, network filter or connection issue may be blocking it. Try again with extensions temporarily disabled. Your message is still in the form.', 'error');
-          } else {
-            setEnquiryStatus(`We couldn’t confirm delivery (${detail || 'unknown form-service error'}). Your message is still in the form. Please try again or email eyebyte@gmail.com directly.`, 'error');
-          }
-        } finally {
-          enquiryForm.removeAttribute('aria-busy');
-          if (submitButton) {
-            submitButton.disabled = false;
-            submitButton.innerHTML = defaultButtonMarkup;
-          }
+        if (enquiryStatus) {
+          enquiryStatus.textContent = 'Sending your enquiry securely. You’ll be returned to this page when it has been submitted.';
+          enquiryStatus.dataset.state = 'info';
         }
       });
     }
